@@ -1,7 +1,7 @@
 "use client";
 import Link from "@/components/ui/link";
 import React from "react";
-import { generateStars } from "../courses/CourseArea";
+import { generateStars } from "@/libs/generate-stars";
 
 export interface CourseCard {
   headerImage?: string;

@@ -1,9 +1,4 @@
-import dynamic from 'next/dynamic';
-
-const HeroSection = dynamic(() => import('@/components/v2/routes/courses/hero-section'));
-const OurCoursesSection = dynamic(() => import('@/components/v2/routes/courses/our-courses-section'));
-const WhatStudentsSaySection = dynamic(() => import('@/components/v2/routes/courses/what-students-say-section'));
-const CertificationSlider = dynamic(() => import('@/components/v2/common/certification-slider'));
+import CourseArea from '@/components/courses/CourseArea';
 
 export const metadata = {
   title: 'Top IT Courses & Professional Certifications',
@@ -17,12 +12,5 @@ export const metadata = {
 };
 
 export default function CoursesPage() {
-  return (
-    <div className="bg-white">
-      <HeroSection />
-      <OurCoursesSection />
-      <CertificationSlider />
-      <WhatStudentsSaySection />
-    </div>
-  );
-}
+  return <CourseArea />;
+};

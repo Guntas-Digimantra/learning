@@ -376,3 +376,8 @@ button:not(:disabled) {
 .card-hover-scale {
   @apply transition-transform duration-300 ease-in-out hover:scale-90;
 }
+
+/* Site container — matches dm_learning globals / home-page.css */
+.dml-container {
+  @apply mx-auto max-w-[1440px] px-[15px];
+}

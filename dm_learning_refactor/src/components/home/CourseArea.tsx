@@ -6,7 +6,7 @@ import { Autoplay, Navigation } from "swiper/modules";
 import Link from "@/components/ui/link";
 import course_data from "../../app/data/home-data/CourseData";
 import dynamic from "next/dynamic";
-import { generateStars } from "../courses/CourseArea";
+import { generateStars } from "@/libs/generate-stars";
 
 const Swiper = dynamic(() => import("swiper/react").then((mod) => mod.Swiper), {
   ssr: false,

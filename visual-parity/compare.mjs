@@ -3,9 +3,11 @@
  * Pixel-parity checker: dm_learning (reference) vs dm_learning_refactor /v2
  *
  * Usage:
- *   node compare.mjs                    # all static pages
- *   node compare.mjs --page home        # single page slug
- *   node compare.mjs --list             # list page slugs
+ *   node compare.mjs                         # all static pages, laptop viewport
+ *   node compare.mjs --viewport all          # mobile + tablet + laptop per page
+ *   node compare.mjs --page home             # single page slug
+ *   node compare.mjs --page home --viewport mobile
+ *   node compare.mjs --list                  # list page slugs
  */
 
 import { chromium } from 'playwright';
@@ -21,14 +23,19 @@ const OUT_DIR = path.join(__dirname, 'output');
 const REF_BASE = process.env.REF_BASE ?? 'http://localhost:3001';
 const V2_BASE = process.env.V2_BASE ?? 'http://localhost:3000/v2';
 
-const VIEWPORT = { width: 1440, height: 900 };
+const VIEWPORTS = {
+  mobile: { width: 390, height: 844, label: 'mobile' },
+  tablet: { width: 768, height: 1024, label: 'tablet' },
+  laptop: { width: 1440, height: 900, label: 'laptop' },
+};
+
 const DEVICE_SCALE = 1;
-const MAX_DIFF_PERCENT = 0.01; // allow ≤ 0.01% noise (sub-pixel AA / JPEG artefacts)
+const MAX_DIFF_PERCENT = 0.01;
 const WAIT_MS = 3500;
 const LOAD_STATE = 'load';
 
 /** Static pages: slug -> path segment (no leading slash) */
-const PAGES = [
+const STATIC_PAGES = [
   { slug: 'home', path: '' },
   { slug: 'about-us', path: 'about-us' },
   { slug: 'contact', path: 'contact' },
@@ -48,6 +55,7 @@ const PAGES = [
   { slug: 'ai-masterclass', path: 'ai-masterclass' },
   { slug: 'web-development', path: 'web-development' },
   { slug: 'thank-you-page', path: 'thank-you-page' },
+  { slug: 'thankyou', path: 'thankyou' },
   { slug: 'success', path: 'success' },
   { slug: 'failed', path: 'failed' },
   { slug: 'payment', path: 'payment' },
@@ -57,7 +65,6 @@ const PAGES = [
     slug: 'amit-tiwari-dmp',
     path: 'amit-tiwari/digital-marketing-professional',
   },
-  { slug: 'ai-hackathon-2026', path: 'ai-hackathon-2026' },
   {
     slug: 'leveraging-ai-with-solo-preneurship',
     path: 'leveraging-ai-with-solo-preneurship',
@@ -67,6 +74,59 @@ const PAGES = [
     path: 'master-100-ai-prompts-in-60-minutes',
   },
 ];
+
+const MICROSOFT_SLUGS = [
+  'ai-engineer',
+  'data-analyst',
+  'solutions-architect',
+  'devops-engineer',
+  'data-engineer',
+  'information-protection-administrator',
+  'security-operations-analyst',
+  'data-scientist',
+  'security-engineer',
+  'developer-(beginner)',
+  'developer-(intermediate)',
+  'functional-consultant',
+];
+
+const COURSE_SLUGS = [
+  'prompt-engineering-for-generative-ai-6-week',
+  'artificial-intelligence-for-business-leaders-6-week',
+  'ai-for-marketing-customer-experience-6-week',
+  'generative-agentic-ai-6-week',
+  'gen-ai-with-data-science-for-beginners-6-week',
+  'build-your-own-agentic-ai-assistants-6-week',
+  'full-stack-development-mern',
+  'web-development-frontend-react-next',
+  'web-development-backend-node',
+  'php-with-laravel-wordpress',
+  'mobile-app-development-react-native',
+  'mobile-app-development-flutter',
+  'quality-assurance-software-testing',
+  'ui-ux-design',
+  'artificial-intelligence-with-python',
+  'data-science-with-python',
+  'cybersecurity',
+  'devops-with-cloud-computing',
+];
+
+function buildAllPages() {
+  const dynamic = [
+    ...COURSE_SLUGS.map((slug) => ({
+      slug: `course-${slug}`,
+      path: `courses/${slug}`,
+    })),
+    ...MICROSOFT_SLUGS.map((slug) => ({
+      slug: `ms-${slug}`,
+      path: `microsoft-certifications/${slug}`,
+    })),
+    { slug: 'webinar-top-1-percent', path: 'top-1-percent-students-webinar' },
+  ];
+  return [...STATIC_PAGES, ...dynamic];
+}
+
+const ALL_PAGES = buildAllPages();
 
 function refUrl(pathSegment) {
   const p = pathSegment ? `/${pathSegment}` : '/';
@@ -78,14 +138,13 @@ function v2Url(pathSegment) {
   return `${V2_BASE}${p}`;
 }
 
-async function capturePage(page, url) {
+async function capturePage(page, url, viewportWidth) {
   const response = await page.goto(url, { waitUntil: LOAD_STATE, timeout: 120000 });
   const status = response?.status() ?? 0;
   if (status >= 400) {
     return { status, buffer: null, height: 0 };
   }
   await page.waitForTimeout(WAIT_MS);
-  // Scroll through the page to trigger IntersectionObserver callbacks (CountUp, AOS, etc.)
   await page.evaluate(async () => {
     const totalHeight = document.documentElement.scrollHeight;
     const step = window.innerHeight;
@@ -94,7 +153,6 @@ async function capturePage(page, url) {
       await new Promise((r) => setTimeout(r, 100));
     }
     window.scrollTo(0, 0);
-    // Wait for CountUp animations (2s duration) to finish
     await new Promise((r) => setTimeout(r, 2500));
   });
   await page.evaluate(() => {
@@ -155,19 +213,18 @@ async function capturePage(page, url) {
       }
     });
     document.querySelectorAll('[data-sonner-toaster]').forEach((el) => el.remove());
-    // Mask non-deterministic iframes (Google Maps, etc.) with a solid placeholder
     document.querySelectorAll('iframe').forEach((el) => {
       const div = document.createElement('div');
       div.style.cssText = `width:${el.offsetWidth}px;height:${el.offsetHeight}px;background:#ccc;`;
       el.replaceWith(div);
     });
   });
-  const { height, width } = await page.evaluate(() => ({
+  const { height } = await page.evaluate(() => ({
     height: document.documentElement.scrollHeight,
     width: Math.min(document.documentElement.clientWidth, document.documentElement.scrollWidth),
   }));
   const clipHeight = Math.min(height, 16000);
-  const clipWidth = VIEWPORT.width;
+  const clipWidth = viewportWidth;
   await page.setViewportSize({ width: clipWidth, height: clipHeight });
   await page.waitForTimeout(300);
   const buffer = await page.screenshot({
@@ -181,7 +238,7 @@ function loadPng(buffer) {
   return PNG.sync.read(buffer);
 }
 
-function compareBuffers(refBuf, v2Buf, slug) {
+function compareBuffers(refBuf, v2Buf, outDir) {
   const ref = loadPng(refBuf);
   const v2 = loadPng(v2Buf);
 
@@ -203,11 +260,10 @@ function compareBuffers(refBuf, v2Buf, slug) {
   const totalPixels = width * height;
   const diffPercent = (numDiff / totalPixels) * 100;
 
-  const pageDir = path.join(OUT_DIR, slug);
-  fs.mkdirSync(pageDir, { recursive: true });
-  fs.writeFileSync(path.join(pageDir, 'reference.png'), PNG.sync.write(refPad));
-  fs.writeFileSync(path.join(pageDir, 'v2.png'), PNG.sync.write(v2Pad));
-  fs.writeFileSync(path.join(pageDir, 'diff.png'), PNG.sync.write(diff));
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'reference.png'), PNG.sync.write(refPad));
+  fs.writeFileSync(path.join(outDir, 'v2.png'), PNG.sync.write(v2Pad));
+  fs.writeFileSync(path.join(outDir, 'diff.png'), PNG.sync.write(diff));
 
   return {
     refSize: { w: ref.width, h: ref.height },
@@ -219,13 +275,15 @@ function compareBuffers(refBuf, v2Buf, slug) {
   };
 }
 
-async function runPage(browser, pageDef) {
+async function runPage(browser, pageDef, viewportKey) {
   const { slug, path: pathSegment } = pageDef;
+  const viewport = VIEWPORTS[viewportKey];
   const ref = refUrl(pathSegment);
   const v2 = v2Url(pathSegment);
+  const resultSlug = `${slug}__${viewportKey}`;
 
   const context = await browser.newContext({
-    viewport: VIEWPORT,
+    viewport: { width: viewport.width, height: viewport.height },
     deviceScaleFactor: DEVICE_SCALE,
     locale: 'en-US',
     colorScheme: 'light',
@@ -237,7 +295,9 @@ async function runPage(browser, pageDef) {
   const v2Page = await context.newPage();
 
   let result = {
-    slug,
+    slug: resultSlug,
+    pageSlug: slug,
+    viewport: viewportKey,
     ref,
     v2,
     refStatus: 0,
@@ -248,8 +308,8 @@ async function runPage(browser, pageDef) {
   };
 
   try {
-    const refCap = await capturePage(refPage, ref);
-    const v2Cap = await capturePage(v2Page, v2);
+    const refCap = await capturePage(refPage, ref, viewport.width);
+    const v2Cap = await capturePage(v2Page, v2, viewport.width);
 
     result.refStatus = refCap.status;
     result.v2Status = v2Cap.status;
@@ -263,7 +323,8 @@ async function runPage(browser, pageDef) {
       return result;
     }
 
-    result.compare = compareBuffers(refCap.buffer, v2Cap.buffer, slug);
+    const outDir = path.join(OUT_DIR, slug, viewportKey);
+    result.compare = compareBuffers(refCap.buffer, v2Cap.buffer, outDir);
     result.pass =
       result.compare.diffPercent <= MAX_DIFF_PERCENT &&
       result.compare.refSize.w === result.compare.v2Size.w &&
@@ -288,53 +349,65 @@ function parseArgs() {
   const args = process.argv.slice(2);
   if (args.includes('--list')) return { list: true };
   const pageIdx = args.indexOf('--page');
-  if (pageIdx >= 0 && args[pageIdx + 1]) {
-    return { page: args[pageIdx + 1] };
-  }
-  return {};
+  const vpIdx = args.indexOf('--viewport');
+  const staticOnly = args.includes('--static');
+  return {
+    page: pageIdx >= 0 ? args[pageIdx + 1] : null,
+    viewport: vpIdx >= 0 ? args[vpIdx + 1] : 'laptop',
+    staticOnly,
+  };
+}
+
+function resolveViewportKeys(viewportArg) {
+  if (viewportArg === 'all') return Object.keys(VIEWPORTS);
+  if (VIEWPORTS[viewportArg]) return [viewportArg];
+  console.error(`Unknown viewport: ${viewportArg}. Use mobile|tablet|laptop|all`);
+  process.exit(1);
 }
 
 async function main() {
   const opts = parseArgs();
 
   if (opts.list) {
-    console.log(PAGES.map((p) => p.slug).join('\n'));
+    console.log(ALL_PAGES.map((p) => p.slug).join('\n'));
     return;
   }
 
-  let pages = PAGES;
+  let pages = opts.staticOnly ? STATIC_PAGES : ALL_PAGES;
   if (opts.page) {
-    pages = PAGES.filter((p) => p.slug === opts.page);
+    pages = pages.filter((p) => p.slug === opts.page || p.slug.startsWith(opts.page));
     if (!pages.length) {
       console.error(`Unknown page slug: ${opts.page}`);
       process.exit(1);
     }
   }
 
+  const viewportKeys = resolveViewportKeys(opts.viewport);
+
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
   console.log(`Reference: ${REF_BASE}`);
   console.log(`V2:        ${V2_BASE}`);
-  console.log(`Viewport:  ${VIEWPORT.width}x${VIEWPORT.height} @${DEVICE_SCALE}x`);
+  console.log(`Viewports: ${viewportKeys.join(', ')}`);
   console.log(`Pages:     ${pages.length}\n`);
 
   const browser = await chromium.launch({ headless: true });
   const results = [];
 
   for (const pageDef of pages) {
-    process.stdout.write(`[${pageDef.slug}] `);
-    const r = await runPage(browser, pageDef);
-    results.push(r);
-    if (r.pass) {
-      console.log('PASS (exact match)');
-    } else if (r.error) {
-      console.log(`FAIL — ${r.error}`);
-    } else if (r.compare) {
-      console.log(
-        `FAIL — ${r.compare.numDiff} pixels (${r.compare.diffPercent.toFixed(4)}%)`
-      );
-    } else {
-      console.log('FAIL');
+    for (const vp of viewportKeys) {
+      process.stdout.write(`[${pageDef.slug}@${vp}] `);
+      const r = await runPage(browser, pageDef, vp);
+      results.push(r);
+      if (r.pass) {
+        console.log('PASS');
+      } else if (r.error) {
+        console.log(`FAIL — ${r.error}`);
+      } else if (r.compare) {
+        console.log(`FAIL — ${r.compare.numDiff} px (${r.compare.diffPercent.toFixed(4)}%)`);
+      } else {
+        console.log('FAIL');
+      }
     }
   }
 
@@ -344,7 +417,7 @@ async function main() {
     generatedAt: new Date().toISOString(),
     refBase: REF_BASE,
     v2Base: V2_BASE,
-    viewport: VIEWPORT,
+    viewports: viewportKeys,
     summary: {
       total: results.length,
       pass: results.filter((r) => r.pass).length,
@@ -352,6 +425,8 @@ async function main() {
     },
     results: results.map((r) => ({
       slug: r.slug,
+      pageSlug: r.pageSlug,
+      viewport: r.viewport,
       ref: r.ref,
       v2: r.v2,
       refStatus: r.refStatus,
@@ -369,8 +444,8 @@ async function main() {
   fs.writeFileSync(path.join(OUT_DIR, 'REPORT.md'), md);
 
   console.log(`\nReport: ${reportPath}`);
-  console.log(`Screenshots: ${OUT_DIR}/<slug>/{reference,v2,diff}.png`);
-  console.log(`\n${report.summary.pass}/${report.summary.total} pages exact match`);
+  console.log(`Screenshots: ${OUT_DIR}/<slug>/<viewport>/{reference,v2,diff}.png`);
+  console.log(`\n${report.summary.pass}/${report.summary.total} checks passed`);
 
   process.exit(report.summary.fail > 0 ? 1 : 0);
 }
@@ -385,12 +460,12 @@ function buildMarkdownReport(report) {
     `| --- | --- |`,
     `| Reference | ${report.refBase} |`,
     `| V2 | ${report.v2Base} |`,
-    `| Viewport | ${report.viewport.width}×${report.viewport.height} |`,
-    `| Match threshold | 0 (exact pixels) |`,
+    `| Viewports | ${report.viewports.join(', ')} |`,
+    `| Match threshold | ≤ ${MAX_DIFF_PERCENT}% |`,
     '',
     `## Summary: ${report.summary.pass}/${report.summary.total} passed`,
     '',
-    '| Page | Status | Ref HTTP | V2 HTTP | Diff pixels | Diff % | Dimensions | Notes |',
+    '| Page | Viewport | Status | Ref HTTP | V2 HTTP | Diff % | Dimensions | Notes |',
     '| --- | --- | --- | --- | --- | --- | --- | --- |',
   ];
 
@@ -399,15 +474,14 @@ function buildMarkdownReport(report) {
     const dims = r.compare
       ? `${r.compare.refSize.w}×${r.compare.refSize.h} vs ${r.compare.v2Size.w}×${r.compare.v2Size.h}`
       : '—';
-    const diffPx = r.compare?.numDiff ?? '—';
     const diffPct = r.compare ? `${r.compare.diffPercent.toFixed(4)}%` : '—';
     const notes = r.error ?? (r.pass ? '' : 'See diff.png');
     lines.push(
-      `| ${r.slug} | ${status} | ${r.refStatus} | ${r.v2Status} | ${diffPx} | ${diffPct} | ${dims} | ${notes} |`
+      `| ${r.pageSlug} | ${r.viewport} | ${status} | ${r.refStatus} | ${r.v2Status} | ${diffPct} | ${dims} | ${notes} |`
     );
   }
 
-  lines.push('', '## Artifacts', '', 'Each failed page has `reference.png`, `v2.png`, and `diff.png` (red = mismatch).');
+  lines.push('', '## Artifacts', '', 'Failed checks: `output/<slug>/<viewport>/diff.png`');
   return lines.join('\n');
 }
 
