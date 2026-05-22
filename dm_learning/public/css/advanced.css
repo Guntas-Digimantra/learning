@@ -1,0 +1,757 @@
+.banner-content-advanced {
+    padding: 80px 104px;
+    padding-left: 48px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1410px;
+    position: relative;
+    z-index: 1;
+    margin: 0px auto;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.program-section {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.industrial-banner {
+    padding: 100px 20px;
+    background-color: rgb(48, 44, 65);
+}
+
+.banner-content-advanced div {
+    flex: 1;
+}
+
+.banner-content-advanced p {
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+.banner-content-advanced b {
+    color: #FC8B20;
+}
+
+.banner-content-advanced::before {
+    content: "";
+    background-color: rgb(255, 246, 240);
+    border-radius: 40px 200px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    left: 0px;
+    top: 0px;
+}
+
+.kick-off-container {
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+    border-radius: 80px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 36px 70px;
+    display: flex;
+    flex-direction: row;
+}
+
+.next-kickoff-content h3 {
+    font-size: 28px;
+    color: #121212;
+}
+.next-kickoff-content p {
+    color: #121212;
+}
+
+.kick-off-section {
+    margin-top: -80px;
+}
+
+.svg-kickoff {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.apply-kickoff-button {
+    background: transparent;
+    border: 2px solid #fc8b20;
+    border-radius: 999px;
+    color: #fc8b20;
+    padding: 16px 34px;
+    cursor: pointer;
+    transition: all .3s ease-out 0s;
+    font-size: 16px;
+}
+
+.apply-kickoff-button:hover {
+    background-color: #fc8b20;
+    color: #fff;
+}
+
+.program-dml-btn {
+    width: 100%;
+    border: 0;
+    border-radius: 6px;
+    background: #FC8B20;
+    color: #fff;
+    text-transform: unset;
+    letter-spacing: unset;
+    padding: 16px 34px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.program-details-content h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.program-details-content {
+    width: 50%;
+}
+
+.program-details-banner {
+    padding: 30px;
+    border-radius: 8px;
+    background-color: rgb(255, 246, 240);
+}
+
+
+.internship-container {
+    max-width: 1240px;
+    margin: auto;
+
+}
+
+.internship-program {
+    padding: 100px 0;
+    background: linear-gradient(to left, #f58c1b 50%, #000 50%);
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+}
+
+.internship-left-section h3 {
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.internship-left-section p {
+    color: #fff;
+}
+
+
+.intern-slide-image-wrap img {
+    object-fit: cover;
+}
+
+.intern-slide-image {
+    border-radius: 16px;
+}
+
+.internship-cards {
+    flex: 1;
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.internship-cards:hover {
+    transform: translateY(-10px);
+}
+
+.internship-cards h3 {
+    font-size: 68px;
+    font-weight: 600;
+    color: #FC8B20;
+    margin-bottom: 12px;
+}
+
+.internship-cards p {
+    margin-bottom: 0;
+}
+
+.internship-cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+.courses-section {
+    padding: 100px 0;
+    padding-bottom: 150px;
+}
+
+.courses-advanced-section.summer-route {
+    padding-bottom: 120px;
+}
+
+.courses-advanced-section {
+    padding: 100px 0;
+    padding-bottom: 200px;
+}
+
+.courses-container {
+    padding-top: 50px;
+}
+
+.courses-section .courses-container,
+.courses-advanced-section .courses-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 45px;
+}
+
+.explore-courses h2 {
+    text-align: center;
+    color: #121212;
+}
+
+.courses-cards-styling {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.courses-cards-styling img {
+    padding-bottom: 12px;
+}
+
+.courses-cards-styling {
+    text-align: center;
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .1);
+    padding: 27px;
+    transition: transform .3s ease-in-out;
+    cursor: pointer;
+}
+
+.courses-cards-styling:hover {
+    transform: scale(0.9);
+}
+
+
+.internship-content {
+    text-align: center;
+    display: flex;
+}
+
+.internship-content h2 {
+    margin-bottom: 36px;
+    color: #fff;
+}
+
+.banner-content-advanced h1,
+.program-details-content h2 {
+    color: #302C41;
+}
+
+.banner-content-advanced h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+.nav-menu li a:hover {
+    color: #FC8B20 !important;
+}
+
+.our-intern-content {
+    padding: 64px 82px 51px;
+    display: flex;
+    gap: 40px;
+    flex-direction: row;
+    border-radius: 4rem;
+    background-color: #f7f8f9
+}
+
+.intern-slider,
+.advanced-slider-container {
+    width: 45%;
+}
+
+.our-interns {
+    padding: 100px 15px;
+    background: #fff;
+}
+
+.intern-swiper-pagination {
+    background-color: red;
+    border-radius: 100%;
+    height: 12px;
+    width: 12px;
+}
+
+.intern-slider .swiper-pagination,
+.advanced-slider-container .swiper-pagination {
+    bottom: 0;
+}
+
+.intern-slider .swiper.swiper-initialized,
+.advanced-slider-container .swiper.swiper-initialized {
+    padding-bottom: 30px;
+}
+
+.intern-slider .swiper-pagination-bullet.swiper-pagination-bullet-active,
+.advanced-slider-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #000 !important;
+}
+
+.intern-slide-image {
+    width: 100%;
+}
+
+.inner-slider .swiper-pagination-bullet,
+.advanced-slider-container .swiper-pagination-bullet {
+    height: 10px !important;
+    width: 10px !important;
+    border: 1px solid #000 !important;
+}
+
+.perks-container {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.experience-container {
+    max-width: 58rem;
+    margin: auto;
+    text-align: center;
+}
+
+.internship-left-section {
+    width: 100%;
+    max-width: 50%;
+    text-align: left;
+    padding-right: 100px;
+}
+
+.advanced-slider {
+    width: 100%;
+}
+
+.courses-name {
+    font-size: 20px;
+    color: #000;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.advanced-slider-content h3 {
+    font-size: 120px;
+    color: #000;
+}
+
+.advanced-slider-content p {
+    margin-bottom: 30px;
+    color: #000;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.perks-section {
+    padding: 150px 15px;
+}
+
+.experience-dml {
+    margin: auto;
+    background: linear-gradient(127.03deg, #fb8b25 .81%, #f99942 61.9%, #ffc896 95.24%);
+    padding: 5rem 15px;
+}
+
+.experience-container p {
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.experience-container h3 {
+    color: #fff;
+    margin-bottom: 48px;
+}
+
+.experience-btn {
+    transition: all .3s ease-out 0s;
+    border: 0;
+    border-radius: 999px;
+    background: #1f2937;
+    color: #fff;
+    text-transform: unset;
+    letter-spacing: unset;
+    padding: 16px 34px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.experience-btn:hover {
+    color: #FC8B20;
+}
+
+.rounded-bg {
+    flex-shrink: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FC8B20;
+    margin-right: 1.5rem;
+}
+
+.perks-content {
+    display: flex;
+}
+
+.perks-content h3 {
+    font-size: 28px;
+    color: #121212;
+}
+
+.perks-content img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(100);
+}
+
+.inner-image-program {
+    border-radius: 4px;
+    box-shadow: 0 2px 15px #0003;
+    background-color: #fff;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 32px 40px 40px;
+    position: sticky;
+    top: 100px;
+}
+
+.program-second-section {
+    width: 50%;
+    padding: 30px 0;
+    padding-left: 30px;
+}
+
+.program-second-section p {
+    border-bottom: 3px solid #FC8B20;
+    display: inline-block;
+    font-size: 1.25rem;
+    color: #000;
+    font-weight: 600;
+}
+
+.program-second-section ul {
+    padding-top: 20px;
+    padding-left: 30px;
+}
+
+
+.program-second-section ul li {
+    list-style-type: disc;
+
+}
+
+.program-inner-section {
+    position: relative;
+    padding-bottom: 60px;
+}
+
+.card-list-data {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    padding-bottom: 12px;
+}
+
+.third-program-content .third-program-content-basic {
+    padding-bottom: 10px;
+}
+
+.third-program-content h3 {
+    color: #000;
+    letter-spacing: -.03em;
+    font-size: 18px;
+    padding-bottom: 10px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.third-program-content {
+    padding-top: 18px;
+}
+
+
+.program-image-wrapper {
+    width: 40%;
+    height: 100%;
+    position: absolute;
+    inset: 2rem 2rem auto auto;
+}
+
+.program-btn {
+    padding-top: 30px;
+    display: flex;
+    text-align: center;
+}
+
+
+.intern-right-content h2 {
+    margin-bottom: 15px;
+    color: #302C41;
+}
+
+.intern-right-content {
+    width: 55%;
+    align-content: center;
+}
+
+.list-sections {
+    padding-bottom: 16px;
+}
+
+.orange-letter {
+    color: #FC8B20;
+}
+
+@media (max-width:1260px) {
+    .internship-program {
+        background: none;
+        display: block;
+        padding-bottom: 0;
+        min-height: auto;
+    }
+
+    .internship-left-section h3 {
+        margin-bottom: 20px;
+        color: #302c41;
+        text-align: center;
+    }
+
+    .internship-left-section p {
+        color: #6d6c80;
+        margin-bottom: 15px;
+    }
+
+    .internship-content {
+        flex-direction: column;
+    }
+
+    .internship-left-section {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .internship-content h2 {
+        margin-bottom: 20px;
+        color: #302C41;
+        text-align: center;
+    }
+
+    .advanced-slider-container {
+        background: #FC8B20;
+        padding-top: 5px;
+        padding-right: 15px;
+        padding-left: 15px;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+
+    .perks-section {
+        padding-top: 100px;
+        padding-bottom: 0;
+    }
+}
+
+
+@media (max-width:1200px) {
+
+    .advanced-button {
+        font-size: 15px;
+        padding: 6px;
+    }
+
+    .kick-off-container {
+        align-items: center;
+        padding: 30px;
+        gap: 15px;
+        max-width: 600px;
+        border-radius: 45px;
+        margin: auto;
+    }
+
+    .courses-container,
+    .courses-advanced-section .courses-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 30px;
+    }
+
+}
+
+
+@media (max-width:1024px) {
+    .courses-advanced-section.summer-route {
+        padding-bottom: 60px;
+    }
+
+    .advanced-button {
+        width: 50%;
+    }
+
+    .industrial-banner {
+        padding: 50px 20px;
+    }
+
+    .intern-right-content h2 {
+        text-align: center;
+    }
+
+    .impactful-internship {
+        padding: 0;
+    }
+
+    .banner-content-advanced {
+        flex-direction: column-reverse;
+        padding: 40px 16px;
+    }
+
+    .banner-content-advanced::before {
+        border-radius: 40px 104px 104px 40px;
+    }
+}
+
+
+@media (max-width:991px) {
+    .industrial-banner {
+        padding-top: 100px;
+    }
+
+    .program-inner-section {
+        padding-bottom: 0;
+    }
+
+    .our-intern-content {
+        flex-direction: column;
+    }
+
+    .internship-cards-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+
+
+    .program-second-section,
+    .program-details-content {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .intern-slider {
+        width: 100%;
+        text-align: center;
+    }
+
+    .intern-right-content {
+        width: 100%;
+    }
+
+    .program-image-wrapper {
+        position: static;
+        width: 100%;
+    }
+
+    .program-second-section,
+    .program-details-content {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .perks-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+@media (max-width:767px) {
+
+    .banner-content-advanced h1 {
+        font-size: 2rem;
+    }
+    .program-details-content h2 {
+        font-size: 28px;
+    }
+    .perks-content h3 {
+        font-size: 20px;
+    }
+
+    .our-intern-content {
+        padding: 30px;
+    }
+
+    .program-section,
+    .internship-program {
+        padding: 100px 0;
+    }
+
+    .our-interns {
+        padding-top: 0;
+    }
+
+    .perks-content img {
+        height: 25px;
+        width: 25px;
+    }
+
+    .rounded-bg {
+        width: 3.5rem;
+        height: 3.5rem;
+        margin-right: 1.2rem;
+    }
+
+    .courses-container,
+    .courses-advanced-section .courses-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 575px) {
+
+    .courses-container,
+    .courses-advanced-section .courses-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .internship-cards-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width:480px){
+    .kick-off-container {
+        flex-direction: column;
+    }
+
+    .advanced-slider-content h3 {
+        font-size: 60px;
+    }
+    .advanced-slider-content p {
+        font-size: 20px
+    }
+}

@@ -1,0 +1,128 @@
+.grid {
+  display: grid;
+  gap: 20px;
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+}
+
+.landscapeMain {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 220px;
+}
+
+.flex {
+  display: flex;
+  gap: 20px;
+  min-height: 70dvh;
+
+  .flexItem {
+    flex: 1 1 50%;
+  }
+}
+
+.grid,
+.landscapeMain,
+.flex {
+  max-height: 90dvh;
+  min-height: 670px;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+/* common */
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  object-fit: cover;
+  object-position: 0 20%;
+}
+
+/* big left top */
+.item0 {
+  grid-column: span 2;
+  grid-row: span 2;
+  .img {
+    /* object-fit: contain; */
+  }
+}
+
+/* right top */
+.item1 {
+  grid-column: span 1;
+}
+
+/* right middle */
+.item2 {
+  grid-column: span 1;
+}
+
+/* bottom left */
+.item3 {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+/* bottom wide right */
+.item4 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.fourGroupItemLarge,
+.fourGroupItemLarge {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.fourGroupItemSmall,
+.fourGroupItemSmall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.landscapeMain0 {
+  grid-column: span 2;
+  grid-row: span 3;
+}
+
+.landscapeMainItem {
+  grid-row: span 2;
+}
+
+/* Tablet portrait (641px to 768px) */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    grid-auto-rows: 180px;
+  }
+
+  .card {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+}
+
+/* Mobile (640px and below) */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 260px;
+    gap: 16px;
+  }
+
+  .card {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+}

@@ -1,0 +1,188 @@
+.digi-contact-map {
+    width: 100%;
+    height: 555px;
+}
+
+.contact-info-wrap .list-wrap li {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border: 1px solid #e1e1e1;
+    background: #f7f7fa;
+    gap: 25px;
+}
+
+.contact-us-container {
+    display: flex;
+    gap: 30px;
+}
+
+.contact-info-wrap {
+    width: 30%;
+}
+
+.contact-info-wrap .content a {
+    word-break: break-word;
+    font-size: 14px;
+}
+
+.contact-info-wrap .content a.email-link {
+    word-break: break-all;
+}
+
+.contact-form-container {
+    width: 70%;
+}
+
+.contact-area-section {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.contactus-map-container {
+    padding-top: 40px;
+}
+
+.contact-area-section .content h4 {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contact-us-container .content a:hover {
+    color: #fc8b20;
+}
+
+.contact-info-wrap .list-wrap li .icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fc8b20;
+    font-size: 20px;
+    line-height: 0;
+    flex: 0 0 auto;
+}
+
+.fee-details {
+    width: 100%;
+}
+
+.course-fee-table {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 14px 12px;
+    color: #565656;
+}
+
+.course-fee-table th {
+    text-align: left;
+    padding: 8px;
+    font-weight: 600;
+}
+
+.course-fee-table tr td {
+    padding: 8px;
+}
+
+@media (max-width:1024px) {
+
+    .contact-area-section {
+        padding-bottom: 60px;
+        padding-top: 0px;
+    }
+
+    .contact-us-container {
+        flex-direction: column-reverse;
+    }
+
+    .contact-form-container,
+    .contact-info-wrap,
+    .contactus-map-container {
+        width: 100%;
+        max-width: 700px;
+        margin: auto;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1400px) {
+    .contact-info-wrap {
+        width: 38%;
+    }
+
+    .contact-form-container {
+        width: 62%;
+    }
+}
+
+.file-upload-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.file-upload-label {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    border: 2px dashed #e1e1e1;
+    border-radius: 12px;
+    background: #fcfcfd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.file-upload-label:hover {
+    border-color: #fc8b20;
+    background: #fff9f4;
+}
+
+.file-upload-label .upload-icon {
+    font-size: 32px;
+    color: #fc8b20;
+    margin-bottom: 10px;
+}
+
+.file-upload-label .upload-text {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.file-upload-label .file-name {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #333;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.file-upload-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+@media (max-width:767px) {
+    .contact-info-wrap .list-wrap li {
+        padding: 20px;
+    }
+
+    .contact-info-wrap .list-wrap li .icon {
+        width: 56px;
+        height: 56px;
+    }
+}

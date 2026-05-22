@@ -1,0 +1,273 @@
+.about__images-three img {
+  border-radius: 400px;
+}
+
+.hero-aboutus {
+  display: flex;
+}
+
+.get-more-about-us,
+.about-right {
+  width: 50%;
+}
+
+.about-right {
+  align-content: center;
+  padding: 0 15px;
+}
+
+.about-area-three {
+  padding: 100px 0;
+  background-color: #fff;
+}
+
+.section__title .sub-title,
+.top-features .sub-title {
+  display: inline-block;
+  line-height: 1.62;
+  background: #efeefe;
+  border-radius: 30px;
+  padding: 3px 16px;
+  font-weight: 500;
+  color: #5751e1;
+  margin: 0 0 14px;
+}
+
+.top-features {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.top-features .title {
+  color: #121212;
+  font-size: 40px;
+}
+
+.about__info-list-item h3 {
+  font-size: 1.75rem;
+  line-height: 1;
+  color: #000;
+}
+
+.about__info-list-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.description-about {
+  padding: 15px 0;
+}
+
+.features__item {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.features__content {
+  color: #fff;
+}
+
+.features__icon {
+  margin-bottom: 22px;
+  min-height: 93px;
+  transition: all .3s ease-out 0s;
+}
+
+.feature-icon-container {
+  flex: 0 0 auto;
+  width: 25%;
+  padding: 0 15px;
+}
+
+.features__area {
+  background: #282568;
+  padding: 120px 0 90px;
+}
+
+.feature-content {
+  flex: 0 0 auto;
+  width: 50%;
+  margin: auto;
+  color: #fff;
+}
+
+.features-content-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.features__content .title {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.hero-aboutus .section__title {
+  margin-bottom: 20px;
+}
+
+.about__content-three .title {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.section__title p {
+  color: #acaacc;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.features__content p {
+  color: #acaacc;
+  font-size: 16px;
+}
+
+.features__item-two {
+  border-radius: 20px;
+  min-height: 310px;
+  border: 1px solid #c9e4e9;
+  background: #f1fdff;
+  box-shadow: 8px 8px 0 0 #c9e4e9;
+  padding: 40px 40px 40px 50px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 30px;
+  transition: all .3s ease-out 0s;
+}
+
+.injectable-features {
+  height: 40px;
+  fill: #fff;
+}
+
+.features__icon-two {
+  width: 70px;
+  height: 70px;
+  flex: 0 0 auto;
+  color: #fff;
+  background: #1bcbe3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.features__content-two .content-top {
+  display: flex;
+  align-items: center;
+  padding-bottom: 24px;
+  gap: 15px
+}
+
+.features__item-two:hover {
+  box-shadow: none !important;
+}
+
+.dml-advantages-section {
+  padding: 100px 0;
+  background: #f7f7f9;
+}
+
+.content-top .title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #121212;
+}
+
+.features__item-wrap>div>div:nth-child(2) .features__icon-two {
+  background: #5751e1;
+}
+
+.features__item-wrap>div>div:nth-child(3) .features__icon-two {
+  background: #ffc224;
+}
+
+.feature-styling {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.feature-styling>div {
+  flex: 1 1 calc(33.33% - 20px);
+}
+
+.features__item-wrap>div>div:nth-child(2) .features__item-two {
+  min-height: 310px;
+  border: 1px solid #c8c1ed;
+  background: #edeaff;
+  box-shadow: 8px 8px 0 0 #d9d5f1;
+}
+
+.features__item-wrap>div>div:nth-child(3) .features__item-two {
+  min-height: 310px;
+  border: 1px solid #ebe0c4;
+  background: #fff7e2;
+  box-shadow: 8px 8px 0 0 #e5decb;
+}
+
+
+
+@media (max-width: 991px) {
+  .features__area .feature-content {
+    width: 100% !important;
+  }
+
+  .about__images-three {
+    margin-bottom: 50px;
+  }
+
+  .feature-styling {
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .hero-aboutus {
+    flex-direction: column;
+  }
+
+  .get-more-about-us,
+  .about-right {
+    width: 100%;
+  }
+
+  .get-more-about-us {
+    text-align: center;
+  }
+
+  .feature-icon-container {
+    width: 50%;
+  }
+}
+
+@media (max-width:767px) {
+  .feature-icon-container {
+    width: 100%;
+  }
+
+  .features__item-two {
+    padding: 15px;
+  }
+
+  .about__info-list-item h3 {
+    font-size: 20px;
+  }
+
+  .about-area-three,
+  .dml-advantages-section {
+    padding: 60px 0;
+  }
+
+  .top-features .title {
+    font-size: 28px;
+    padding-bottom: 15px;
+  }
+
+  .about__content-three .title {
+    font-size: 28px;
+
+  }
+}

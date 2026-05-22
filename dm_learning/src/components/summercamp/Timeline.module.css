@@ -1,0 +1,146 @@
+.section {
+  padding: 100px 0;
+  position: relative;
+  background: #FFFFFF;
+}
+
+.container {
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6b6555;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.titleHighlight {
+  color: #a8d418;
+}
+
+.sub {
+  font-size: 1.05rem;
+  color: #6b6555;
+  max-width: 520px;
+  line-height: 1.7;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wrap {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 0 20px;
+}
+
+.nodeCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes nodePulse {
+  0%   { box-shadow: 0 0 0 0 var(--node-pulse-color); }
+  100% { box-shadow: 0 0 0 12px transparent; }
+}
+
+.node {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  z-index: 2;
+  animation: nodePulse 2.4s ease-in-out infinite;
+}
+
+/* Per-variant node colors — used via styles[item.cls] */
+.n1 { background: #C8F135; color: #111111; --node-pulse-color: rgba(200, 241, 53, 0.55); }
+.n2 { background: #111111; color: #C8F135; --node-pulse-color: rgba(17, 17, 17, 0.45); }
+.n3 { background: #FF6B47; color: #fff;    --node-pulse-color: rgba(255, 107, 71, 0.5); }
+.n4 { background: #4ECBF5; color: #111111; --node-pulse-color: rgba(78, 203, 245, 0.5); }
+.n5 { background: #7C3AED; color: #fff;    --node-pulse-color: rgba(124, 58, 237, 0.5); }
+.n6 { background: #111111; color: #C8F135; --node-pulse-color: rgba(17, 17, 17, 0.45); }
+
+.connector {
+  width: 2px;
+  background: #D8D3C8;
+  flex: 1;
+  min-height: 40px;
+}
+
+.content {
+  padding-bottom: 32px;
+}
+
+.time {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b6555;
+  margin-bottom: 6px;
+}
+
+.card {
+  background: #F5F2EB;
+  border: 1px solid #D8D3C8;
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.cardDesc {
+  font-size: 0.86rem;
+  color: #6b6555;
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 0 14px;
+  }
+}

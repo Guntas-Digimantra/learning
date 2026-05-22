@@ -1,0 +1,1425 @@
+/* ── AI Masterclass Page Styles ── */
+/* Consolidated from forReference/index-bkp 1.html */
+
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap");
+
+/* ── Variables ── */
+.ai-masterclass-page {
+  --purple: #282568;
+  --orange: #fc8b20;
+  --off: #f6f6fb;
+  --border: #e2e2ee;
+  --muted: #666;
+  --bg-dark: #1e1b4b;
+  font-family: "Sora", sans-serif;
+  color: #1a1a2e;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* ── Topbar ── */
+.ai-masterclass-page .topbar {
+  background: linear-gradient(90deg, #1e1b4b, #282568);
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.ai-masterclass-page .topbar-wrapper {
+  position: fixed;
+  top: 140px;
+  z-index: 999;
+  width: 100%;
+}
+
+.ai-masterclass-page .topbar-pill {
+  background: var(--orange);
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+/* ── Container ── */
+.ai-masterclass-page .container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ── Nav ── */
+.ai-masterclass-page nav {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.ai-masterclass-page .nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+
+.ai-masterclass-page .nav-when {
+  font-size: 13px;
+  color: #444;
+}
+
+.ai-masterclass-page .seats-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #ffefe0;
+  color: var(--orange);
+  font-weight: 700;
+  font-size: 12.5px;
+  padding: 6px 16px;
+  border-radius: 40px;
+}
+
+.ai-masterclass-page .pdot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  display: inline-block;
+  animation: dotPulse 1.5s infinite;
+}
+
+/* ── Hero ── */
+.ai-masterclass-page .bg-hero {
+  background: linear-gradient(160deg, #1e1b4b 0%, #282568 60%, #312e6b 100%);
+  position: relative;
+}
+
+.ai-masterclass-page .hero-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.ai-masterclass-page .hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+  position: relative;
+}
+
+.ai-masterclass-page .hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ai-masterclass-page .hero-bg-img {
+  position: absolute;
+  right: 200px;
+  bottom: 0;
+  width: 400px;
+  height: 600px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  opacity: 0.3;
+}
+
+.ai-masterclass-page .hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 40%, rgba(252, 139, 32, 0.1), transparent 60%);
+}
+
+.ai-masterclass-page .hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: url('/ai-masterclass/mainBackground.png');
+  opacity: 0.1;
+}
+
+.ai-masterclass-page .hero-left {
+  padding: 64px 0 64px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.ai-masterclass-page .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+
+.ai-masterclass-page .ldot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  animation: dotPulse 1.5s infinite;
+}
+
+.ai-masterclass-page h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 18px;
+}
+
+.ai-masterclass-page .hero-sub {
+  font-size: 16px;
+  opacity: 0.92;
+  line-height: 1.65;
+  max-width: 560px;
+}
+
+.ai-masterclass-page .orange {
+  color: var(--orange);
+}
+
+/* ── Meta Row ── */
+.ai-masterclass-page .meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.ai-masterclass-page .mc {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ai-masterclass-page .mc:last-child {
+  border-right: 0;
+}
+
+.ai-masterclass-page .ml {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 6px;
+}
+
+.ai-masterclass-page .ml img {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+}
+
+.ai-masterclass-page .mv {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ── Urgency Strip ── */
+.ai-masterclass-page .urgency-strip {
+  margin-top: 24px;
+  background: rgba(252, 139, 32, 0.1);
+  border: 1px solid rgba(252, 139, 32, 0.3);
+  border-radius: 12px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.ai-masterclass-page .urgency-strip img {
+  width: 22px;
+  height: 22px;
+}
+
+.ai-masterclass-page .urgency-strip p {
+  margin: 0;
+  font-size: 13.5px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.ai-masterclass-page .urgency-strip strong {
+  color: var(--orange);
+}
+
+/* ── Countdown ── */
+.ai-masterclass-page .countdown {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ai-masterclass-page .cd-label {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+
+.ai-masterclass-page .cd-blocks {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.ai-masterclass-page .cd-unit {
+  text-align: center;
+}
+
+.ai-masterclass-page .cd-num {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 6px 14px;
+  color: var(--orange);
+  min-width: 50px;
+}
+
+.ai-masterclass-page .cd-txt {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  opacity: 0.55;
+  display: block;
+}
+
+.ai-masterclass-page .cd-sep {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--orange);
+  opacity: 0.5;
+  animation: flash 1s infinite;
+}
+
+/* ── Hero Right / Form ── */
+.ai-masterclass-page .hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px 48px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.old-price {
+  text-decoration: line-through;
+  text-decoration-color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+}
+
+.ai-masterclass-page .form-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.22);
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 420px;
+  color: #1a1a2e;
+}
+
+.ai-masterclass-page .fc-head {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ai-masterclass-page .fc-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--purple);
+}
+
+.ai-masterclass-page .price-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.ai-masterclass-page .p-main {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--orange);
+  display: flex;
+}
+
+.ai-masterclass-page .p-main sub {
+  font-size: 20px;
+}
+
+.ai-masterclass-page .p-note {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* ── Seats Row ── */
+.ai-masterclass-page .seats-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 22px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orange);
+}
+
+.ai-masterclass-page .sbar-w {
+  flex: 1;
+  height: 6px;
+  background: #f0f0f4;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ai-masterclass-page .sbar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--orange), #e05f00);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* ── Form Fields ── */
+.ai-masterclass-page .fg {
+  margin-bottom: 16px;
+}
+
+.ai-masterclass-page .fg label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.ai-masterclass-page .fg .opt {
+  font-weight: 400;
+  color: #999;
+}
+
+.ai-masterclass-page .fg input,
+.ai-masterclass-page .fg select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: "DM Sans", sans-serif;
+  transition: border 0.2s;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.ai-masterclass-page .fg input:focus,
+.ai-masterclass-page .fg select:focus {
+  border-color: var(--orange);
+}
+
+.ai-masterclass-page .sub-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #fc8b20, #e05f00);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 6px;
+}
+
+.ai-masterclass-page .sub-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(252, 139, 32, 0.35);
+}
+
+.ai-masterclass-page .sub-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Partners ── */
+.ai-masterclass-page .partners {
+  padding: 50px 40px;
+}
+
+.ai-masterclass-page .pi {
+  text-align: center;
+}
+
+.ai-masterclass-page .plbl {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #999;
+  font-weight: 500;
+}
+
+.ai-masterclass-page .logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.ai-masterclass-page .lg {
+  height: 60px;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.ai-masterclass-page .lg:hover {
+  opacity: 1;
+}
+
+.ai-masterclass-page .lg img {
+  height: 100%;
+}
+
+.ai-masterclass-page .lg.sf img {
+  height: 36px;
+}
+
+/* ── Sections ── */
+.ai-masterclass-page .sec {
+  padding: 40px 40px;
+}
+
+.ai-masterclass-page .sec-white {
+  background: #fff;
+}
+
+.ai-masterclass-page .two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+.ai-masterclass-page .stag {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.ai-masterclass-page h2 {
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  line-height: 1.3;
+  margin: 12px 0 18px;
+  color: var(--purple);
+}
+
+.ai-masterclass-page .ssub {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* ── Checklist ── */
+.ai-masterclass-page .cl {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ai-masterclass-page .cl li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #333;
+}
+
+.ai-masterclass-page .ck {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.ai-masterclass-page .ck img {
+  width: 22px;
+  height: 22px;
+}
+
+/* ── Bonus Grid ── */
+.ai-masterclass-page .bgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ── Skill/Bonus Card ── */
+.ai-masterclass-page .skill-card {
+  background: var(--off);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.ai-masterclass-page .skill-card:hover {
+  border-color: var(--orange);
+  box-shadow: 0 4px 16px rgba(252, 139, 32, 0.12);
+}
+
+.ai-masterclass-page .icon-box {
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.ai-masterclass-page .skill-card-title {
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 6px;
+}
+
+.ai-masterclass-page .skill-card-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── Speaker ── */
+.ai-masterclass-page .speaker-strip {
+  background: var(--off);
+  padding: 64px 40px;
+}
+
+.ai-masterclass-page .speaker-inner {
+  display: flex;
+  gap: 44px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ai-masterclass-page .sp-portrait img {
+  width: 350px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  max-height: 380px;
+}
+
+.ai-masterclass-page .sp-bio {
+  flex: 1;
+}
+
+.ai-masterclass-page .sp-bio h2 {
+  margin-top: 14px;
+}
+
+.ai-masterclass-page .sp-bio .sp-role {
+  color: var(--orange);
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.ai-masterclass-page .sp-bio p {
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+.ai-masterclass-page .sp-tags {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.ai-masterclass-page .sp-tag {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--purple);
+}
+
+/* ── Certificate ── */
+.ai-masterclass-page .certificate-section {
+  background: var(--off);
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.ai-masterclass-page .cert-img {
+  max-width: 900px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.ai-masterclass-page .cert-img:hover {
+  transform: scale(1.02);
+}
+
+/* ── For Section ── */
+.ai-masterclass-page .for-sec {
+  background: #fff;
+  padding: 40px 40px;
+}
+
+.ai-masterclass-page .for-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.ai-masterclass-page .for-card {
+  background: var(--off);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.ai-masterclass-page .for-card:hover {
+  border-color: var(--orange);
+  box-shadow: 0 4px 16px rgba(252, 139, 32, 0.12);
+}
+
+.ai-masterclass-page .for-card .for-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ai-masterclass-page .for-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--purple);
+  margin: 0 0 6px;
+}
+
+.ai-masterclass-page .for-card p {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── FAQ ── */
+.ai-masterclass-page .faq-sec {
+  background: var(--off);
+  padding: 80px 40px;
+}
+
+.ai-masterclass-page .faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.ai-masterclass-page .faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.ai-masterclass-page .faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15.5px;
+  color: #1a1a2e;
+  user-select: none;
+}
+
+.ai-masterclass-page .faq-q:hover {
+  color: var(--orange);
+}
+
+.ai-masterclass-page .faq-q span:last-child {
+  font-size: 22px;
+  color: var(--orange);
+  transition: transform 0.3s;
+}
+
+.ai-masterclass-page .faq-item.open .faq-q span:last-child {
+  transform: rotate(45deg);
+}
+
+.ai-masterclass-page .faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  padding: 0;
+}
+
+.ai-masterclass-page .faq-item.open .faq-a {
+  max-height: 300px;
+  padding-bottom: 20px;
+}
+
+/* ── Urgency Bottom ── */
+.ai-masterclass-page .urgency-bot {
+  background: linear-gradient(90deg, #1e1b4b, #282568);
+  color: #fff;
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.ai-masterclass-page .urgt {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ai-masterclass-page .urgt span {
+  opacity: 0.8;
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+.ai-masterclass-page .upw {
+  max-width: 260px;
+}
+
+.ai-masterclass-page .upl {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  opacity: 0.6;
+  margin-bottom: 8px;
+}
+
+.ai-masterclass-page .upb {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ai-masterclass-page .upf {
+  height: 100%;
+  background: linear-gradient(90deg, var(--orange), #e05f00);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.ai-masterclass-page .uca {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 36px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.ai-masterclass-page .uca:hover {
+  background: #e07a10;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(252, 139, 32, 0.35);
+}
+
+/* ── Footer ── */
+.ai-masterclass-page footer {
+  text-align: center;
+  padding: 44px 20px;
+  background: #0f0d2e;
+  color: #888;
+  font-size: 13px;
+}
+
+.ai-masterclass-page .footer-logo img {
+  height: 50px;
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.ai-masterclass-page footer a {
+  color: var(--orange);
+  text-decoration: none;
+}
+
+/* ── Registration Message ── */
+.ai-masterclass-page .reg-msg {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ── Success Modal ── */
+.ai-masterclass-page .success-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-masterclass-page .success-modal-overlay.active {
+  display: flex;
+}
+
+.ai-masterclass-page .success-modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 44px 36px 36px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.18);
+  animation: modalPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ── Animations ── */
+@keyframes flash {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes dotPulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ── Scroll Reveal ── */
+.ai-masterclass-page .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.ai-masterclass-page .reveal.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1080px) {
+  .ai-masterclass-page .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-masterclass-page .hero-left {
+    padding: 64px 24px;
+  }
+
+  .ai-masterclass-page .speaker-inner {
+    display: block;
+  }
+
+  .ai-masterclass-page .hero-right {
+    padding: 24px 24px 52px;
+  }
+
+  .ai-masterclass-page .form-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .ai-masterclass-page .two,
+  .ai-masterclass-page .for-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .ai-masterclass-page .bgrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ai-masterclass-page .hero-bg-img {
+    right: 0;
+  }
+
+  .ai-masterclass-page .sp-portrait {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+
+  .ai-masterclass-page .sp-portrait img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    max-height: none;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .ai-masterclass-page .cert-img {
+    max-width: 480px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@media (max-width: 990px) {
+  .ai-masterclass-page .topbar {
+    top: 74px;
+  }
+
+  .ai-masterclass-page nav {
+    top: 111px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-masterclass-page .topbar {
+    top: 57px;
+  }
+
+  .ai-masterclass-page nav {
+    top: 94px;
+  }
+}
+
+@media (max-width: 680px) {
+  .ai-masterclass-page nav {
+    flex-direction: column;
+    gap: 22px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ai-masterclass-page nav,
+  .ai-masterclass-page .hero-left,
+  .ai-masterclass-page .partners,
+  .ai-masterclass-page .sec,
+  .ai-masterclass-page .speaker-strip,
+  .ai-masterclass-page .for-sec,
+  .ai-masterclass-page .urgency-bot,
+  .ai-masterclass-page footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+
+  .price-row {
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 5px;
+  }
+
+  .ai-masterclass-page .hero-left {
+    padding-top: 48px;
+    padding-bottom: 0;
+  }
+
+  .ai-masterclass-page .bgrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .ai-masterclass-page .urgency-bot {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ai-masterclass-page .upw {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .ai-masterclass-page .meta-row {
+    width: 100%;
+  }
+
+  .ai-masterclass-page .mc {
+    flex: 1;
+    padding: 10px 14px;
+  }
+}
+
+/* ── Thank You Page ── */
+.thank-you-container {
+  --navy: #282568;
+  --orange: #fc8b20;
+  --light: #f3f4fb;
+  --border: #e0e1f0;
+  --text: #1e1e3a;
+  --muted: #8080a8;
+
+  font-family: "DM Sans", sans-serif;
+  background-color: var(--navy);
+  color: var(--text);
+  /* min-height: 100vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.thank-you-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/ai-masterclass/mainBackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.thank-you-container .card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 48px rgba(40, 37, 104, 0.13);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.thank-you-container .brand-bar {
+  background: #fff;
+  border-bottom: 3px solid var(--orange);
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 
+.thank-you-container .brand-bar img {
+  height: 36px;
+} */
+
+.thank-you-container .brand-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 0 4px #fc8b2022;
+  animation: pulse-thank-you 2s infinite;
+}
+
+@keyframes pulse-thank-you {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px #fc8b2022;
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px #fc8b2010;
+  }
+}
+
+.thank-you-container .success-state {
+  padding: 36px 28px;
+  text-align: center;
+}
+
+.thank-you-container .success-icon {
+  font-size: 50px;
+  margin-bottom: 12px;
+}
+
+.thank-you-container .success-title {
+  font-family: "DM Sans", sans-serif;
+  font-size: 21px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.thank-you-container .success-msg {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+
+.thank-you-container .skip-link {
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .ai-masterclass-page .hero {
+    display: block;
+  }
+
+  .ai-masterclass-page .countdown {
+    flex-direction: column;
+  }
+
+  .ai-masterclass-page .ldot {
+    width: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-masterclass-page .eyebrow {
+    width: 310px;
+  }
+}
+
+.dotonmobile {
+  display: contents;
+}
+
+@media (max-width: 480px) {
+  .dotonmobile {
+    display: none;
+  }
+}
+
+.new-banner .eyebrow {
+  display: flex;
+  width: fit-content;
+  height: 32px;
+  padding: 8px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 24px;
+  border: 1px solid rgba(242, 125, 38, 0.30);
+  background: rgba(242, 125, 38, 0.20);
+  color: #F27D26;
+  font-family: Sora;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  /* 133.333% */
+}
+
+.ai-masterclass-page .new-banner .meta-row {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 cards */
+  gap: 16px;
+  /* space between cards */
+}
+
+.ai-masterclass-page .new-banner .mc {
+  border-right: none;
+  display: flex;
+  padding: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.new-banner .urgency-strip {
+  display: flex;
+  width: fit-content;
+  padding: 12px;
+  align-items: center;
+  gap: 6.85px;
+  border-radius: 13.699px;
+  border: 0.856px solid rgba(242, 125, 38, 0.20);
+  background: rgba(242, 125, 38, 0.10);
+}
+
+.new-banner .urgency-strip p strong {
+  color: #FFF;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20.549px;
+  /* 128.431% */
+  gap: 12px;
+}
+
+.new-banner .urgency-strip p {
+  color: #90A1B9;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17.124px;
+  /* 122.316% */
+  padding: 0;
+}
+
+.new-banner .urgency-strip .card-icon {
+  display: flex;
+  width: 34.248px;
+  height: 34.248px;
+  padding: 6.848px 6.853px 6.852px 6.846px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 6.85px;
+  background: #F27D26;
+}
+
+.ai-masterclass-page .new-banner .cd-num {
+  background: transparent;
+  color: #fff;
+}
+
+.ai-masterclass-page .new-banner .cd-txt {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0;
+  opacity: 0.55;
+  display: block;
+}
+
+.flex-wrapper {
+  display: flex;
+  gap: 40px;
+}
+
+.ai-masterclass-page .new-banner .cd-num {
+  font-size: 24px;
+}
+
+.dr-ati-priye {
+  width: 100%;
+  width: 322px !important;
+}
+
+.ai-masterclass-page .new-banner .cd-unit {
+  text-align: center;
+  width: 52px;
+}
+
+.ai-masterclass-page .new-banner .hero-bg-grid {
+  opacity: 1;
+}
+
+@media (max-width: 786px) {
+  .flex-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .new-banner .urgency-strip {
+    width: 100%;
+  }
+
+  .new-banner .eyebrow {
+    height: auto;
+  }
+
+  .ai-masterclass-page .new-banner .ldot {
+    width: 8px;
+    display: block;
+    height: 8px;
+  }
+
+  .dr-ati-priye {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .ai-masterclass-page .lg {
+    height: 45px;
+  }
+}

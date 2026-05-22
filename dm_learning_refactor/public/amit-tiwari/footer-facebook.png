@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="streamline-sharp:facebook-1-solid" clip-path="url(#clip0_0_89)">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M0.832031 0.832031H19.1654V19.1654H12.4987V13.7487H14.582V11.2487H12.4987V8.33203H15.832V4.9987H12.4987C11.6146 4.9987 10.7668 5.34989 10.1417 5.97501C9.51655 6.60013 9.16536 7.44798 9.16536 8.33203V11.2487H7.08203V13.7487H9.16536V19.1654H0.832031V0.832031Z" fill="var(--fill-0, white)"/>
+</g>
+<defs>
+<clipPath id="clip0_0_89">
+<rect width="20" height="20" fill="white"/>
+</clipPath>
+</defs>
+</svg>

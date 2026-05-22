@@ -1,0 +1,207 @@
+.discount-modal .modal-backdrop {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+  z-index: 1010;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.discount-modal .modal {
+  background: #fff;
+  padding: 26px;
+  border-radius: 7px;
+  max-width: 1000px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: slideIn 0.4s ease-in-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.discount-modal .close-button {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.discount-modal .contact-form {
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.discount-modal .contact-form label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #666666;
+  padding-bottom: 5px;
+}
+
+.discount-modal .discount-modal-container {
+  display: flex;
+  gap: 30px;
+}
+
+.discount-modal .contact-form-discount {
+  text-align: left;
+}
+
+.discount-modal .contact-form-discount h2 {
+  font-weight: 600;
+  font-size: 24px;
+  color: #333333;
+}
+
+.discount-modal .contact-form-discount p {
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.discount-modal .submit-btn {
+  background-color: #fc8b20;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 50px;
+}
+
+.discount-modal .form-fields,
+.discount-modal .text-area {
+  border: 1px solid #6f79888f;
+}
+
+.discount-modal .form-fields {
+  padding: 14px 10px;
+  margin-top: 6px;
+}
+
+.discount-modal .select-program-field {
+  padding-right: 40px;
+}
+
+.discount-modal .select-program-field option {
+  white-space: normal;
+}
+.discount-modal .discount-modal-content {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.discount-modal .discount-modal-content p {
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.discount-modal .discount-modal-content,
+.discount-modal .contact-form-discount {
+  flex: 1;
+}
+
+.select-program-field {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23333' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.5rem 1.5rem;
+  border: 1px solid #ccc;
+}
+
+.discount-modal .exitPopupPhone {
+  width: 100%;
+  border: 1px solid #6f79888f;
+  border-radius: 10px;
+  --react-international-phone-font-size: 18px;
+  --react-international-phone-text-color: #5d5b6c;
+  --react-international-phone-height: 52px;
+  --react-international-phone-flag-width: 52px;
+  --react-international-phone-border-radius: 10px;
+
+  @media (max-width: 1023px) {
+    --react-international-phone-font-size: 14px;
+  }
+
+  input {
+    line-height: 23px;
+    width: 100%;
+
+    @media (max-width: 1023px) {
+      line-height: 16px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 991px) {
+  .discount-modal .discount-modal-container {
+    flex-direction: column;
+  }
+
+  .discount-modal .discount-modal-content {
+    display: none;
+  }
+
+  .discount-modal .contact-form-discount {
+    padding: 30px;
+  }
+
+  .discount-modal .modal {
+    padding: 0;
+  }
+
+  .discount-modal .discount-modal-container {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .discount-modal .form-heading {
+    font-size: 18px;
+  }
+
+  .discount-modal .terms-link,
+  .discount-modal .terms-content {
+    font-size: 14px;
+  }
+
+  .discount-modal .submit-btn {
+    font-size: 16px;
+    height: 40px;
+  }
+
+  .discount-modal .contact-form-discount {
+    padding: 20px;
+  }
+}

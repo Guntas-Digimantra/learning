@@ -1,0 +1,219 @@
+/* Import theme tokens + utilities but NOT Preflight, so base resets
+   don't bleed into other routes that have their own CSS. */
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
+/* ─────────────────────────────────────────────
+   LAYER 1 — Base tokens (raw primitives)
+───────────────────────────────────────────── */
+@theme {
+    /* Spacing scale (rem) */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-5: 1.25rem;
+    --spacing-6: 1.5rem;
+    --spacing-8: 2rem;
+    --spacing-10: 2.5rem;
+    --spacing-12: 3rem;
+    --spacing-16: 4rem;
+    --spacing-20: 5rem;
+    --spacing-24: 6rem;
+    --spacing-32: 8rem;
+
+    /* Typography scale (rem) — scaled ~15% down for 1220px layout */
+    --text-xs: 0.6875rem;
+    --text-sm: 0.75rem;
+    --text-base: 0.875rem;
+    --text-lg: 1rem;
+    --text-xl: 1.0625rem;
+    --text-2xl: 1.25rem;
+    --text-3xl: 1.625rem;
+    --text-4xl: 1.875rem;
+    --text-5xl: 2.5rem;
+    --text-6xl: 3.125rem;
+
+    /* Page-specific heading sizes (between built-in stops) */
+    --text-heading-sm: 1.5rem; /* 24px — no built-in between 2xl/3xl */
+    --text-heading-md: 1.75rem; /* 28px — no built-in between 3xl/4xl */
+    --text-heading-xl: 2.125rem; /* 34px — no built-in between 4xl/5xl */
+
+    /* Border radius (rem) */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --radius-card: 1.25rem; /* 20px — primary card corner radius */
+    --radius-full: 9999rem;
+
+    /* Font */
+    --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+
+    /* Raw color palette */
+    --color-blue-600: #0057ff;
+    --color-orange-500: #fc8b20;
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-500: #6b7280;
+    --color-gray-700: #374151;
+    --color-gray-900: #111827;
+    --color-white: #ffffff;
+    --color-black: #000000;
+}
+
+/* ─────────────────────────────────────────────
+   LAYER 2 — Semantic tokens (named by role)
+───────────────────────────────────────────── */
+@theme {
+    --color-brand: var(--color-blue-600);
+    --color-brand-foreground: var(--color-white);
+
+    /* Amit Tiwari page — component palette */
+    --color-at-cta: #f95600; /* primary CTA orange */
+    --color-at-border: #e2e8f0; /* card / input border */
+    --color-at-ink: #000014; /* near-black headings */
+    --color-at-muted: #6a7393; /* secondary text */
+    --color-at-label: #314158; /* form field labels */
+    --color-at-input: rgba(15, 23, 43, 0.5); /* placeholder / input text */
+    --color-accent: var(--color-orange-500);
+    --color-accent-foreground: var(--color-white);
+
+    --color-bg: var(--color-white);
+    --color-bg-muted: var(--color-gray-50);
+    --color-bg-subtle: var(--color-gray-100);
+
+    --color-border: var(--color-gray-200);
+
+    --color-text: var(--color-gray-900);
+    --color-text-muted: var(--color-gray-500);
+    --color-text-subtle: var(--color-gray-700);
+
+    /* Navigation / UI chrome */
+    --color-at-nav-text: #2e2e2e; /* nav link & body text */
+    --color-at-nav-hover: #1a1a1a; /* dark button hover state */
+    --color-at-divider: #f0f0f0; /* mobile nav row dividers */
+    --color-at-cta-border: #ffc4a3; /* light-orange CTA accent borders */
+
+    /* Footer */
+    --color-at-footer-bg: #1c1d1f; /* footer background */
+    --color-at-subtle-text: #a3a3a3; /* footer section labels */
+
+    /* Custom line-heights (no built-in equivalent) */
+    --leading-tighter: 1.2; /* between leading-none (1) and leading-tight (1.25) */
+    --leading-snugish: 1.4; /* between leading-snug (1.375) and leading-normal (1.5) */
+
+    /* Custom tracking (no built-in equivalent) */
+    --tracking-address: 0.28px; /* footer address / phone letter-spacing */
+
+    /* Gradient accent */
+    --color-at-gradient-end: #ff8747; /* fee card progress bar end */
+
+    /* Section spacing */
+    --space-section: 5rem;
+
+    /* Card shadows */
+    --shadow-card: 0px 13px 11px rgba(0, 0, 0, 0.05);
+    --shadow-card-deep: 0px 13px 22px rgba(0, 0, 0, 0.12);
+    --shadow-card-sm: 0px 7px 12px rgba(0, 0, 0, 0.05);
+
+    /* CTA hover state */
+    --color-at-cta-dark: #d94b00;
+
+    /* Hero section */
+    --color-at-hero-bg: #FF6500;            /* desktop hero orange bg */
+    --color-at-hero-divider: #e4e4e4;       /* mobile hero card borders */
+    --color-at-mobile-hero-start: #FF6900;  /* mobile gradient start */
+    --color-at-mobile-hero-end: #F54900;    /* mobile gradient end */
+    --color-at-mobile-hero-fade: #FF6700;   /* portrait bottom fade */
+
+    /* Deep navy sections (ROI, ProgramFee, CTASection) */
+    --color-at-deep-start: #0a2648;
+    --color-at-deep-end: #144ea2;
+
+    /* Semantic */
+    --color-success: #59BF2F;    /* success check icons */
+    --color-linkedin: #0077b5;   /* LinkedIn brand */
+    --color-whatsapp: #25D366;   /* WhatsApp brand green */
+
+    /* OtherCourses badge */
+    --shadow-badge: 0 0 10px rgba(0, 0, 0, 0.4);
+
+    /* Extra small text sizes */
+    --text-tiny: 0.5rem;       /* 8px  — star rating numerals */
+    --text-badge: 0.59375rem;  /* 9.5px — course tag badges  */
+    --text-hero-mobile: 2rem;  /* 32px — mobile hero h1     */
+
+    /* Extra tight line-height */
+    --leading-extra-tight: 1.1; /* between none(1) and tighter(1.2) */
+}
+
+/* ─────────────────────────────────────────────
+   LAYER 3 — Custom utilities
+───────────────────────────────────────────── */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ROI calculator range slider */
+.roi-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 9px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    outline: none;
+    cursor: pointer;
+}
+.roi-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-orange-500);
+    border: 2px solid white;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+.roi-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-orange-500);
+    border: 2px solid white;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Counselling form highlight pulse */
+@keyframes form-highlight {
+    0%   { box-shadow: 0 0 0 0 rgba(0, 87, 255, 0.5); }
+    50%  { box-shadow: 0 0 0 8px rgba(0, 87, 255, 0.15); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 87, 255, 0); }
+}
+.form-highlight {
+    animation: form-highlight 2.5s ease-out;
+    border-radius: var(--radius-card);
+}
+
+/* Shared deep-navy gradient (ROI calculator, Program Fee, CTA section) */
+@utility bg-section-dark {
+    background: linear-gradient(175deg, var(--color-at-deep-start) 1%, var(--color-at-deep-end) 100%);
+}
+
+/* Mobile hero orange gradient */
+@utility bg-hero-mobile {
+    background: linear-gradient(112.6deg, var(--color-at-mobile-hero-start) 6.718%, var(--color-at-mobile-hero-end) 88.625%);
+}
+
+/* 1220px centered container with horizontal padding */
+@utility container-page {
+    width: 100%;
+    max-width: 76.25rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+}

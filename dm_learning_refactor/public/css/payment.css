@@ -1,0 +1,117 @@
+.payment-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.payment-page-section {
+  padding: 100px 0;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.course-name {
+  font-size: 18px;
+  color: #121212;
+}
+
+.payment-message {
+  color: #ff7800;
+  margin-top: 12px;
+}
+
+.course-price {
+  color: #fc8b20;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 18px;
+}
+
+.terms-and-conditions {
+  margin-bottom: 0 !important;
+}
+
+.checkbox-btn {
+  width: auto !important;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  font-size: 1rem;
+  outline: none;
+  color: #757575;
+  background-color: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #ff7800;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+}
+
+.terms input {
+  margin-right: 0.5rem;
+}
+
+.terms-link {
+  color: #ff7800;
+  cursor: pointer;
+}
+
+select {
+  padding-right: 1000px;
+  background-position: right 80px center;
+  background-repeat: no-repeat;
+}
+
+.course-container {
+  display: flex;
+  gap: 12px;
+}
+
+.course-styling {
+  width: 50%;
+}
+
+.payment-amount {
+  color: #ff7800;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 575px) {
+  .payment-page-section .course-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .payment-page-section .course-styling {
+    width: 100%;
+  }
+}

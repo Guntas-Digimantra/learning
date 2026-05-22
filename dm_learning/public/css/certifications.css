@@ -1,0 +1,347 @@
+.all-you-need-section .accordion {
+    display: flex;
+    flex-direction: column;
+}
+
+.all-you-need-section .accordion-item {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    overflow: hidden;
+}
+
+.all-you-need-section .accordion-header {
+    color: #fff;
+    padding: 30px 20px;
+    cursor: pointer;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.all-you-need-section .right-arrow {
+    transform: rotate(90deg);
+}
+
+.all-you-need-section .top-arrow {
+    transform: rotate(-90deg);
+}
+
+.all-you-need-section .accordion-body {
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+.all-you-need-section .accordion-header h2 {
+    font-size: 20px;
+}
+
+.all-you-need-section .developer-timeline {
+    padding: 60px 0;
+}
+
+
+.career-path-training-section {
+    background-color: #091f2c;
+    padding-top: 60px;
+}
+
+.career-path-training-section .career-path-content {
+    display: flex;
+}
+
+.career-path-training-section .career-path-left,
+.career-path-training-section .career-path-right {
+    flex: 1;
+}
+
+.career-path-training-section .career-path-right {
+    text-align: right;
+    padding-top: 60px;
+}
+
+.career-path-training-section .career-path-right img {
+    height: 100%;
+}
+
+.career-path-training-section .career-path-left {
+    align-content: center;
+   
+}
+
+.career-path-left .career-description {
+    padding-top: 10px;
+    padding-bottom: 35px;
+    color: #fff;
+}
+
+.career-path-left h1 {
+    color: #fff;
+    line-height: 1.2;
+}
+
+.career-path-left .career-path {
+    text-transform: uppercase;
+    letter-spacing: .225rem;
+    color: #fff;
+}
+
+.description-role-section {
+    background-color: #171717;
+    padding: 100px 0;
+}
+
+.rotate-faq svg {
+    transform: rotate(90deg);
+    fill: #fff;
+}
+
+.rotate-faq,
+.rotate-upper {
+    padding-top: 12px;
+}
+
+.rotate-upper svg {
+    fill: #fff;
+    transform: rotate(-90deg);
+
+}
+
+.get-connected-section {
+    background-color: #171717;
+}
+
+.get-connected-section .get-connected-content,
+.description-role-content {
+    display: flex;
+}
+
+.get-connected-right {
+    align-content: center;
+}
+
+.get-connected-right p {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.get-connected-right,
+.get-connected-left {
+    flex: 1;
+}
+
+.get-connected-left {
+    padding-right: 30px;
+}
+
+.get-connected-right h2,
+.get-connected-right p {
+    color: #E6E6E6;
+}
+
+.get-connected-right h2 {
+    font-size: 32px;
+}
+
+.get-connected-content {
+    padding: 100px 0;
+}
+
+.description-role-left,
+.description-role-right {
+    flex: 1;
+}
+
+.description-role-left {
+    padding-right: 30px;
+}
+
+.description-role-right p {
+    padding-top: 6px;
+    color: #E6E6E6;
+}
+
+.description-role-right {
+    padding: 15px 0;
+    align-content: center;
+}
+
+.description-role-right h2 {
+    color: #E6E6E6;
+    font-size: 32px;
+}
+
+/* all you need tyo know section  */
+
+
+.all-you-need-top {
+    text-align: center;
+}
+
+.all-you-need-section {
+    background: #171717;
+    padding: 60px 0;
+}
+
+.all-you-need-top .title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #e6e6e6;
+    margin-bottom: 40px;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 72px;
+    bottom: 80px;
+    width: 2px;
+    border: dashed 1.5px #c8e1ff;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+}
+
+.timeline-item .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    width: 100%;
+}
+
+.timeline-item .icon img {
+    max-width: 100%;
+}
+
+.timeline-item .content {
+    max-width: 50%;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative;
+}
+
+.timeline-item .content:after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border: solid 3px #a5cbfa;
+    border-radius: 100%;
+    background-color: #f4f9fe;
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.timeline-item h3 {
+    font-size: 20px;
+    color: #e6e6e6;
+    margin-bottom: 10px;
+}
+
+.timeline-item p {
+    font-size: 16px;
+    color: #e6e6e6;
+}
+
+
+/* min width media */
+@media (min-width:767px) {
+
+
+    .timeline .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .timeline .timeline-item:nth-child(even) .content:after {
+        left: auto;
+        right: -10px;
+    }
+}
+
+@media (max-width:1024px) {
+    .career-path-training-section {
+        padding-bottom: 50px;
+    }
+
+    .all-you-need-section {
+        padding: 0;
+    }
+
+    .career-path-training-section .career-path-right {
+        display: none;
+    }
+
+    .get-connected-section .get-connected-content,
+    .description-role-content {
+        flex-direction: column;
+    }
+
+    .get-connected-right,
+    .get-connected-left,
+    .description-role-left {
+        text-align: center;
+    }
+
+    .description-role-left {
+        padding-right: 0;
+        padding-bottom: 30px;
+    }
+
+    .get-connected-content,
+    .description-role-section {
+        padding: 60px 0;
+    }
+
+    .get-connected-left {
+        padding-right: 0;
+    }
+
+}
+
+@media (max-width:991px) {
+    .career-path-training-section {
+        padding-top: 100px;
+    }
+}
+
+@media (max-width:767px) {
+
+    .timeline-item .icon {
+        max-width: 100%;
+    }
+
+    .timeline-item .content:after,
+    .timeline::before {
+        display: none;
+    }
+
+    .timeline-item,
+    .timeline .timeline-item:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .timeline-item .content {
+        text-align: center;
+        max-width: 100%;
+    }
+}

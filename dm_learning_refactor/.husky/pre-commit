@@ -1,0 +1,12 @@
+echo "Running Prettier check..."
+if ! npx --no-install prettier . --check; then
+  echo "Prettier found issues. Running Prettier format..."
+#   pnpm run prettify # run prettify to modify the files
+  # git add . # Stage the formatted files
+fi
+
+echo "Running ESLint..."
+pnpm run lint
+
+echo "Running build..."
+pnpm run build

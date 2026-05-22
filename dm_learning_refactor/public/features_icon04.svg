@@ -1,0 +1,58 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 683 683" width="683" height="683">
+	<title>earn-your-certificate-svg</title>
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m0 0h682.67v682.67h-682.67z"/>
+		</clipPath>
+	</defs>
+	<style>
+		.s0 { fill: none;stroke: #060606;stroke-linecap: round;stroke-linejoin: round;stroke-width: 20 } 
+		.s1 { fill: #060606 } 
+	</style>
+	<g id="g297">
+		<g id="g299">
+			<g id="Clip-Path: g301" clip-path="url(#cp1)">
+				<filter id="f0">
+					<feFlood flood-color="#fffafa" flood-opacity="1" />
+					<feBlend mode="normal" in2="SourceGraphic"/>
+					<feComposite in2="SourceAlpha" operator="in" />
+				</filter>
+				<g id="g301" filter="url(#f0)">
+					<g id="g307">
+						<path id="path309" fill-rule="evenodd" class="s0" d="m10 152v-82.1c0-7.4 6-13.4 13.3-13.4h636c7.4 0 13.4 6 13.4 13.4v487.6c0 7.4-6 13.4-13.4 13.4h-136.6"/>
+					</g>
+					<g id="g311">
+						<path id="path313" fill-rule="evenodd" class="s0" d="m463.3 570.9h-440c-7.3 0-13.3-6-13.3-13.4v-354.8"/>
+					</g>
+					<g id="g315">
+						<path id="path317" fill-rule="evenodd" class="s0" d="m631.8 372v-274.7h-580.9v432.8h410.4"/>
+					</g>
+					<g id="g319">
+						<path id="path321" fill-rule="evenodd" class="s0" d="m523.3 530.1h108.5v-104.8"/>
+					</g>
+					<g id="g323">
+						<path id="path325" fill-rule="evenodd" class="s0" d="m129.7 181.1h344.7"/>
+					</g>
+					<g id="g327">
+						<path id="path329" fill-rule="evenodd" class="s0" d="m129.7 241.9h423.3"/>
+					</g>
+					<g id="g331">
+						<path id="path333" fill-rule="evenodd" class="s0" d="m129.7 302.7h240.5"/>
+					</g>
+					<g id="g335">
+						<path id="path337" class="s1" d="m143.8 471.8c12.9-34 18.7-70.2 19.6-106.5q-9.8 1.3-19.6 2.6c4.4 26.7 4.8 54.9 17.2 79.5 5.8 11.5 17.8 18.4 30.5 13.2 10.8-4.3 19.3-16.2 22.6-27.1h-19.3c1.4 7.2 5.3 14.7 10.5 19.9 9.7 9.8 22.4 8.7 35.1 8.7q29.7 0 59.4-0.1c12.9-0.1 12.9-20.1 0-20q-25.5 0-50.9 0.1-8.2 0-16.4 0c-4.2 0-8.7 0.8-12.2-1.9-3.9-3.1-5.3-7.3-6.2-12-2-10.2-16.6-8.9-19.3 0-1.2 3.9-7.2 15.2-12.4 14.2-2.8-0.4-4-4.7-5-7-2-4.3-3.5-8.8-4.7-13.4-5.3-19.4-6.3-39.6-9.6-59.4-1.9-11.4-19.4-8.2-19.7 2.7-0.9 34.6-6.5 68.8-18.9 101.2-4.5 12.1 14.8 17.3 19.3 5.3z"/>
+					</g>
+					<g id="g339">
+						<path id="path341" fill-rule="evenodd" class="s0" d="m521.2 467.5v158.6l-28.7-13.3-28.6 13.3v-158.6"/>
+					</g>
+					<g id="g343">
+						<path id="path345" fill-rule="evenodd" class="s0" d="m492.5 487.4c-10.1 0-16.7-17.2-25.5-20.9-9.1-3.8-25.9 3.6-32.8-3.3-6.9-6.9 0.4-23.7-3.3-32.9-3.7-8.8-20.9-15.4-20.9-25.6 0-10.1 17.2-16.7 20.9-25.5 3.7-9.2-3.6-26 3.3-32.9 6.9-6.9 23.7 0.5 32.8-3.3 8.8-3.7 15.4-20.9 25.5-20.9 10.1 0 16.8 17.2 25.6 20.9 9.1 3.8 25.9-3.6 32.7 3.3 6.9 6.9-0.4 23.7 3.4 32.9 3.6 8.8 20.8 15.4 20.8 25.5 0 10.2-17.2 16.8-20.8 25.6-3.8 9.2 3.5 26-3.4 32.9-6.8 6.9-23.6-0.5-32.7 3.3-8.8 3.7-15.5 20.9-25.6 20.9z"/>
+					</g>
+					<g id="g347">
+						<path id="path349" fill-rule="evenodd" class="s0" d="m521.6 404.7c0 16.1-13 29.1-29.1 29.1-16 0-29-13-29-29.1 0-16 13-29 29-29 16.1 0 29.1 13 29.1 29z"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

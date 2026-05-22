@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-05-22T10:57:52.781Z",
+  "refBase": "http://localhost:3001",
+  "v2Base": "http://localhost:3000/v2",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "summary": {
+    "total": 1,
+    "pass": 0,
+    "fail": 1
+  },
+  "results": [
+    {
+      "slug": "home",
+      "ref": "http://localhost:3001/",
+      "v2": "http://localhost:3000/v2/",
+      "refStatus": 200,
+      "v2Status": 200,
+      "pass": false,
+      "error": "Dimension mismatch ref 1440x8778 vs v2 1440x8905",
+      "compare": {
+        "refSize": {
+          "w": 1440,
+          "h": 8778
+        },
+        "v2Size": {
+          "w": 1440,
+          "h": 8905
+        },
+        "padded": {
+          "w": 1440,
+          "h": 8905
+        },
+        "numDiff": 4044960,
+        "totalPixels": 12823200,
+        "diffPercent": 31.54407636159461
+      }
+    }
+  ]
+}

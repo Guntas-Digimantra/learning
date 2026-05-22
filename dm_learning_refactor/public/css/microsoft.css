@@ -1,0 +1,627 @@
+.microsoft-testimonial-section .swiper .swiper-wrapper {
+  padding-bottom: 40px;
+}
+
+.microsoft-testimonial-section .swiper-pagination-bullet-active {
+  background-color: #ffffff;
+}
+
+.microsoft-testimonial-section .swiper-pagination-bullet {
+  background-color: #bdbbd7;
+}
+
+.dml-container-microsoft-banner {
+  max-width: 1500px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.microsoft-banner-section {
+  background-color: #000;
+  padding: 100px 0;
+}
+
+.microsoft-banner-section .microsoft-content {
+  display: flex;
+}
+
+.microsoft-banner-section .microsoft-content h1 {
+  font-size: 62px;
+  line-height: 1.2;
+}
+
+.microsoft-banner-section .microsoft-content p {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  color: #fff;
+}
+
+.microsoft-center {
+  color: #fff;
+  padding-right: 80px;
+  padding-left: 80px;
+  align-content: center;
+  text-align: center;
+}
+
+.microsoft-content-one,
+.microsoft-content-two {
+  position: relative;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: zoomInOut 1.9s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes zoomInOut {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.microsoft-content-one,
+.microsoft-center,
+.microsoft-content-two {
+  flex: 1;
+}
+
+.microsoft-button-orange {
+  border-radius: 36px;
+  border: 2px solid #fc8b20;
+  color: #fff;
+  background-color: #fc8b20;
+  padding: 16px 34px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.student-certification-section {
+  background: #000000;
+  padding: 100px 0;
+}
+
+.student-certification-section h2,
+.student-certification-section p {
+  color: #fff;
+}
+
+.student-certification-content {
+  display: flex;
+  padding: 0px 30px;
+  border: 1px solid #fff;
+  border-radius: 43px;
+}
+
+.student-left,
+.student-right {
+  width: 50%;
+}
+
+.student-right img {
+  height: 100%;
+  border-radius: 43px;
+}
+
+.student-left {
+  align-content: center;
+  padding: 30px 0;
+}
+
+.student-left p {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.student-left h2 {
+  font-size: 48px;
+}
+
+.student-right {
+  text-align: right;
+  padding-top: 40px;
+}
+
+.student-left .uppercase {
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.225rem;
+}
+
+.featured-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.microsoft-benefits-section {
+  background: #000;
+  padding: 100px 0;
+}
+
+.microsoft-benefits-section .features-left ul {
+  display: grid;
+  grid-gap: 32px 56px;
+  grid-template-columns: repeat(2, 1fr);
+  padding-right: 20px;
+}
+
+.features-left h2 {
+  margin-bottom: 50px;
+  color: #fff;
+}
+
+.features-left {
+  width: 70%;
+}
+
+.features-left ul li {
+  background: linear-gradient(to bottom, #000000, #242424);
+  padding: 20px;
+}
+
+.features-left .feature-para {
+  color: #898895;
+}
+
+.features-right {
+  align-content: center;
+}
+
+.featured-title {
+  font-weight: 600;
+  color: #fff;
+}
+
+.stats-microsoft-section {
+  background: url('/dark-hero-section-only-lines-33050.svg');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-color: #15181a;
+  background-position-y: bottom;
+  background-position-x: center;
+}
+
+.stats-heading,
+.stats-content {
+  max-width: 976px;
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  margin: auto;
+  text-align: center;
+}
+
+.stats-content .element-one {
+  position: absolute;
+  left: -49px;
+  bottom: 88%;
+  height: 120px;
+  animation: moveUpDown 3s infinite ease-in-out;
+  width: 120px;
+}
+
+.stats-content .element-two {
+  color: transparent;
+  position: absolute;
+  left: 100%;
+  top: 15%;
+  animation: moveUpDown 3s infinite ease-in-out;
+}
+
+.stats-content .element-three {
+  color: transparent;
+  position: absolute;
+  right: 100%;
+  bottom: 50%;
+  animation: moveUpDown 3s infinite ease-in-out;
+}
+
+.stats-content .element-four {
+  color: transparent;
+  position: absolute;
+  bottom: 14%;
+  right: -15%;
+  animation: moveUpDown 3s infinite ease-in-out;
+}
+
+.stats-content {
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.stats-heading-one {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 76px;
+  color: #fff;
+}
+
+.stats-heading div,
+.stats-content h2 {
+  transition:
+    transform 0.7s ease,
+    color 0.7s ease;
+  padding-bottom: 15px;
+}
+
+.stats-content h2 {
+  color: #fff;
+}
+
+.scale-up {
+  transform: scale(1.2);
+  color: #f8f8f8;
+}
+
+.stats-divider {
+  position: absolute;
+  z-index: 0;
+  border: 1px dashed;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 0;
+  width: 0;
+  top: 100%;
+  transition:
+    height 1s linear,
+    color 1s linear;
+}
+
+.stats-divider.highlight {
+  color: rgb(255 255 255);
+  height: 182px;
+}
+
+.stats-content-img {
+  background-color: #f5f5f5;
+  padding: 11px;
+  border-radius: 17px;
+  height: 94px;
+  align-content: center;
+  width: 101px;
+}
+
+.stats-content-img img {
+  filter: brightness(100);
+}
+
+.stats-content-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+}
+
+.fundamentals-content {
+  display: flex;
+}
+
+.microsoft-certifications {
+  padding: 100px 0;
+  background-color: #000;
+}
+
+.microsoft-certifications h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #fff;
+}
+
+.certifcate-content a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.certifcate-content a:hover {
+  transform: scale(1.07);
+}
+
+.microsoft-certifications h3 {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  padding: 12px;
+  background: #443f3f;
+  border-radius: 15px;
+}
+
+.certifcate-content {
+  display: grid;
+  grid-gap: 100px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.certifcate-content img {
+  width: 100%;
+  border-radius: 26px;
+  padding: 15px 20px;
+}
+
+.fundamental-left,
+.fundamental-right {
+  flex: 1;
+}
+
+.fundamental-right {
+  align-content: center;
+}
+
+.fundamental-section {
+  padding: 100px 0;
+  background: #151819;
+}
+
+.fundamental-left h2 {
+  color: #f8f8f8;
+  padding-bottom: 20px;
+}
+
+.fundamental-left p {
+  padding-bottom: 40px;
+  color: #f8f8f8;
+}
+
+.question-section {
+  padding: 60px 0;
+  background-color: #000000;
+}
+
+.question-content h3 {
+  color: #f5f5f5;
+}
+
+.testimonial-content {
+  text-align: center;
+  padding-bottom: 70px;
+}
+
+.testimonial-content p {
+  color: #fff;
+}
+
+.testimonial-heading {
+  color: #fff;
+}
+
+.question-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.microsoft-testimonial-section {
+  background-color: #000000;
+  padding: 100px 0;
+}
+
+.microsoft-testimonial-slide {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  padding: 60px;
+  position: relative;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 20px;
+}
+
+.testimonial-username {
+  font-weight: 700;
+  color: #fff;
+  font-size: 20px;
+}
+
+.microsoft-banner-btns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.testimonial-desc {
+  padding-bottom: 40px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.microft-slider-left {
+  max-width: 800px;
+  margin: auto;
+}
+
+@media (max-width: 1280px) {
+  .stats-content .element-one {
+    width: 120px;
+    height: 120px;
+  }
+
+  .stats-content .element-two {
+    width: 90px;
+    height: 90px;
+    left: 84%;
+  }
+
+  .stats-content .element-three {
+    right: 87%;
+    bottom: 46%;
+  }
+
+  .stats-content .element-four {
+    bottom: 13%;
+    right: 0%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .microsoft-center {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  .stats-content .element-one,
+  .stats-content .element-two,
+  .stats-content .element-three,
+  .stats-content .element-four {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .microsoft-benefits-section .features-left ul {
+    padding-right: 0;
+  }
+
+  .microsoft-content-one,
+  .microsoft-content-two {
+    display: none;
+  }
+
+  .microsoft-center {
+    padding: 0;
+  }
+
+  .question-content {
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .fundamentals-content {
+    flex-direction: column;
+  }
+
+  .fundamental-right {
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  .featured-content {
+    flex-direction: column;
+  }
+
+  .features-left {
+    width: 100%;
+  }
+
+  .features-right {
+    text-align: center;
+  }
+
+  .features-right img {
+    display: none;
+  }
+
+  .student-certification-content {
+    flex-direction: column-reverse;
+  }
+
+  .student-left,
+  .student-right {
+    width: 100%;
+  }
+
+  .student-right {
+    text-align: center;
+  }
+
+  .microsoft-banner-section {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+
+  .student-certification-section,
+  .microsoft-benefits-section {
+    padding-bottom: 0;
+    padding-top: 60px;
+  }
+
+  .microsoft-certifications,
+  .microsoft-testimonial-section,
+  .fundamental-section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .certifcate-content {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 60px;
+  }
+
+  .microsoft-testimonial-slide {
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .testimonial-content {
+    padding-bottom: 30px;
+  }
+
+  .microsoft-banner-btns {
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  .microsoft-banner-section .microsoft-content h1 {
+    font-size: 40px;
+  }
+
+  .microsoft-button-orange,
+  .student-left h2 {
+    font-size: 28px;
+  }
+
+  .student-left .uppercase {
+    font-size: 10px;
+  }
+
+  .microsoft-benefits-section .features-left ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .stats-heading-one {
+    color: #fff;
+    font-size: 40px;
+    line-height: 1.3;
+  }
+
+  .stats-heading {
+    padding-bottom: 0;
+  }
+
+  .stats-content h2 {
+    font-size: 22px;
+  }
+
+  .stats-content {
+    gap: 130px;
+  }
+}
+
+@media (max-width: 575px) {
+  .certifcate-content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-30px);
+  }
+}

@@ -1,0 +1,457 @@
+.partner-swiper {
+  width: 100%;
+  border-radius: 10px;
+  padding-right: 100px;
+  overflow: visible !important;
+}
+
+/* Allow last slides to be visible beyond the section padding */
+.collaborations-section .partner-swiper {
+  /* margin-right: -100px; */
+  padding-right: 100px;
+}
+
+/* In split layout, prevent slider from bleeding over the left text column */
+.split-section .partner-swiper {
+  margin-right: -100px;
+  margin-left: 0;
+  clip-path: inset(0 -200px 0 0);
+  overflow: hidden;
+}
+
+/* force equal slide width */
+.partner-swiper .swiper-slide {
+  width: var(--slide-width) !important;
+  height: var(--slide-height); /* pick your desired height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #e4e4e7;
+  border-radius: 10px;
+  .slide-metadata {
+    width: 100%;
+    padding: 16px;
+
+    .experience {
+      font-size: 12px;
+      color: #2e2e2e;
+    }
+
+    .details {
+      margin-top: 4px;
+      display: flex;
+      width: 100%;
+      gap: 8px;
+      align-items: start;
+      flex-direction: column;
+
+      .name {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .desg {
+        font-size: 14px;
+        color: #2e2e2e;
+      }
+    }
+  }
+}
+
+/* make image fill that box consistently */
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: var(--image-fit);
+  border-radius: 10px;
+  max-width: var(--slide-image-max-width);
+}
+
+.slider-image:hover {
+  opacity: 1;
+}
+
+.logo-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+  flex: 1;
+  min-height: 0;
+
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    display: var(--overlay);
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      180.08deg,
+      rgba(0, 0, 0, 0) 45.97%,
+      rgba(0, 0, 0, 0.6) 99.93%
+    );
+  }
+}
+
+.content {
+  position: absolute;
+  bottom: 0;
+  padding: 16px;
+  width: 100%;
+  color: #fff;
+  z-index: 1;
+  font-weight: 600;
+}
+
+.trigger {
+  position: absolute;
+  z-index: 10;
+  background: transparent;
+  border: none;
+  outline: none;
+  width: var(--trigger-width);
+  height: fit-content;
+  bottom: 0;
+  left: 0;
+  color: var(--trigger-color);
+  cursor: pointer;
+  font-size: var(--trigger-title-size);
+}
+
+.collage {
+  display: grid;
+
+  /* 3 equal columns like your UI */
+  grid-template-columns: repeat(2, 1fr);
+
+  /* base row height */
+  grid-auto-rows: 120px;
+
+  gap: 20px;
+  padding: 20px;
+}
+
+/* common card */
+.item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #eee;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    display: var(--overlay);
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      180.08deg,
+      rgba(0, 0, 0, 0) 45.97%,
+      rgba(0, 0, 0, 0.6) 99.93%
+    );
+  }
+}
+
+.partner-swiper .swiper-wrapper {
+  -webkit-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+}
+
+/* image */
+.img {
+  object-fit: cover;
+}
+
+/* -------- GRID SPANS (pattern like screenshot) -------- */
+
+/* big tall */
+.span-0,
+.span-3 {
+  grid-row: span 3;
+}
+
+/* medium */
+/* .span-1,
+  .span-5 {
+    grid-row: span 3;
+  } */
+
+/* medium */
+.span-1,
+.span-2 {
+  /* grid-column: span 2; */
+  grid-row: span 4;
+}
+
+@media (max-width: 767px) {
+  .collage {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+}
+/* Swiper autoplay infinite scroll enhancements */
+.partner-swiper.swiper {
+  width: 100%;
+}
+
+/* Ensure smooth continuous animation for autoplay */
+.partner-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+/* When autoplay is enabled, make the animation smoother */
+.partner-swiper[data-autoplay='true'] .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+/* Optional: Add a subtle gradient overlay to hide the loop transition for autoplay */
+.partner-swiper[data-autoplay='true'] {
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-swiper[data-autoplay='true']::before,
+.partner-swiper[data-autoplay='true']::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.partner-swiper[data-autoplay='true']::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.partner-swiper[data-autoplay='true']::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* For logos mode, adjust the gradient color */
+.partner-swiper[data-autoplay='true'][data-logos='true']::before,
+.partner-swiper[data-autoplay='true'][data-logos='true']::after {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* Infinite slider styles to match swiper appearance */
+.infinite-slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.left-blur,
+.partner-swiper::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.left-blur {
+  left: 0;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.partner-swiper::after {
+  right: 0;
+  content: '';
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.infinite-slider-track {
+  display: flex;
+  width: fit-content;
+  animation: scroll 60s linear infinite;
+}
+
+.infinite-slider-container:hover .infinite-slider-track {
+  animation-play-state: paused;
+}
+
+.infinite-slider-set {
+  display: flex;
+  gap: 24px;
+}
+
+.infinite-slider-container .slide {
+  width: var(--slide-width, 320px);
+  height: var(--slide-height, 322px);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #e4e4e7;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.infinite-slider-container .slide .logo-slide {
+  width: 100%;
+  height: 100%;
+}
+
+.infinite-slider-container .slide .slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: var(--image-fit, cover);
+  border-radius: 10px;
+  max-width: var(--slide-image-max-width, 100%);
+}
+
+.infinite-slider-container .slide-metadata {
+  width: 100%;
+  padding: 16px;
+}
+
+.infinite-slider-container .slide-metadata .experience {
+  font-size: 12px;
+  color: #2e2e2e;
+}
+
+.infinite-slider-container .slide-metadata .details {
+  margin-top: 4px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.infinite-slider-container .slide-metadata .details .name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.infinite-slider-container .slide-metadata .details .desg {
+  font-size: 14px;
+}
+
+/* For logos mode */
+.infinite-slider-container[data-logos='true'] .slide .slider-image {
+  object-fit: contain;
+  max-width: 85%;
+}
+
+.infinite-slider-container[data-logos='true'] .slide .logo-slide::after {
+  display: none;
+}
+
+.infinite-slider-container[data-logos='true'] .trigger {
+  color: #121221;
+  width: 100%;
+  font-size: 16px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* -------- RESPONSIVE SLIDER -------- */
+@media (max-width: 1636px) {
+  .split-section .partner-swiper {
+    margin-right: 0;
+    clip-path: none;
+    overflow: hidden !important;
+  }
+
+  .collaborations-section .partner-swiper {
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  .partner-swiper {
+    padding-right: 0;
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .split-section .partner-swiper {
+    margin-right: 0;
+    clip-path: none;
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .infinite-slider-container .slide,
+  .partner-swiper .swiper-slide {
+    width: var(--slide-width, auto);
+    height: var(--slide-height, auto);
+  }
+
+  .infinite-slider-container .slide.has-metadata,
+  .partner-swiper .swiper-slide.has-metadata {
+    height: 340px !important;
+  }
+
+  .infinite-slider-container::before,
+  .infinite-slider-container::after {
+    width: 40px;
+  }
+
+  .collaborations-section .partner-swiper,
+  .split-section .partner-swiper {
+    margin-right: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .infinite-slider-container .slide,
+  .partner-swiper .swiper-slide {
+    width: 200px !important;
+    height: 160px !important;
+  }
+
+  .infinite-slider-container .slide.has-metadata,
+  .partner-swiper .swiper-slide.has-metadata {
+    height: 400px !important;
+  }
+}

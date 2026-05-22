@@ -1,0 +1,27 @@
+.wrapper {
+  background: #111111;
+  color: #fff;
+  padding: 18px 0;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  gap: 60px;
+  white-space: nowrap;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.star {
+  color: #C8F135;
+  font-size: 0.75rem;
+}

@@ -1,0 +1,130 @@
+.section {
+  padding: 100px 0;
+  position: relative;
+  background: #F5F2EB;
+}
+
+.container {
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6b6555;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.titleHighlight {
+  color: #a8d418;
+}
+
+.sub {
+  font-size: 1.05rem;
+  color: #6b6555;
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.quote {
+  background: #111111;
+  color: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  border-left: 4px solid #C8F135;
+}
+
+.quoteText {
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.quoteAuthor {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: #FFFFFF;
+  border: 1px solid #D8D3C8;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background: #F5F2EB;
+  border: 1px solid #D8D3C8;
+}
+
+.label {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.desc {
+  font-size: 0.83rem;
+  color: #6b6555;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+  .card {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 0 14px;
+  }
+}

@@ -1,0 +1,89 @@
+.section {
+  background: #C8F135;
+  color: #111111;
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 0 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.08);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 100px;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: rgba(0, 0, 0, 0.6);
+  max-width: 500px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #111111;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 20px 48px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  opacity: 0.75;
+  font-weight: 800;
+  margin-right: 6px;
+}
+
+.footnote {
+  font-size: 0.82rem;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 0 14px;
+  }
+}

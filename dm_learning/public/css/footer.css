@@ -1,0 +1,236 @@
+/* ── NEW FOOTER — Amit Tiwari style ── */
+.footer-section {
+    background-color: #1c1d1f;
+}
+
+.footer-section .footer-inner {
+    width: 100%;
+    max-width: 1220px;
+    margin-inline: auto;
+    padding: 64px 24px 0;
+}
+
+.footer-section .footer-cols-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 64px;
+}
+
+/* Brand column */
+.footer-section .footer-brand {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.footer-section .footer-brand-top {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-section .footer-tagline {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+    margin: 0;
+}
+
+.footer-section .footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-section .footer-social-link {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.footer-section .footer-social-link:hover {
+    opacity: 0.7;
+}
+
+/* Right columns */
+.footer-section .footer-menus {
+    display: flex;
+    gap: 64px;
+    flex-shrink: 0;
+}
+
+.footer-section .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-section .footer-col-heading {
+    font-size: 14px;
+    font-weight: 500;
+    color: #a3a3a3;
+}
+
+.footer-section .footer-nav-link {
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.footer-section .footer-nav-link:hover {
+    opacity: 0.7;
+}
+
+/* Get in touch */
+.footer-section .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-shrink: 0;
+    max-width: 320px;
+}
+
+.footer-section .footer-address-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.footer-section .footer-address-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #fff;
+}
+
+.footer-section .footer-address-text {
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.6;
+    letter-spacing: 0.28px;
+    margin: 0;
+}
+
+.footer-section .footer-phone-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.footer-section .footer-phone-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.28px;
+    transition: opacity 0.2s;
+}
+
+.footer-section .footer-phone-link:hover {
+    opacity: 0.7;
+}
+
+/* Copyright bar */
+.footer-section .footer-copyright-bar {
+    margin-top: 48px;
+    padding: 32px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.footer-section .footer-copyright-text {
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+}
+
+.footer-section .footer-copyright-text a {
+    color: #fc8b20;
+    text-decoration: none;
+}
+
+.footer-section .footer-legal-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section .footer-legal-link {
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.footer-section .footer-legal-link:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+    .footer-section .footer-cols-wrap {
+        flex-wrap: wrap;
+        gap: 48px;
+    }
+
+    .footer-section .footer-brand {
+        flex: 0 0 100%;
+        gap: 32px;
+    }
+
+    .footer-section .footer-brand-top {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .footer-section .footer-tagline {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-section .footer-inner {
+        padding-top: 48px;
+    }
+
+    .footer-section .footer-cols-wrap {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .footer-section .footer-brand-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-section .footer-tagline {
+        display: block;
+    }
+
+    .footer-section .footer-menus {
+        gap: 32px;
+        flex-wrap: wrap;
+    }
+
+    .footer-section .footer-contact {
+        max-width: 100%;
+    }
+
+    .footer-section .footer-copyright-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}

@@ -1,0 +1,10 @@
+.verticalSlider {
+  height: 840px;
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+  .verticalSlider {
+    width: 100%;
+  }
+}

@@ -1,0 +1,18 @@
+Reference: http://localhost:3001
+V2:        http://localhost:3000/v2
+Viewport:  1440x900 @1x
+Pages:     1
+
+browserType.launch: Executable doesn't exist at /home/dml-guntas/.cache/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-linux64/chrome-headless-shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     npx playwright install                                 ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+    at main (/home/dml-guntas/dml/visual-parity/compare.mjs:299:34)
+    at /home/dml-guntas/dml/visual-parity/compare.mjs:392:1 {
+  name: 'Error'
+}

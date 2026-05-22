@@ -1,0 +1,14 @@
+{
+  "name": "dm-visual-parity",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compare": "node compare.mjs",
+    "compare:page": "node compare.mjs --page"
+  },
+  "dependencies": {
+    "pixelmatch": "^7.1.0",
+    "playwright": "^1.52.0",
+    "pngjs": "^7.0.0"
+  }
+}

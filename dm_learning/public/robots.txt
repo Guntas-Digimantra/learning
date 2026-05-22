@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /_next/
+
+# Host
+Host: https://learning.digimantra.com
+
+# Sitemaps
+Sitemap: https://learning.digimantra.com/sitemap.xml

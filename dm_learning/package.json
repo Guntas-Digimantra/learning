@@ -1,0 +1,51 @@
+{
+  "name": "learningdml_digimantra",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "server:dev": "next dev -",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@tailwindcss/postcss": "^4.3.0",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.7",
+    "icici-dev": "^2.1.7",
+    "lucide-react": "^1.14.0",
+    "next": "^15.3.8",
+    "next-sitemap": "^4.2.3",
+    "nodemailer": "^6.9.16",
+    "react": "^18.3.1",
+    "react-countup": "^6.5.3",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.2",
+    "react-intersection-observer": "^9.13.1",
+    "react-markdown": "^8.0.6",
+    "remark-gfm": "^4.0.1",
+    "sharp": "^0.33.5",
+    "sonner": "^2.0.7",
+    "swiper": "^11.1.15",
+    "tailwindcss": "^4.3.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "typescript": "^5"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp",
+      "unrs-resolver"
+    ]
+  }
+}

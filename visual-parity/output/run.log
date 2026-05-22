@@ -1,0 +1,35 @@
+Reference: http://localhost:3001
+V2:        http://localhost:3000/v2
+Viewport:  1440x900 @1x
+Pages:     25
+
+[home] FAIL — Dimension mismatch ref 1455x8759 vs v2 1440x9092
+[about-us] FAIL — Dimension mismatch ref 1440x3890 vs v2 1440x3847
+[contact] FAIL — 496173 pixels (14.6811%)
+[courses] FAIL — Dimension mismatch ref 1440x4084 vs v2 1440x3865
+[campus-collaborations] FAIL — Dimension mismatch ref 1440x8541 vs v2 1440x8465
+[student-enrollment] FAIL — Dimension mismatch ref 1440x1887 vs v2 1440x1323
+[privacy-policy] FAIL — Dimension mismatch ref 1440x6104 vs v2 1440x4854
+[blog] FAIL — 82172 pixels (6.3404%)
+[become-an-instructor] FAIL — Dimension mismatch ref 1440x1990 vs v2 1440x1955
+[microsoft-certifications] FAIL — Dimension mismatch ref 1440x8219 vs v2 1440x8190
+[advanced-industrial-training-and-internship] FAIL — Dimension mismatch ref 1440x6296 vs v2 1440x6299
+[summer-bootcamp-and-internship] FAIL — Dimension mismatch ref 1440x6079 vs v2 1440x6151
+[terms-and-conditions] FAIL — Dimension mismatch ref 1440x13243 vs v2 1440x12063
+[ai-masterclass] FAIL — Dimension mismatch ref 1440x5901 vs v2 1440x5817
+[web-development] FAIL — Dimension mismatch ref 1440x8020 vs v2 1440x8058
+[thank-you-page] FAIL — Dimension mismatch ref 1440x1138 vs v2 1440x1120
+[success] FAIL — Dimension mismatch ref 1440x1335 vs v2 1440x1331
+[failed] FAIL — Dimension mismatch ref 1440x1282 vs v2 1440x1267
+[payment] FAIL — Dimension mismatch ref 1440x1701 vs v2 1440x1727
+[harsh] FAIL — Dimension mismatch ref 1440x6359 vs v2 1440x6333
+[summercamps] FAIL — Dimension mismatch ref 1440x5773 vs v2 1440x5809
+[amit-tiwari-dmp] FAIL — 2062815 pixels (8.8003%)
+[ai-hackathon-2026] FAIL — Dimension mismatch ref 1440x16230 vs v2 1440x17420
+[leveraging-ai-with-solo-preneurship] FAIL — Dimension mismatch ref 1440x5618 vs v2 1440x5535
+[master-100-ai-prompts-in-60-minutes] FAIL — Dimension mismatch ref 1440x5584 vs v2 1440x5532
+
+Report: /home/dml-guntas/dml/visual-parity/output/report.json
+Screenshots: /home/dml-guntas/dml/visual-parity/output/<slug>/{reference,v2,diff}.png
+
+0/25 pages exact match

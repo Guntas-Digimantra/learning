@@ -1,0 +1,380 @@
+.boot-camp-section {
+    background-color: #fff9f2;
+    padding-top: 100px;
+}
+.desc-box {
+    display: inline-block;
+    margin: 0 0 20px;
+    padding: 7px 12px;
+    background-color: #ffe0cc;
+    border-radius: 50px 50px 50px 50px;
+}
+.sync-text {
+    color: #ff6400;
+    margin: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+}
+
+.hero-image img {
+    height: 562px;
+    width: 485px;
+  }
+.hero-content p {
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.hero-boot {
+    display: flex;
+    flex-direction: row;
+}
+
+.hero-content, .hero-image {
+    width: 100%;
+    max-width: 50%;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: end;
+}
+
+.boot-camp-section h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #121212;
+}
+.hero-content {
+    padding-right: 35px;
+}
+
+.summer-content {
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+}
+
+.bootcamp-img-wrap {
+    width: 50%;
+    padding: 15px;
+    position: relative;
+    align-content: center;
+    text-align: center;
+}
+.bootcamp-content {
+    width: 50%;
+}
+.icon-list-camp, .list-second-bg {
+    display: flex;
+    align-items: center;
+    color: #121212;
+}
+
+.list-wrapper-bootcamp {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.rounded-circle-camp {
+    background-color: #ffe4c3;
+}
+.rounded-circle-camp, .rounded-circle-camp-second {
+    width: 50px;
+    border-radius: 100%;
+    margin: 0 10px 0 0;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+.rounded-circle-camp-second {
+    background-color: #fff;
+}
+
+.bootcamp-content p, .bootcamp-content h2 {
+    margin-bottom: 15px;
+}
+.bootcamp-content h2 {
+    color: #121212;
+}
+
+.recognized-style {
+    color: #fff;
+}
+
+.list-second-bg {
+    background-color: #f7941e;
+    padding: 10px;
+    border-style: solid;
+    border-width: 0;
+    border-radius: 50px;
+    margin-left: 14px;
+}
+.sign-in-summer-section {
+    padding-top: 100px;
+    background-color: #fff;
+}
+.sign-in-bootcamp, .skill-up-bootcamp {
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+}
+.online-internship-bootcamp, .sign-in-left, .skill-up-bootcamp {
+    text-align: center;
+    align-content: center;
+}
+.online-internship-img img, .sign-in-img img, .skill-up-img img {
+    border-radius: 25px;
+    width: 100%;
+    height: 343px;
+    max-width: 500px;
+}
+.online-internship-left, .sign-in-left, .skill-up-left {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    align-content: center;
+}
+.online-internship-bootcamp {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 100px 0;
+    gap: 90px;
+}
+.stats-section {
+    padding: 100px 0;
+    background-color: #fff6ed;
+    position: relative;
+    z-index: 1;
+}
+.stat-numbers, .stats-content {
+    display: flex;
+    flex-direction: row;
+}
+.stats-left, .stats-right {
+    flex: 1;
+}
+.stats-left h2 {
+    color: #121212;
+}
+.stats-right {
+    padding-left: 100px;
+    position: relative;
+}
+.stat-group {
+    display: flex;
+    padding-bottom: 30px;
+    gap: 30px;
+}
+.stat-item {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px 0;
+    border-radius: 24px;
+    width: 50%;
+}
+.stats-right:after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 43px;
+    bottom: 70px;
+    right: 100px;
+    left: 187px;
+    padding: 59px 32px 12px 52px;
+    background-color: #ada4df00;
+    border-style: dashed;
+    border-width: 1px;
+    border-radius: 50%;
+}
+
+.stats-left-para {
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.stats-right .stat-item h3 {
+    font-weight: 500;
+    font-size: 30px;
+    color: #121212;
+}
+.journey-section {
+    padding: 100px 0;
+    background-color: #fff;
+}
+.journey-skill-container {
+    display: flex;
+    flex-direction: row;
+}
+.journey-cards {
+    display: flex;
+    row-gap: 30px;
+    flex-direction: column;
+    width: 65%;
+}
+.skill-journey-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid rgba(48, 44, 65, .05);
+    background-color: #fff;
+    box-shadow: 0 7px 5px rgba(0, 0, 0, .1);
+    -webkit-box-flex: 1;
+    padding: 48px;
+    border-radius: 24px;
+}
+.btn-wrapper {
+    padding-bottom: 40px;
+}
+.journey-skill-container h2 {
+    align-self: center;
+    padding-bottom: 30px;
+    width: 35%;
+    font-size: 64px;
+    font-weight: 600;
+    color: #121212;
+}
+.sign-in-summer-section h3{
+    font-size: 36px;
+    color: #121212;
+}
+.online-internship-left p, .sign-in-left p, .skill-up-left p {
+    margin: 30px 0;
+}
+.subhead-journey {
+    text-transform: uppercase;
+    color: #eb7100;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 26px;
+}
+.link-text-journey {
+    color: #eb7100;
+    font-size: 20px;
+    text-decoration: underline;
+    font-weight: 400;
+}
+.microsoft-btn-dml {
+    border: none;
+    background: none;
+    text-align: left;
+}
+
+.summer-bootcamp {
+    background-color: #fff;
+    padding: 100px 0;
+}
+.journey-cards h3{
+    font-size: 1.75rem;
+    color: #121212;
+}
+
+@media (max-width:1200px) {
+    .journey-skill-container h2 {
+        font-size: 50px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .journey-skill-container h2 {
+        font-size: 28px;
+    }
+    .boot-camp-section h1 {
+        font-size: 40px;
+    }
+    .stats-right .stat-item h3 {
+        font-size: 24px;
+    }
+    .boot-camp-section {
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+    .sign-in-summer-section {
+        padding-top: 60px;
+    }
+    .summer-bootcamp,.journey-section ,.stats-section{
+        padding: 60px 0;
+    }
+    .sign-in-summer-section h3{
+        font-size: 28px;
+    }
+    .journey-cards h3{
+        font-size: 24px;
+    }
+    .subhead-journey {
+    font-size: 12px;
+    }
+    .hero-boot {
+        flex-direction: column;
+        padding: 0;
+    }
+    .hero-content, .hero-image {
+        max-width: 100%;
+    }
+    .hero-image {
+        justify-content: center;
+    }
+    .hero-image img {
+        padding-top: 36px;
+    }
+    .summer-content {
+        gap: 50px;
+    }
+    .summer-content {
+        flex-direction: column;
+    }
+    .bootcamp-content, .bootcamp-img-wrap {
+        width: 100%;
+    }    
+    .stats-content {
+        flex-direction: column;
+    }
+    .stats-right{
+        padding: 0;
+    }
+    .stats-left {
+        padding-bottom: 50px;
+    }
+    .journey-skill-container {
+        flex-direction: column;
+    }
+    .journey-cards, .journey-skill-container h2 {
+        width: 100%;
+    }
+    .skill-journey-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .online-internship-bootcamp, .sign-in-bootcamp, .skill-up-bootcamp {
+        flex-direction: column;
+        gap: 0;
+    }
+    .online-internship-img, .online-internship-left, .sign-in-img, .sign-in-left, .skill-up-img, .skill-up-left {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+@media (max-width:767px) {
+    .stats-right:after {
+        display: none;
+    }
+}
+
+@media (max-width:575px) {
+    .hero-image img {
+        height: 383px;
+        width: 286px;
+      }
+}
+
+@media (max-width: 430px) {
+    .online-internship-img img, .sign-in-img img, .skill-up-img img {
+        height: 233px;
+        max-width: 356px;
+    }
+}
