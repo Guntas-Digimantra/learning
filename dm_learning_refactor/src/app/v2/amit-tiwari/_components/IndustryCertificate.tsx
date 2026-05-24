@@ -13,7 +13,7 @@ const CERT_ITEMS = [
 export default function IndustryCertificate() {
   return (
     <section className="py-12 xl:py-25">
-      <div className="container-page flex flex-col xl:flex-row gap-6 xl:gap-13 items-center">
+      <div className="mx-auto w-full max-w-[76.25rem] px-6 flex flex-col xl:flex-row gap-6 xl:gap-13 items-center">
         {/* Certificate image */}
         <div className="relative w-full xl:w-173 xl:shrink-0 h-70 sm:h-90 xl:h-[462px] rounded-card border border-at-border shadow-card overflow-hidden">
           <Image

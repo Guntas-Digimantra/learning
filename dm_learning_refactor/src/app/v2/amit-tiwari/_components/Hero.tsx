@@ -131,7 +131,7 @@ export default function Hero() {
           MOBILE / TABLET — gradient banner with portrait
           (hidden on xl+)
           ═══════════════════════════════════════════════════ */}
-      <div className="xl:hidden relative min-h-145 overflow-hidden bg-hero-mobile">
+      <div className="relative min-h-145 overflow-hidden bg-[linear-gradient(112.6deg,var(--color-at-mobile-hero-start)_6.718%,var(--color-at-mobile-hero-end)_88.625%)] xl:hidden">
         {/* Decorative star-burst — top right */}
         <div className="absolute top-[-53px] right-[-177px] w-[349px] h-[371px]">
           <img
@@ -292,7 +292,7 @@ export default function Hero() {
           />
         </div>
 
-        <div className="container-page flex xl:flex-row xl:items-center xl:justify-between gap-10 w-full">
+        <div className="mx-auto flex w-full max-w-[76.25rem] gap-10 px-6 xl:flex-row xl:items-center xl:justify-between">
           {/* Left column */}
           <div className="flex flex-col gap-12 flex-1 min-w-0 xl:max-w-[50%]">
             <div className="flex flex-col gap-4">

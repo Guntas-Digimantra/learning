@@ -5,7 +5,6 @@ import { Autoplay, Pagination } from 'swiper/modules';
 
 import 'swiper/css/pagination';
 
-import '../../../public/css/about-us.css';
 import 'swiper/css';
 
 const Collaborations = () => {

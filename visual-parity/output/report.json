@@ -1,41 +1,100 @@
 {
-  "generatedAt": "2026-05-22T10:57:52.781Z",
+  "generatedAt": "2026-05-23T08:31:16.631Z",
   "refBase": "http://localhost:3001",
   "v2Base": "http://localhost:3000/v2",
-  "viewport": {
-    "width": 1440,
-    "height": 900
-  },
+  "viewports": [
+    "mobile",
+    "tablet",
+    "laptop"
+  ],
   "summary": {
-    "total": 1,
+    "total": 3,
     "pass": 0,
-    "fail": 1
+    "fail": 3
   },
   "results": [
     {
-      "slug": "home",
+      "slug": "home__mobile",
+      "pageSlug": "home",
+      "viewport": "mobile",
       "ref": "http://localhost:3001/",
       "v2": "http://localhost:3000/v2/",
       "refStatus": 200,
       "v2Status": 200,
       "pass": false,
-      "error": "Dimension mismatch ref 1440x8778 vs v2 1440x8905",
+      "error": null,
+      "compare": {
+        "refSize": {
+          "w": 390,
+          "h": 11851
+        },
+        "v2Size": {
+          "w": 390,
+          "h": 11851
+        },
+        "padded": {
+          "w": 390,
+          "h": 11851
+        },
+        "numDiff": 32477,
+        "totalPixels": 4621890,
+        "diffPercent": 0.7026779088208503
+      }
+    },
+    {
+      "slug": "home__tablet",
+      "pageSlug": "home",
+      "viewport": "tablet",
+      "ref": "http://localhost:3001/",
+      "v2": "http://localhost:3000/v2/",
+      "refStatus": 200,
+      "v2Status": 200,
+      "pass": false,
+      "error": "Dimension mismatch ref 768x11613 vs v2 768x11469",
+      "compare": {
+        "refSize": {
+          "w": 768,
+          "h": 11613
+        },
+        "v2Size": {
+          "w": 768,
+          "h": 11469
+        },
+        "padded": {
+          "w": 768,
+          "h": 11613
+        },
+        "numDiff": 2001003,
+        "totalPixels": 8918784,
+        "diffPercent": 22.435827574700767
+      }
+    },
+    {
+      "slug": "home__laptop",
+      "pageSlug": "home",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/",
+      "v2": "http://localhost:3000/v2/",
+      "refStatus": 200,
+      "v2Status": 200,
+      "pass": false,
+      "error": "Dimension mismatch ref 1440x8752 vs v2 1440x8675",
       "compare": {
         "refSize": {
           "w": 1440,
-          "h": 8778
+          "h": 8752
         },
         "v2Size": {
           "w": 1440,
-          "h": 8905
+          "h": 8675
         },
         "padded": {
           "w": 1440,
-          "h": 8905
+          "h": 8752
         },
-        "numDiff": 4044960,
-        "totalPixels": 12823200,
-        "diffPercent": 31.54407636159461
+        "numDiff": 3156517,
+        "totalPixels": 12602880,
+        "diffPercent": 25.045997422811293
       }
     }
   ]

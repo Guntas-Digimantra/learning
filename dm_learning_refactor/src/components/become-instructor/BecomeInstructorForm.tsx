@@ -204,7 +204,7 @@ const BecomeInstructorForm: React.FC<BecomeInstructorFormProps> = ({
                     <input
                         type="text"
                         placeholder="LinkedIn Profile URL*"
-                        className="form-fields"
+                        className={formField}
                         {...register("linkedinUrl", {
                             required: "This field is required",
                             pattern: {

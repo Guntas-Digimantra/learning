@@ -1,0 +1,11 @@
+@keyframes form-highlight {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 87, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 87, 255, 0.15);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 87, 255, 0);
+  }
+}

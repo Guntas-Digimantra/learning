@@ -2,18 +2,13 @@ import Image from "next/image";
 import Link from "@/components/ui/link";
 import logoImg from "@/assets/dm-learning-dark-logo.svg";
 
-const ADDRESSES = [
-  "Plot No. C-212, Ground Floor, Phase 8-B, Industrial Area, Sec 74, Sahibzada Ajit Singh Nagar, Punjab 160055",
-  "#2, Knowledge Park, Science & Technology Entrepreneurs' Park Guru Nanak Dev Engineering College, Gill Rd, Ludhiana, Punjab 141006",
-] as const;
-
 function Footer() {
   return (
-    <footer className="bg-[#1c1d1f]">
-      <div className="mx-auto w-full max-w-[1220px] px-6 pt-16 max-sm:pt-12">
-        <div className="flex flex-row items-start gap-16 max-lg:flex-wrap max-lg:gap-12 max-sm:flex-col max-sm:gap-8">
-          <div className="flex flex-1 flex-col gap-14 max-lg:basis-full max-lg:gap-8">
-            <div className="flex flex-col gap-4 max-lg:flex-row max-lg:items-center max-lg:justify-between max-sm:flex-col max-sm:items-start">
+    <footer className="bg-footer-bg">
+      <div className="mx-auto w-full max-w-[1220px] px-6 pt-16 max-[640px]:pt-12">
+        <div className="flex flex-row flex-wrap items-start gap-16 max-[1024px]:gap-12 max-[640px]:flex-col max-[640px]:gap-8">
+          <div className="flex flex-1 flex-col gap-14 max-[1024px]:basis-full max-[1024px]:gap-8">
+            <div className="flex flex-col gap-4 max-[1024px]:flex-row max-[1024px]:items-center max-[1024px]:justify-between max-[640px]:flex-col max-[640px]:items-start">
               <Link href="/" aria-label="DMLearning home">
                 <Image
                   src={logoImg}
@@ -21,7 +16,7 @@ function Footer() {
                   style={{ height: 32, width: "auto" }}
                 />
               </Link>
-              <p className="m-0 text-sm leading-[1.6] text-white max-lg:hidden max-sm:block">
+              <p className="m-0 text-sm leading-relaxed text-white max-[1024px]:hidden max-[640px]:block">
                 Transform, Transpire and Thrive with DMLearning.
               </p>
             </div>
@@ -80,9 +75,9 @@ function Footer() {
             </div>
           </div>
 
-          <div className="flex shrink-0 gap-16 max-sm:flex-wrap max-sm:gap-8">
+          <div className="flex shrink-0 gap-16 max-[640px]:flex-wrap max-[640px]:gap-8">
             <div className="flex flex-col gap-4">
-              <span className="text-sm font-medium text-[#a3a3a3]">
+              <span className="text-sm font-medium text-footer-muted">
                 Quick Links
               </span>
               <Link
@@ -105,7 +100,7 @@ function Footer() {
               </Link>
             </div>
             <div className="flex flex-col gap-4">
-              <span className="text-sm font-medium text-[#a3a3a3]">
+              <span className="text-sm font-medium text-footer-muted">
                 Company
               </span>
               <Link
@@ -123,11 +118,14 @@ function Footer() {
             </div>
           </div>
 
-          <div className="flex max-w-[320px] shrink-0 flex-col gap-4 max-sm:max-w-full">
-            <span className="text-sm font-medium text-[#a3a3a3]">
+          <div className="flex max-w-[320px] shrink-0 flex-col gap-4 max-[640px]:max-w-full">
+            <span className="text-sm font-medium text-footer-muted">
               Get In Touch
             </span>
-            {ADDRESSES.map((addr, i) => (
+            {[
+              "Plot No. C-212, Ground Floor, Phase 8-B, Industrial Area, Sec 74, Sahibzada Ajit Singh Nagar, Punjab 160055",
+              "#2, Knowledge Park, Science & Technology Entrepreneurs' Park Guru Nanak Dev Engineering College, Gill Rd, Ludhiana, Punjab 141006",
+            ].map((addr, i) => (
               <div key={i} className="flex items-start gap-3">
                 <svg
                   viewBox="0 0 24 24"
@@ -139,7 +137,7 @@ function Footer() {
                 >
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
                 </svg>
-                <p className="m-0 text-sm leading-[1.6] tracking-[0.28px] text-white">
+                <p className="m-0 text-sm leading-relaxed tracking-[0.28px] text-white">
                   {addr}
                 </p>
               </div>
@@ -165,14 +163,14 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-row items-center justify-between gap-3 border-t border-white/10 py-8 max-sm:flex-col max-sm:items-start max-sm:gap-4">
+        <div className="mt-12 flex flex-row items-center justify-between gap-3 border-t border-white/10 py-8 max-[640px]:flex-col max-[640px]:items-start max-[640px]:gap-4">
           <p className="m-0 text-sm text-white">
             {`Copyright © ${new Date().getFullYear()} DMLearning — An Initiative by `}
             <Link
               href="https://digimantralabs.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#fc8b20] no-underline"
+              className="text-primary no-underline"
             >
               DigiMantra Innovations Private Limited
             </Link>

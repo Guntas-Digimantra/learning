@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-100 bg-white/95 backdrop-blur-[17px] border-b border-black/8">
-      <div className="container-page flex items-center justify-between py-3.75">
+      <div className="mx-auto w-full max-w-[76.25rem] px-6 flex items-center justify-between py-3.75">
         <Link
           href="/"
           aria-label="DMLearning Home"

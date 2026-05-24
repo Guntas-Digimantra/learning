@@ -8,7 +8,7 @@ const STATS = [
 export default function Numerology() {
   return (
     <section className="bg-bg-muted py-10 xl:py-15">
-      <div className="container-page">
+      <div className="mx-auto w-full max-w-[76.25rem] px-6">
         <div className="bg-white rounded-xl shadow-card p-6 xl:p-10">
           <div className="grid grid-cols-2 xl:grid-cols-4 gap-y-8 xl:gap-y-0 xl:divide-x xl:divide-at-border">
             {STATS.map(({ value, label }) => (

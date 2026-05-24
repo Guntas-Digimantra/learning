@@ -13,6 +13,9 @@ const EFFORT_MULTIPLIERS = [0.85, 1.0, 1.15];
 
 const COURSE_FEE = 49999;
 
+const ROI_SLIDER =
+  "w-full cursor-pointer appearance-none rounded-[40px] bg-white/15 outline-none h-[9px] [&::-webkit-slider-thumb]:h-[18px] [&::-webkit-slider-thumb]:w-[18px] [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-orange-500 [&::-webkit-slider-thumb]:shadow-[0_1px_4px_rgba(0,0,0,0.3)] [&::-moz-range-thumb]:h-[18px] [&::-moz-range-thumb]:w-[18px] [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-orange-500 [&::-moz-range-thumb]:shadow-[0_1px_4px_rgba(0,0,0,0.3)]";
+
 function formatINR(n: number) {
   return "₹" + Math.round(n).toLocaleString("en-IN");
 }
@@ -39,7 +42,7 @@ export default function ROICalculator() {
 
   return (
     <section className="py-10 xl:py-16">
-      <div className="container-page flex flex-col gap-6 xl:gap-12">
+      <div className="mx-auto flex w-full max-w-[76.25rem] flex-col gap-6 px-6 xl:gap-12">
         {/* Header */}
         <div className="flex flex-col gap-4">
           <span className="text-at-cta text-sm font-medium uppercase tracking-wide">
@@ -55,7 +58,7 @@ export default function ROICalculator() {
         </div>
 
         {/* Calculator card */}
-        <div className="rounded-card px-6 py-8 xl:px-10 xl:py-12 flex flex-col xl:flex-row gap-10 xl:gap-15 items-stretch shadow-card-deep bg-section-dark">
+        <div className="rounded-card flex flex-col items-stretch gap-10 bg-[linear-gradient(175deg,var(--color-at-deep-start)_1%,var(--color-at-deep-end)_100%)] px-6 py-8 shadow-card-deep xl:flex-row xl:gap-15 xl:px-10 xl:py-12">
           {/* Left - inputs */}
           <div className="flex flex-col gap-8 flex-1">
             <div className="flex flex-col gap-1">
@@ -82,7 +85,7 @@ export default function ROICalculator() {
                   step={1000}
                   value={income}
                   onChange={(e) => setIncome(Number(e.target.value))}
-                  className="roi-slider w-full"
+                  className={ROI_SLIDER}
                 />
               </div>
 
@@ -134,7 +137,7 @@ export default function ROICalculator() {
                   step={1}
                   value={effort}
                   onChange={(e) => setEffort(Number(e.target.value))}
-                  className="roi-slider w-full"
+                  className={ROI_SLIDER}
                 />
               </div>
             </div>

@@ -1,81 +1,42 @@
 // @ts-nocheck
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import Link from "@/components/ui/link";
-
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { ProgramNames, regexPatterns, VALIDATIONS } from "../common/common";
-import {
-  formError,
-  formField,
-  formFieldBlog,
-  formHeading,
-  formPhoneRow,
-  formRow,
-  formStack,
-  formSubmit,
-  formTerms,
-  formTermsLink,
-  formTextarea,
-} from "../common/form-classes";
-
-interface FormErrors {
-  firstName?: string;
-  lastName?: string;
-  fullName?: string;
-  email?: string;
-  phone?: string;
-  requirements?: string;
-  terms?: string;
-  institutionName?: string;
-  program: string;
-}
 
 interface ContactFormProps {
   isModal?: boolean;
   isBlog?: boolean;
 }
 
+const inputField =
+  "h-13 w-full rounded-[10px] border-0 bg-white px-3 py-3.5 font-[family-name:var(--font-poppins)] text-base font-normal leading-[21.6px] text-form-text outline-none";
+const blogInputField = `${inputField} border border-form-blog-border`;
+const textAreaField =
+  "h-[113px] w-full rounded-[10px] border-0 bg-white p-3 font-[family-name:var(--font-poppins)] text-lg font-normal leading-[21.6px] text-form-text outline-none";
+const errorClass = "pt-[3px] text-red-600";
+
 const ContactForm: React.FC<ContactFormProps> = ({
   isModal,
   isBlog,
-}: {
-  isModal?: boolean;
-  isBlog?: boolean;
-}) => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    fullName: "",
-    lastName: "",
-    institutionName: "",
-    email: "",
-    phone: "",
-    requirements: "",
-    terms: false,
-  });
-  const [isCourseDisabled, setIsCourseDisabled] = useState(true);
-  const [courseOptions, setCourseOptions] = useState<string[]>([]);
+}: ContactFormProps) => {
   const {
     register,
     handleSubmit,
-    control,
     reset,
-    setValue,
     formState: { errors },
-  } = useForm({
-    mode: "onBlur",
-  });
+  } = useForm({ mode: "onBlur" });
 
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: Record<string, string>) => {
     const fullName = isBlog
-    ? data.fullName
-    : data?.lastName
-    ? `${data.firstName} ${data.lastName}`
-    : data.firstName;
+      ? data.fullName
+      : data?.lastName
+        ? `${data.firstName} ${data.lastName}`
+        : data.firstName;
 
     setLoading(true);
     const payload = {
@@ -86,123 +47,74 @@ const ContactForm: React.FC<ContactFormProps> = ({
       requirements: data?.requirements,
       program: data?.program,
     };
-    const finalData = {
-      mailOptions: {
-        subject: "Contact Form",
-        text: payload,
-      },
-    };
 
     try {
-      const to = process.env.NEXT_PUBLIC_SMTP_TO?.split(',') || [];
+      const to = process.env.NEXT_PUBLIC_SMTP_TO?.split(",") || [];
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_APP_URL}/api/send-email`,
         {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            to, // The recipient of the contact form (your email)
-            subject: `New Contact Form Submission`, // Dynamic subject line
+            to,
+            subject: `New Contact Form Submission`,
             message: `
                     <p>You have a new contact form submission:</p>
                     <ul>
                         <li><strong>Name:</strong> ${payload.name}</li>
                         <li><strong>Email:</strong> <a href="mailto:${payload.email}">${payload.email}</a></li>
                         <li><strong>Institution Name:</strong> ${payload.institutionName}</li>
-                        <li><strong>Phone:</strong> <a href="tel:${payload.phone?.trim()}">${payload.phone?.trim() || 'N/A'}</a></li>
+                        <li><strong>Phone:</strong> <a href="tel:${payload.phone?.trim()}">${payload.phone?.trim() || "N/A"}</a></li>
                     </ul>
                     <p style={{marginBottom: 10px}}><strong>Requirements:</strong></p>
                     <p style={{paddingLeft: 60px}}>${payload.requirements}</p>
                     `,
           }),
-        },
+        }
       );
 
       await response.json();
       if (response.ok) {
-        setLoading(false);
         reset({
-          firstName: '',
-          fullName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          institutionName: '',
-          requirements: '',
-          program: '',
+          firstName: "",
+          fullName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          institutionName: "",
+          requirements: "",
+          program: "",
           terms: false,
         });
-        setSuccessMessage('Form Submitted Successfully');
-        setTimeout(() => {
-          setSuccessMessage('');
-        }, 3000);
-        console.log('Email sent successfully!');
-      } else {
-        console.log('Error sending email');
+        setSuccessMessage("Form Submitted Successfully");
+        setTimeout(() => setSuccessMessage(""), 3000);
       }
-
-      console.log('Form data successfully processed on the server.');
-
-      return {
-        status: 'success',
-        message: 'We have recieved your message and will get back to you soon!',
-      };
     } catch (error) {
-      setLoading(false);
-      console.error('Server Action Error:', error);
-      return {
-        status: 'error',
-        message: 'Failed to send your message. Please try again.',
-      };
-    }finally{
+      console.error("Server Action Error:", error);
+    } finally {
       setLoading(false);
     }
-
-    // try {
-    //   const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/store-contact-form`;
-    //   const res = await axios.post(apiUrl, finalData);
-    //   if (res.status === 200) {
-    //     axios.post("/api", finalData).then((response) => {
-    //       if (response?.status === 200) {
-    //         setLoading(false);
-    //         reset({
-    //           firstName: "",
-    //           fullName: "",
-    //           lastName: "",
-    //           email: "",
-    //           phone: "",
-    //           institutionName: "",
-    //           requirements: "",
-    //           program: "",
-    //           terms: false,
-    //         });
-    //         setSuccessMessage("Form Submitted Successfully");
-    //         setTimeout(() => {
-    //           setSuccessMessage("");
-    //         }, 3000);
-    //       }
-    //     });
-    //   } else {
-    //     console.error("Error submitting form:", response.statusText);
-    //   }
-    // } catch (error) {
-    //   setLoading(false);
-    // }
   };
 
   return (
     <div>
-      {!isModal && !isBlog && <h2 className={formHeading}>Let&apos;s Connect!</h2>}
-      <form onSubmit={handleSubmit(onSubmit)} method="post" className={formStack}>
-        <div className={formRow}>
+      {!isModal && !isBlog && (
+        <h2 className="text-center text-[28px] leading-[33.61px] font-medium text-fg">
+          Let&apos;s Connect!
+        </h2>
+      )}
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        method="post"
+        className="mt-6 flex flex-col gap-[15px] font-[family-name:var(--font-poppins)]"
+      >
+        <div className="flex gap-5 max-[767px]:flex-col">
           {isBlog && (
             <div className="w-full">
               <input
                 type="text"
                 placeholder="Full Name*"
-                className={formFieldBlog}
+                className={blogInputField}
                 {...register("fullName", {
                   required: "This field is required",
                   maxLength: {
@@ -217,7 +129,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 })}
               />
               {errors.fullName && (
-                <div className={formError}>{errors.fullName.message}</div>
+                <div className={errorClass}>{errors.fullName.message}</div>
               )}
             </div>
           )}
@@ -227,7 +139,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               <input
                 type="text"
                 placeholder={isModal ? "Name*" : "First Name*"}
-                className={formField}
+                className={inputField}
                 {...register("firstName", {
                   required: "This field is required",
                   maxLength: {
@@ -242,7 +154,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 })}
               />
               {errors.firstName && (
-                <div className={formError}>{errors.firstName.message}</div>
+                <div className={errorClass}>{errors.firstName.message}</div>
               )}
             </div>
           )}
@@ -251,7 +163,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               <input
                 type="text"
                 placeholder="Last Name"
-                className={formField}
+                className={inputField}
                 {...register("lastName", {
                   maxLength: {
                     value: 20,
@@ -264,16 +176,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 })}
               />
               {errors.lastName && (
-                <div className={formError}>{errors.lastName.message}</div>
+                <div className={errorClass}>{errors.lastName.message}</div>
               )}
             </div>
           )}
         </div>
-        <div className={formRow}>
+
+        <div className="flex gap-5 max-[767px]:flex-col">
           <div className="w-full">
             <input
               type="email"
-              className={isBlog ? formFieldBlog : formField}
+              className={isBlog ? blogInputField : inputField}
               placeholder={isModal ? "E-mail*" : "Email ID*"}
               {...register("email", {
                 required: "This field is required",
@@ -285,7 +198,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               })}
             />
             {errors.email && (
-              <div className={formError}>{errors.email.message}</div>
+              <div className={errorClass}>{errors.email.message}</div>
             )}
           </div>
           {!isModal && !isBlog && (
@@ -293,7 +206,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               <input
                 type="text"
                 placeholder="Institution Name*"
-                className={formField}
+                className={inputField}
                 {...register("institutionName", {
                   required: "This field is required",
                   pattern: {
@@ -304,19 +217,27 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 })}
               />
               {errors.institutionName && (
-                <div className={formError}>{errors.institutionName.message}</div>
+                <div className={errorClass}>
+                  {errors.institutionName.message}
+                </div>
               )}
             </div>
           )}
         </div>
 
         <div>
-          <div className={`${formPhoneRow} ${isBlog ? 'rounded-[30px] border border-[#ddd] p-0' : ''}`}>
-            <span className={formField}>+91</span>
+          <div
+            className={`flex gap-2.5 ${isBlog ? "rounded-[10px] border border-form-blog-border" : ""}`}
+          >
+            <span
+              className={`${inputField} w-[10%] shrink-0 max-[575px]:w-[20%]`}
+            >
+              +91
+            </span>
             <input
               type="text"
               placeholder={isModal ? "Contact No.*" : "Enter Phone Number"}
-              className={isBlog ? formFieldBlog : formField}
+              className={`${isBlog ? `${blogInputField} flex-1 border-0` : `${inputField} flex-1`}`}
               {...register("phone", {
                 required: "This field is required",
                 validate: (value) => {
@@ -338,13 +259,15 @@ const ContactForm: React.FC<ContactFormProps> = ({
               }}
             />
           </div>
-          {errors.phone && <div className={formError}>{errors.phone.message}</div>}
+          {errors.phone && (
+            <div className={errorClass}>{errors.phone.message}</div>
+          )}
         </div>
 
         {isModal && (
           <div className="w-full">
             <select
-              className={formField}
+              className={inputField}
               {...register("program", {
                 required: "Please select a program",
               })}
@@ -358,7 +281,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               </option>
             </select>
             {errors.program && (
-              <div className={formError}>{errors.program.message}</div>
+              <div className={errorClass}>{errors.program.message}</div>
             )}
           </div>
         )}
@@ -367,7 +290,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
           {isBlog ? (
             <input
               type="text"
-              className={formFieldBlog}
+              className={blogInputField}
               placeholder="Share your requirements"
               {...register("requirements", {
                 maxLength: {
@@ -382,7 +305,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             />
           ) : (
             <textarea
-              className={formTextarea}
+              className={textAreaField}
               placeholder="Share your requirements"
               {...register("requirements", {
                 maxLength: {
@@ -397,27 +320,36 @@ const ContactForm: React.FC<ContactFormProps> = ({
             />
           )}
         </div>
+
         {!isModal && !isBlog && (
-          <label className={formTerms}>
+          <label className="flex items-center gap-3">
             <input
               type="checkbox"
+              className="h-5 w-5"
               {...register("terms", {
                 required: "You must agree to the terms and conditions",
               })}
             />
-            <span className="terms-content">
+            <span className="text-lg leading-[21.6px] font-normal text-fg">
               I agree to the{" "}
-              <Link href="/terms-and-conditions" className={formTermsLink}>
-                Terms & Conditions<span>*</span>
+              <Link href="/terms-and-conditions" className="text-terms-link">
+                Terms & Conditions<span className="text-red-600">*</span>
               </Link>
             </span>
           </label>
         )}
-        {errors.terms && <div className={formError}>{errors.terms.message}</div>}
-        <button className={formSubmit} type="submit">
+        {errors.terms && (
+          <div className={errorClass}>{errors.terms.message}</div>
+        )}
+        <button
+          className="h-13 w-full cursor-pointer rounded-[14px] border-0 bg-submit text-xl text-white hover:text-white"
+          type="submit"
+        >
           {loading ? "Submitting..." : !isModal ? "Submit" : "Let's Go!"}
         </button>
-        {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+        {successMessage && (
+          <p className="text-green-600">{successMessage}</p>
+        )}
       </form>
     </div>
   );

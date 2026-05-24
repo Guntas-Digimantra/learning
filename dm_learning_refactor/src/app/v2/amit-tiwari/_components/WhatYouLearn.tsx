@@ -399,10 +399,13 @@ export default function WhatYouLearn() {
                   const form = document.getElementById("counselling-form-el");
                   if (form) {
                     form.scrollIntoView({ behavior: "smooth", block: "center" });
-                    form.classList.remove("form-highlight");
+                    form.classList.remove("animate-[form-highlight_2.5s_ease-out]");
                     void form.offsetWidth;
-                    form.classList.add("form-highlight");
-                    setTimeout(() => form.classList.remove("form-highlight"), 2600);
+                    form.classList.add("animate-[form-highlight_2.5s_ease-out]");
+                    setTimeout(
+                      () => form.classList.remove("animate-[form-highlight_2.5s_ease-out]"),
+                      2600,
+                    );
                     const firstInput = form.querySelector<HTMLElement>("input,textarea,select");
                     firstInput?.focus({ preventScroll: true });
                   }

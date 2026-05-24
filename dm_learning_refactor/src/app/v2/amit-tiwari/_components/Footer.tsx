@@ -84,7 +84,7 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="bg-at-footer-bg">
-      <div className="container-page py-16">
+      <div className="mx-auto w-full max-w-[76.25rem] px-6 py-16">
         <div className="flex flex-col xl:flex-row xl:items-start gap-10 xl:gap-16">
           {/* Brand column */}
           <div className="flex flex-col gap-14 xl:flex-1">

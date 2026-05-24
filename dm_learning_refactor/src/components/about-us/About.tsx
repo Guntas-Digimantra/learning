@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from '@/components/ui/link';
-import girlPicture from '/public/stading-girl.jpg';
 import { ChevronRightIcon } from '../common/common';
 
 const Banner = () => {
@@ -11,7 +10,7 @@ const Banner = () => {
           <div className="w-1/2 max-[991px]:w-full max-[991px]:text-center">
             <div className="max-[991px]:mb-[50px]">
               <Image
-                src={girlPicture}
+                src="/stading-girl.jpg"
                 alt="img"
                 width={530}
                 height={795}

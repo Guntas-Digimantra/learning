@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import type { CSSProperties } from 'react';
-import './index.css';
+import './summercamps-keyframes.css';
 
 export const metadata: Metadata = {
   title: '8ucate AI Summer Camp – 2 Week AI Workshop for Kids 10–17',

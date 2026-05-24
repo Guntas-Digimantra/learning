@@ -42,7 +42,7 @@ export default function ProgramFee() {
 
   return (
     <section className="py-10 xl:py-16">
-      <div className="container-page flex flex-col gap-6 xl:gap-14">
+      <div className="mx-auto flex w-full max-w-[76.25rem] flex-col gap-6 px-6 xl:gap-14">
         {/* Header */}
         <div className="flex flex-col gap-2 items-start text-left">
           <span className="text-at-cta text-sm font-medium uppercase tracking-wide">
@@ -58,7 +58,7 @@ export default function ProgramFee() {
           {/* Pricing card */}
           <div className="w-full xl:w-[555px] xl:shrink-0 bg-white border border-at-border rounded-card shadow-card overflow-hidden">
             {/* Dark header */}
-            <div className="flex flex-col gap-8 p-6 xl:p-8 bg-section-dark">
+            <div className="flex flex-col gap-8 bg-[linear-gradient(175deg,var(--color-at-deep-start)_1%,var(--color-at-deep-end)_100%)] p-6 xl:p-8">
               {/* Early-bird badge */}
               <span className="self-start bg-at-cta text-white text-xs font-extrabold uppercase tracking-wide px-4 py-1 rounded-full">
                 Early-Bird Offer · Ends 31 May

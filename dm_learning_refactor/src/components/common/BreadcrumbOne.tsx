@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from '@/components/ui/link';
 
-import shape_1 from '/public/AI-first-banner.svg';
-import shape_2 from '/public/cloud-computing.svg';
-import shape_3 from '/public/digital-marketing.svg';
-import shape_4 from '/public/data-analytics.svg';
-import shape_5 from '/public/breadcrumb_shape05.svg';
+import shape_1 from '../../../public/AI-first-banner.svg';
+import shape_2 from '../../../public/cloud-computing.svg';
+import shape_3 from '../../../public/digital-marketing.svg';
+import shape_4 from '../../../public/data-analytics.svg';
+import shape_5 from '../../../public/breadcrumb_shape05.svg';
 import { ChevronRightIcon } from './common';
 
 const floatIcon =

@@ -1,6 +1,6 @@
 # V2 ↔ dm_learning pixel parity
 
-Automated **exact pixel** comparison between:
+Automated comparison between:
 
 | Role | URL base |
 | --- | --- |
@@ -12,43 +12,49 @@ Automated **exact pixel** comparison between:
 Both dev servers must be running:
 
 ```bash
-# Terminal 1 — original
 cd dm_learning && pnpm dev -p 3001
-
-# Terminal 2 — v2
 cd dm_learning_refactor && pnpm dev -p 3000
 ```
 
-## Run
+## Setup
 
 ```bash
 cd visual-parity
 npm install
 npx playwright install chromium
+```
 
-# All static pages (25)
-npm run compare
+## Run
+
+```bash
+# All pages (static + dynamic from data files), laptop only
+node compare.mjs
+
+# Static routes only × 3 viewports
+node compare.mjs --static --viewport all
+
+# Full matrix (static + courses + MS + webinars + sample blog)
+node compare.mjs --viewport all
 
 # Single page
-npm run compare:page -- home
-node compare.mjs --list   # slugs
+node compare.mjs --page home --viewport all
+node compare.mjs --list
 ```
+
+Optional: `BLOG_SLUG=your-post-slug node compare.mjs --page blog-your-post-slug`
 
 ## Output
 
 - `output/REPORT.md` — summary table
 - `output/report.json` — machine-readable
-- `output/<slug>/reference.png` — dm_learning screenshot
-- `output/<slug>/v2.png` — v2 screenshot
-- `output/<slug>/diff.png` — red pixels = mismatch
+- `parity-checklist.md` — page × viewport PASS/FAIL (regenerated each run)
+- `output/<slug>/<viewport>/{reference,v2,diff}.png`
 
-Settings: viewport **1440×900**, `deviceScaleFactor: 1`, `pixelmatch` threshold **0** (any differing pixel fails).
+Settings: mobile 390×844, tablet 768×1024, laptop 1440×900, `pixelmatch` threshold ≤ **0.01%**, identical width × height required.
 
-## Course / blog slugs
-
-Dynamic routes (`/courses/[course]`, `/blog/[slug]`) are not in the default list. Add entries to `PAGES` in `compare.mjs` or run one-off:
+## Helpers
 
 ```bash
-REF_BASE=http://localhost:3001 V2_BASE=http://localhost:3000/v2 \
-  node compare.mjs --page home
+node measure.mjs home          # section heights ref vs v2
+node diff-bands.mjs home laptop
 ```

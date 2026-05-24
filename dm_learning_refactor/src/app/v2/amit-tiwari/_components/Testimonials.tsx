@@ -73,7 +73,7 @@ export default function Testimonials() {
     <section className="bg-bg-muted py-10 xl:py-16">
       <div className="flex flex-col gap-6 xl:gap-14">
         {/* Header */}
-        <div className="container-page flex flex-col gap-2 items-center text-center">
+        <div className="mx-auto flex w-full max-w-[76.25rem] flex-col items-center gap-2 px-6 text-center">
           <span className="text-at-cta text-sm font-medium uppercase tracking-wide">
             What Our Students Say
           </span>
@@ -83,7 +83,7 @@ export default function Testimonials() {
         </div>
 
         {/* Swiper - full bleed so the 1.4 peek card bleeds to the edge on mobile */}
-        <div className="pl-6 xl:pl-0 xl:container-page">
+        <div className="pl-6 xl:mx-auto xl:w-full xl:max-w-[76.25rem] xl:px-6 xl:pl-0">
           <Swiper
             slidesPerView={1.4}
             spaceBetween={16}

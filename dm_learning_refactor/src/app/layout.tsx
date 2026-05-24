@@ -1,5 +1,25 @@
 import AppProvider from '@/providers/app-provider';
 import Script from 'next/script';
+import { Poppins, Montserrat, Inter } from 'next/font/google';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins',
+  display: 'swap',
+});
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export default function RootLayout({
   children,
@@ -7,7 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${poppins.variable} ${montserrat.variable} ${inter.variable}`}
+    >
       <head>
         <meta property="og:image" content="/logo.png" />
         <meta property="og:type" content="website" key="type" />

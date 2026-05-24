@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback, ReactNode } from "react";
 import { useRouter } from "next/navigation";
 
 const container = "mx-auto max-w-[1440px]";
-const reveal = "reveal opacity-0 translate-y-5 transition-all duration-[650ms] ease-out [&.on]:opacity-100 [&.on]:translate-y-0";
+const scrollReveal =
+  "scroll-reveal opacity-0 translate-y-5 transition-all duration-[650ms] ease-out [&.is-visible]:opacity-100 [&.is-visible]:translate-y-0";
 const subBtn =
   "mt-1.5 w-full cursor-pointer rounded-[10px] border-none bg-gradient-to-r from-[#fc8b20] to-[#e05f00] py-[15px] text-base font-bold text-white transition-all hover:-translate-y-px hover:shadow-[0_6px_20px_rgba(252,139,32,0.35)] disabled:cursor-not-allowed disabled:opacity-60";
 const fgLabel = "mb-1.5 block text-left text-[13px] font-semibold text-[#333]";
@@ -138,9 +139,9 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
 
     /* ── Scroll Reveal ── */
     useEffect(() => {
-        const els = document.querySelectorAll(".reveal");
+        const els = document.querySelectorAll(".scroll-reveal");
         const obs = new IntersectionObserver(
-            (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("on"); }),
+            (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("is-visible"); }),
             { threshold: 0.07, rootMargin: "0px 0px -30px 0px" }
         );
         els.forEach((el) => obs.observe(el));
@@ -435,7 +436,7 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
             }
 
             {/* ── PARTNERS ── */}
-            <div className={`${reveal} px-10 py-[50px] max-[680px]:px-5 ${container}`}>
+            <div className={`${scrollReveal} px-10 py-[50px] max-[680px]:px-5 ${container}`}>
                 <div className="text-center">
                     <span className="text-xs font-medium uppercase tracking-[2.5px] text-[#999]">Clients &amp; Partners</span>
                     <div className="mt-7 flex flex-wrap items-center justify-between">
@@ -449,7 +450,7 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
                 </div>
             </div>
 
-            <div className={`${reveal} bg-white px-10 py-10 max-[680px]:px-5 ${container}`}>
+            <div className={`${scrollReveal} bg-white px-10 py-10 max-[680px]:px-5 ${container}`}>
                 <div className="grid grid-cols-2 gap-14 max-[1080px]:grid-cols-1 max-[1080px]:gap-9">
                     <div>
                         <span className="text-xs font-semibold uppercase tracking-[2px] text-[#fc8b20]">{props.learnSectionTitle1}</span>
@@ -478,7 +479,7 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
                 </div>
             </div>
 
-            <div className={`${reveal} bg-[#f6f6fb] px-10 py-16 max-[680px]:px-5`}>
+            <div className={`${scrollReveal} bg-[#f6f6fb] px-10 py-16 max-[680px]:px-5`}>
                 <div className={`${container} flex flex-wrap items-center gap-11 max-[1080px]:block`}>
                     <div className="max-[1080px]:mb-8 max-[1080px]:flex max-[1080px]:w-full max-[1080px]:justify-center">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -492,7 +493,7 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
                 </div>
             </div>
 
-            <div className={`${reveal} bg-white px-10 py-10 max-[680px]:px-5`}>
+            <div className={`${scrollReveal} bg-white px-10 py-10 max-[680px]:px-5`}>
                 <div className={`${container} grid grid-cols-2 items-center gap-14 max-[1080px]:grid-cols-1 max-[1080px]:gap-9`}>
                     <div>
                         <span className="text-xs font-semibold uppercase tracking-[2px] text-[#fc8b20]">{props.whoIsItForTitle1}</span>

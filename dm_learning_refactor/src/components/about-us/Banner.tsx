@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../../public/css/about-us.css';
 
+/** @deprecated Not mounted on v2 /about-us; use about-us/About.tsx */
 const Banner = () => {
   return (
     <section className="dml-container banner-about">

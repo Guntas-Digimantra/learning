@@ -64,7 +64,7 @@ const InternshipProgram = () => {
               reach over 1,000+ students.
             </p>
           </div>
-          <div className="swiper-dml-pagination w-full max-[1260px]:bg-[#fc8b20] max-[1260px]:px-[15px] max-[1260px]:pb-5 max-[1260px]:pt-[5px]">
+          <div className="w-full max-[1260px]:bg-primary max-[1260px]:px-[15px] max-[1260px]:pb-5 max-[1260px]:pt-[5px] [&_.swiper]:pb-[30px] [&_.swiper-pagination]:bottom-0 [&_.swiper-pagination-bullet]:!h-2.5 [&_.swiper-pagination-bullet]:!w-2.5 [&_.swiper-pagination-bullet]:border [&_.swiper-pagination-bullet]:border-black [&_.swiper-pagination-bullet-active]:!bg-black">
             <Swiper
               className="w-full"
               {...setting}

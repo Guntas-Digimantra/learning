@@ -16,7 +16,7 @@ const CourseArea = () => {
       <BreadcrumbOne title="All Courses" sub_title="Courses" />
 
       <section className="bg-white py-[100px]">
-        <div className="dml-container">
+        <div className="mx-auto max-w-[1440px] px-[15px]">
           <div
             className="grid grid-cols-4 items-stretch gap-5 max-[1420px]:grid-cols-3 max-[1024px]:grid-cols-2 max-[575px]:grid-cols-1"
             id="myTabContent"

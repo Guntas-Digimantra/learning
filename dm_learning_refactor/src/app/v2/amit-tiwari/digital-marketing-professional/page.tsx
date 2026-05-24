@@ -42,7 +42,7 @@ export default function AmitTiwariPage() {
         <Hero />
         <Numerology />
 
-        <div className="xl:container-page xl:flex xl:gap-15 xl:items-start">
+        <div className="xl:mx-auto xl:flex xl:max-w-[76.25rem] xl:items-start xl:gap-15 xl:px-6">
           <div className="xl:flex-1 xl:min-w-0">
             <BuiltForYou />
             <WhatYouLearn />

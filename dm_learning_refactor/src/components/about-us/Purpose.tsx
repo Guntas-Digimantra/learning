@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import '../../../public/css/home-page.css';
 
+/** @deprecated Not mounted on v2 /about-us */
 const Purpose = () => {
   const data = [
     {

@@ -67,12 +67,12 @@ export default function CTASection() {
   }
 
   return (
-    <section className="relative overflow-hidden py-12 xl:py-20 bg-section-dark">
+    <section className="relative overflow-hidden bg-[linear-gradient(175deg,var(--color-at-deep-start)_1%,var(--color-at-deep-end)_100%)] py-12 xl:py-20">
       {/* Decorative blobs */}
       <div className="absolute -left-20 -top-24 size-[314px] rounded-full bg-white/5 pointer-events-none" />
       <div className="absolute -bottom-32 -right-20 size-120 rounded-full bg-white/5 pointer-events-none" />
 
-      <div className="container-page relative z-10">
+      <div className="relative z-10 mx-auto w-full max-w-[76.25rem] px-6">
         <div className="flex flex-col xl:flex-row gap-16 xl:gap-40 items-center">
           {/* Left - copy */}
           <div className="flex flex-col gap-4 flex-1 min-w-0">

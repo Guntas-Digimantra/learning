@@ -12,7 +12,7 @@ const HIGHLIGHTS = [
 export default function MeetMentor() {
   return (
     <section id="about" className="bg-bg-muted py-12 xl:py-25">
-      <div className="container-page flex flex-col xl:flex-row gap-8 xl:gap-12 items-center">
+      <div className="mx-auto w-full max-w-[76.25rem] px-6 flex flex-col xl:flex-row gap-8 xl:gap-12 items-center">
         {/* Photo */}
         <div className="w-full xl:w-129 xl:h-148 shrink-0 rounded-card overflow-hidden relative aspect-[516/592] xl:aspect-auto">
           <Image

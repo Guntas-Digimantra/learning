@@ -13,8 +13,10 @@ export default function AppProvider({ children }: { children: React.ReactNode })
   const progressRef = useRef<HTMLDivElement | null>(null);
   const lenisRef = useRef<Lenis | null>(null);
   const pathname = usePathname();
+  const isV2Marketing = pathname?.startsWith('/v2') ?? false;
 
   useEffect(() => {
+    if (isV2Marketing) return;
     const lenis = new Lenis({
       duration: 1.2,
       smoothWheel: true,
@@ -65,10 +67,11 @@ export default function AppProvider({ children }: { children: React.ReactNode })
     return () => {
       lenis.destroy();
     };
-  }, []);
+  }, [isV2Marketing]);
 
   /* ---------------- route change refresh ---------------- */
   useEffect(() => {
+    if (isV2Marketing) return;
     const lenis = lenisRef.current;
     if (!lenis) return;
 
@@ -77,7 +80,11 @@ export default function AppProvider({ children }: { children: React.ReactNode })
     requestAnimationFrame(() => {
       ScrollTrigger.refresh(true);
     });
-  }, [pathname]);
+  }, [pathname, isV2Marketing]);
+
+  if (isV2Marketing) {
+    return <>{children}</>;
+  }
 
   return (
     <ProgressProvider height="0.25rem" color="var(--primary)" options={{ showSpinner: false }}>

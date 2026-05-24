@@ -1,20 +1,20 @@
 # V2 vs dm_learning — Pixel Parity Report
 
-Generated: 2026-05-22T10:57:52.781Z
+Generated: 2026-05-23T08:31:16.631Z
 
 | Setting | Value |
 | --- | --- |
 | Reference | http://localhost:3001 |
 | V2 | http://localhost:3000/v2 |
-| Viewport | 1440×900 |
-| Match threshold | 0 (exact pixels) |
+| Viewports | mobile, tablet, laptop |
+| Match threshold | ≤ 0.01% |
 
-## Summary: 0/1 passed
+## Summary: 0/3 passed
 
-| Page | Status | Ref HTTP | V2 HTTP | Diff pixels | Diff % | Dimensions | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| home | FAIL | 200 | 200 | 4044960 | 31.5441% | 1440×8778 vs 1440×8905 | Dimension mismatch ref 1440x8778 vs v2 1440x8905 |
+| Page | mobile | tablet | laptop |
+| --- | --- | --- | --- |
+| home | ❌ FAIL (0.7027%) | ❌ FAIL (22.4358%) | ❌ FAIL (25.0460%) |
 
 ## Artifacts
 
-Each failed page has `reference.png`, `v2.png`, and `diff.png` (red = mismatch).
+Failed checks: `output/<slug>/<viewport>/diff.png`

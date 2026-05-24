@@ -4,18 +4,22 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 
+const btnPrimary =
+  "inline-block min-w-[200px] cursor-pointer rounded-full border-0 bg-black px-[34px] py-4 text-base font-semibold leading-6 text-white no-underline transition-[linear] duration-300 hover:text-white hover:shadow-none";
+
 const DiscoverOffer = () => {
   const pathname = usePathname();
-  const isAboutUsRoute = pathname === "/about-us" || pathname === "/v2/about-us";
+  const isAboutUsRoute =
+    pathname === "/about-us" || pathname === "/v2/about-us";
 
   const [isLoading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const isValidEmail = (emailValue: string) => {
+  const isValidEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(emailValue);
+    return emailRegex.test(email);
   };
 
   const handleSubmit = async () => {
@@ -24,14 +28,19 @@ const DiscoverOffer = () => {
       return;
     }
     if (!isValidEmail(email)) {
-      setErrorMessage("Please enter a valid email with a domain (e.g., @domain.com)");
+      setErrorMessage(
+        "Please enter a valid email with a domain (e.g., @domain.com)"
+      );
       return;
     }
     setErrorMessage("");
     setLoading(true);
     const payload = { email };
     const finalData = {
-      mailOptions: { subject: "DMlearning - Email form", text: payload },
+      mailOptions: {
+        subject: "DMlearning - Email form",
+        text: payload,
+      },
     };
 
     try {
@@ -48,37 +57,52 @@ const DiscoverOffer = () => {
     }
   };
 
+  const headingClass = isAboutUsRoute
+    ? "text-fg"
+    : "text-white";
+  const paraClass = isAboutUsRoute
+    ? "py-[15px] text-fg"
+    : "py-[15px] text-white";
+
   return (
     <section
       className={
         isAboutUsRoute
-          ? "bg-[radial-gradient(circle,#f4e5fa,#ffffff_40%,#f4e5fa)] max-[991px]:py-10"
-          : "bg-[#5751e1] max-[991px]:py-10"
+          ? "bg-[radial-gradient(circle,#f4e5fa,#fff_40%,#f4e5fa)] max-[991px]:py-10"
+          : "bg-discover-bg max-[991px]:py-10"
       }
     >
       <div className="mx-auto max-w-[1440px] px-[15px]">
-        <div className="flex pt-[50px] max-[991px]:mx-auto max-[991px]:max-w-[500px] max-[991px]:flex-col max-[991px]:pt-0">
-          <div className="mb-[-5px] w-[30%] max-[991px]:hidden">
+        <div className="flex pt-12.5 max-[991px]:flex-col max-[991px]:items-center">
+          <div className="-mb-[5px] w-[30%] max-[991px]:hidden">
             <Image
-              src={isAboutUsRoute ? "/stay-ahead-curve.png" : "/discover-offer.png"}
+              src={
+                isAboutUsRoute ? "/stay-ahead-curve.png" : "/discover-offer.png"
+              }
               alt="discover"
               width={500}
-              loading="lazy"
               height={300}
+              unoptimized
             />
           </div>
-          <div className="w-[70%] [align-content:center] max-[991px]:w-full max-[991px]:text-center">
+          <div className="w-[70%] content-center max-[991px]:w-full max-[991px]:max-w-[500px] max-[991px]:text-center">
             {isAboutUsRoute ? (
               <>
-                <h2 className="text-[36px] !text-black max-[767px]:text-[28px]">
+                <h2 className={`text-section-title font-semibold ${headingClass}`}>
                   Want To Stay Ahead Of The Curve?
                 </h2>
-                <p className="pb-[15px] !text-black">Get the latest updates on study materials, trends and more!</p>
+                <p className={paraClass}>
+                  Get the latest updates on study materials, trends and more!
+                </p>
               </>
             ) : (
               <>
-                <h2 className="text-[36px] text-white max-[767px]:text-[28px]">Discover What We Offer</h2>
-                <p className="py-[15px] text-white">Enter your email and we&apos;ll share you some samples</p>
+                <h2 className={`text-section-title font-semibold ${headingClass}`}>
+                  Discover What We Offer
+                </h2>
+                <p className={paraClass}>
+                  Enter your email and we&apos;ll share you some samples
+                </p>
               </>
             )}
 
@@ -95,23 +119,24 @@ const DiscoverOffer = () => {
                     type="email"
                     placeholder="Type Your E-Mail"
                     value={email}
-                    className="h-[60px] w-full rounded-full border border-[#433ec2] bg-[#4a44d1] px-5 py-[18px] text-base leading-[1.4] text-white outline-none transition-[border-color] placeholder:opacity-50 focus:border-white focus:shadow-[0_0_5px_rgba(255,255,255,0.5)]"
+                    className="h-15 w-full rounded-full border border-discover-input-border bg-discover-input-bg px-5 py-[18px] text-base leading-snug text-white outline-none transition-[border-color] duration-300 placeholder:text-white/50 focus:border-white focus:shadow-[0_0_5px_rgba(255,255,255,0.5)]"
                     onChange={(e) => {
                       setEmail(e?.target?.value);
                       if (errorMessage) setErrorMessage("");
                     }}
                   />
                   {errorMessage && (
-                    <p className="absolute top-[calc(100%+10px)] m-0 text-[#ff1d1d]">{errorMessage}</p>
+                    <p className="absolute top-[calc(100%+10px)] m-0 text-error-msg! max-[1200px]:top-[calc(100%+-2px)] max-[1200px]:left-[7px] max-[767px]:inset-x-0 max-[767px]:top-[calc(100%+2px)]">
+                      {errorMessage}
+                    </p>
                   )}
                   {successMessage && (
-                    <p className="absolute top-[calc(100%+10px)] m-0 text-[#2cd72c]">{successMessage}</p>
+                    <p className="absolute top-[calc(100%+10px)] m-0 text-success-msg! max-[1200px]:top-[calc(100%+-2px)] max-[1200px]:left-[7px] max-[767px]:inset-x-0 max-[767px]:top-[calc(100%+2px)]">
+                      {successMessage}
+                    </p>
                   )}
                 </div>
-                <button
-                  type="submit"
-                  className="inline-flex min-w-[200px] shrink-0 cursor-pointer items-center justify-center rounded-full border-0 bg-black px-[34px] py-4 text-base font-semibold leading-6 text-white no-underline transition-[linear_0.3s] hover:bg-black hover:text-white"
-                >
+                <button type="submit" className={btnPrimary}>
                   {isLoading ? "Loading..." : "Start Learning"}
                 </button>
               </form>

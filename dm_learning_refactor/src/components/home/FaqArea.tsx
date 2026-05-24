@@ -32,14 +32,16 @@ const faq_data: DataType[] = [
   },
   {
     id: 4,
-    question: "What are the eligibility criteria for joining DMLearning's Online Course?",
+    question:
+      "What are the eligibility criteria for joining DMLearning's Online Course?",
     class_name: "collapsed",
     answer:
       "There is no strict eligibility requirement for most of our courses. Our courses are designed to cater to learners at various levels, from beginners to experts. Specific eligibility details, if any, are provided in the course description. Anyone can join our online certification course and register on our website.",
   },
   {
     id: 5,
-    question: "I forgot my login password. Is there any provision to reset the password?",
+    question:
+      "I forgot my login password. Is there any provision to reset the password?",
     class_name: "collapsed",
     answer:
       'Yes, resetting your username or password is easy. Just visit the login page and click on "forget password". A link will be sent to your registered Email ID. Click on the link and follow the instructions to reset your password.',
@@ -61,21 +63,22 @@ const FAQAccordion = () => {
   };
 
   return (
-    <section className="relative z-[1] -mt-[140px] overflow-hidden bg-[#f7f7f9] px-0 pb-[120px] pt-[260px] max-[767px]:px-0 max-[767px]:pb-[60px] max-[767px]:pt-[234px]">
+    <section className="relative z-[1] -mt-[140px] overflow-hidden bg-faq-bg pt-[260px] pb-[120px] max-[991px]:px-0 max-[991px]:py-15 max-[991px]:pt-[234px]">
       <div className="mx-auto max-w-[1440px] px-[15px]">
-        <div className="flex max-[991px]:flex-col max-[991px]:gap-[30px]">
+        <div className="flex max-[991px]:flex-col max-[991px]:gap-7.5">
           <div className="w-1/2 text-center max-[991px]:w-full">
             <Image
               src="/faq-image.png"
               alt="faq"
               width={500}
               height={553}
-              loading="lazy"
+              priority
+              unoptimized
               className="max-[1200px]:pr-[45px] max-[991px]:pr-0"
             />
           </div>
-          <div className="mx-auto w-1/2 max-w-[800px] max-[991px]:w-full">
-            <span className="mb-3.5 inline-block rounded-[30px] bg-[#efeefe] px-4 py-[3px] text-[30px] font-medium leading-[1.62] text-[#5751e1]">
+          <div className="w-1/2 max-w-[800px] max-[991px]:w-full">
+            <span className="mb-3.5 inline-block rounded-[30px] bg-subtitle-bg px-4 py-[3px] text-[30px] font-medium leading-[1.62] text-subtitle-accent">
               FAQ&apos;s
             </span>
             {faq_data.map((item) => (
@@ -85,12 +88,18 @@ const FAQAccordion = () => {
                 onClick={() => handleAccordionClick(item.id)}
               >
                 <div
-                  className={`flex cursor-pointer justify-between p-[15px] text-xl font-medium text-black ${
-                    activeId === item.id ? "text-[#5751e1]" : ""
+                  className={`flex cursor-pointer justify-between p-[15px] text-xl font-medium text-fg ${
+                    activeId === item.id ? "text-subtitle-accent" : ""
                   }`}
                 >
                   {item.question}
-                  <span className={activeId === item.id ? "[&_svg]:fill-[#5751e1] [&_svg]:-rotate-90" : "[&_svg]:rotate-90"}>
+                  <span
+                    className={
+                      activeId === item.id
+                        ? "[&_svg]:fill-subtitle-accent [&_svg]:-rotate-90"
+                        : "[&_svg]:rotate-90"
+                    }
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="12"
@@ -103,7 +112,7 @@ const FAQAccordion = () => {
                 </div>
                 {activeId === item.id && (
                   <div
-                    className="border-t border-[#ddd] p-[15px] text-base leading-[1.7] text-[#171717] [&_a]:text-[#5751e1]"
+                    className="border-t border-[#ddd] p-[15px] text-base leading-relaxed text-[#171717] [&_a]:text-subtitle-accent"
                     dangerouslySetInnerHTML={{ __html: item.answer }}
                   />
                 )}

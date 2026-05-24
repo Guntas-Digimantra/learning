@@ -1,30 +1,21 @@
-'use client';
-
-import { usePathname } from 'next/navigation';
-
-import Header from '@/components/common/Header';
-import Footer from '@/components/common/Footer';
-import WhatsappButton from '@/components/v2/buttons/whatsapp-button';
-import { V2BasePathProvider } from '@/contexts/v2-base-path';
-
 import './globals.css';
 
+import V2Chrome from './v2-chrome';
+
 /**
- * 100% Tailwind shell for /v2 (header, footer, pages use utilities only).
+ * v2 layout — marketing CSS must load from this Server Component so /v2
+ * hard-refresh gets styles on first paint (not only after client navigation).
  */
 export default function V2Layout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const isLandingPage =
-    pathname?.includes('/amit-tiwari') || pathname?.includes('/summercamps');
-
   return (
-    <V2BasePathProvider basePath="/v2">
-      {!isLandingPage && <Header />}
-      <main className="relative">
-        {children}
-        {!isLandingPage && <WhatsappButton />}
-      </main>
-      {!isLandingPage && <Footer />}
-    </V2BasePathProvider>
+    <>
+      {/* Offset fixed sticky nav before React hydrates body.v2-has-site-header */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `@media(max-width:990px){body:has(header .sticky-header){padding-top:74px}}@media(max-width:768px){body:has(header .sticky-header){padding-top:50px}}`,
+        }}
+      />
+      <V2Chrome>{children}</V2Chrome>
+    </>
   );
 }

@@ -16,6 +16,12 @@ import pixelmatch from 'pixelmatch';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import {
+  loadCourseSlugs,
+  loadMicrosoftSlugs,
+  loadWebinarSlugs,
+  BLOG_SAMPLE_SLUG,
+} from './load-pages.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = path.join(__dirname, 'output');
@@ -75,53 +81,25 @@ const STATIC_PAGES = [
   },
 ];
 
-const MICROSOFT_SLUGS = [
-  'ai-engineer',
-  'data-analyst',
-  'solutions-architect',
-  'devops-engineer',
-  'data-engineer',
-  'information-protection-administrator',
-  'security-operations-analyst',
-  'data-scientist',
-  'security-engineer',
-  'developer-(beginner)',
-  'developer-(intermediate)',
-  'functional-consultant',
-];
-
-const COURSE_SLUGS = [
-  'prompt-engineering-for-generative-ai-6-week',
-  'artificial-intelligence-for-business-leaders-6-week',
-  'ai-for-marketing-customer-experience-6-week',
-  'generative-agentic-ai-6-week',
-  'gen-ai-with-data-science-for-beginners-6-week',
-  'build-your-own-agentic-ai-assistants-6-week',
-  'full-stack-development-mern',
-  'web-development-frontend-react-next',
-  'web-development-backend-node',
-  'php-with-laravel-wordpress',
-  'mobile-app-development-react-native',
-  'mobile-app-development-flutter',
-  'quality-assurance-software-testing',
-  'ui-ux-design',
-  'artificial-intelligence-with-python',
-  'data-science-with-python',
-  'cybersecurity',
-  'devops-with-cloud-computing',
-];
-
 function buildAllPages() {
+  const courseSlugs = loadCourseSlugs();
+  const microsoftSlugs = loadMicrosoftSlugs();
+  const webinarSlugs = loadWebinarSlugs();
+
   const dynamic = [
-    ...COURSE_SLUGS.map((slug) => ({
+    ...courseSlugs.map((slug) => ({
       slug: `course-${slug}`,
       path: `courses/${slug}`,
     })),
-    ...MICROSOFT_SLUGS.map((slug) => ({
+    ...microsoftSlugs.map((slug) => ({
       slug: `ms-${slug}`,
       path: `microsoft-certifications/${slug}`,
     })),
-    { slug: 'webinar-top-1-percent', path: 'top-1-percent-students-webinar' },
+    ...webinarSlugs.map((slug) => ({
+      slug: `webinar-${slug}`,
+      path: slug,
+    })),
+    { slug: `blog-${BLOG_SAMPLE_SLUG}`, path: `blog/${BLOG_SAMPLE_SLUG}` },
   ];
   return [...STATIC_PAGES, ...dynamic];
 }
@@ -442,6 +420,7 @@ async function main() {
 
   const md = buildMarkdownReport(report);
   fs.writeFileSync(path.join(OUT_DIR, 'REPORT.md'), md);
+  fs.writeFileSync(path.join(__dirname, 'parity-checklist.md'), buildChecklistMd(report));
 
   console.log(`\nReport: ${reportPath}`);
   console.log(`Screenshots: ${OUT_DIR}/<slug>/<viewport>/{reference,v2,diff}.png`);
@@ -482,6 +461,42 @@ function buildMarkdownReport(report) {
   }
 
   lines.push('', '## Artifacts', '', 'Failed checks: `output/<slug>/<viewport>/diff.png`');
+  return lines.join('\n');
+}
+
+function buildChecklistMd(report) {
+  const byPage = new Map();
+  for (const r of report.results) {
+    if (!byPage.has(r.pageSlug)) byPage.set(r.pageSlug, {});
+    byPage.get(r.pageSlug)[r.viewport] = r.pass ? 'PASS' : 'FAIL';
+  }
+  const lines = [
+    '# V2 pixel parity checklist',
+    '',
+    `> Auto-generated from compare run · ${report.generatedAt}`,
+    `> Reference: ${report.refBase} · V2: ${report.v2Base} · threshold ≤ ${MAX_DIFF_PERCENT}%`,
+    '',
+    `**Summary:** ${report.summary.pass}/${report.summary.total} checks passed`,
+    '',
+    '| Page | mobile | tablet | laptop |',
+    '| --- | --- | --- | --- |',
+  ];
+  for (const [page, vps] of [...byPage.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
+    lines.push(
+      `| ${page} | ${vps.mobile ?? '—'} | ${vps.tablet ?? '—'} | ${vps.laptop ?? '—'} |`
+    );
+  }
+  lines.push(
+    '',
+    '## Run',
+    '',
+    '```bash',
+    'cd dm_learning && pnpm dev -p 3001',
+    'cd dm_learning_refactor && pnpm dev -p 3000',
+    'cd visual-parity && node compare.mjs --viewport all',
+    '```',
+    ''
+  );
   return lines.join('\n');
 }
 

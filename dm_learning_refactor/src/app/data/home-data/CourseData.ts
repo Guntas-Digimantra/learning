@@ -11,15 +11,15 @@ import course_dml_8 from "../../../../public/coursedml8.webp"
 import course_dml_9 from "../../../../public/coursedml9.webp"
 import course_dml_10 from "../../../../public/coursedml10.webp"
 import course_dml_11 from "../../../../public/coursedml11.webp"
-import course_dml_12 from '/public/coursedml12.png';
-import course_dml_13 from '/public/coursedml13.png';
-import course_dml_14 from '/public/coursedml14.png';
-import course_dml_15 from '/public/coursedml15.png';
-import course_dml_16 from '/public/coursedml16.png';
-import course_dml_17 from '/public/coursedml17.png';
-import course_dml_18 from '/public/coursedml18.png';
-import course_dml_21 from '/public/coursedml21.png';
-import course_dml_22 from '/public/coursedml22.png';
+import course_dml_12 from "../../../../public/coursedml12.png";
+import course_dml_13 from "../../../../public/coursedml13.png";
+import course_dml_14 from "../../../../public/coursedml14.png";
+import course_dml_15 from "../../../../public/coursedml15.png";
+import course_dml_16 from "../../../../public/coursedml16.png";
+import course_dml_17 from "../../../../public/coursedml17.png";
+import course_dml_18 from "../../../../public/coursedml18.png";
+import course_dml_21 from "../../../../public/coursedml21.png";
+import course_dml_22 from "../../../../public/coursedml22.png";
 
 interface DataType {
   id: number;

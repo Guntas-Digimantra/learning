@@ -50,7 +50,7 @@ const OurInterns: React.FC = () => {
     <section className="bg-white px-[15px] py-[100px] max-md:pt-0">
       <div className="mx-auto max-w-[1440px] px-[15px]">
         <div className="flex flex-row gap-10 rounded-[4rem] bg-[#f7f8f9] px-[82px] py-16 max-[991px]:flex-col max-md:px-[30px] max-md:py-[30px]">
-          <div className="swiper-dml-pagination w-[45%] max-[991px]:w-full max-[991px]:text-center">
+          <div className="w-[45%] max-[991px]:w-full max-[991px]:text-center [&_.swiper]:pb-[30px] [&_.swiper-pagination]:bottom-0 [&_.swiper-pagination-bullet]:!h-2.5 [&_.swiper-pagination-bullet]:!w-2.5 [&_.swiper-pagination-bullet]:border [&_.swiper-pagination-bullet]:border-black [&_.swiper-pagination-bullet-active]:!bg-black">
             <Swiper
               {...setting}
               modules={[Navigation, Autoplay, Pagination]}

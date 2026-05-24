@@ -2,6 +2,10 @@
 import { useState } from "react";
 import { Icons } from "./Icons";
 
+const inputClass =
+  "w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-900";
+const labelClass = "mb-1 block text-sm font-semibold text-slate-900";
+
 export default function RegisterForm() {
   const [kids, setKids] = useState([{ id: 1, name: "" }]);
 
@@ -18,173 +22,132 @@ export default function RegisterForm() {
     alert("Thanks! We will contact you soon.");
   };
 
-  const inputStyle: React.CSSProperties = {
-    width: "100%",
-    borderRadius: ".5rem",
-    border: "1px solid #cbd5e1",
-    padding: ".625rem .75rem",
-    background: "#fff",
-    color: "#0f172a",
-  };
-  const labelStyle: React.CSSProperties = {
-    display: "block",
-    fontSize: ".875rem",
-    fontWeight: 600,
-    marginBottom: ".25rem",
-    color: "#0f172a",
-  };
-
   return (
     <div
       id="register"
-      className="sc-register-card"
-      style={{
-        background: "#fff",
-        color: "#0f172a",
-        borderRadius: "1.5rem",
-        padding: "2rem",
-        boxShadow: "0 25px 50px -12px rgba(0,0,0,.25)",
-      }}
+      className="box-border w-full max-w-full min-w-0 scroll-mt-24 overflow-hidden rounded-3xl bg-white p-8 text-slate-900 shadow-[0_25px_50px_-12px_rgba(0,0,0,.25)] max-[480px]:rounded-2xl max-[480px]:p-5 lg:scroll-mt-[180px]"
     >
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-        <fieldset disabled style={{ border: "none", padding: 0, margin: 0 }}>
-        <div>
-          <label style={labelStyle}>Parent Name *</label>
-          <input required placeholder="Parent Name" style={inputStyle} />
-        </div>
-        <div>
-          <label style={{ ...labelStyle, marginBottom: ".5rem" }}>Kid Name(s) *</label>
-          {kids.map((kid, i) => (
-            <div key={kid.id} style={{ display: "flex", gap: ".5rem", marginBottom: ".5rem" }}>
-              <input required placeholder={`Kid ${i + 1} Name`} style={{ ...inputStyle, flex: 1 }} />
-              {kids.length > 1 && (
-                <button
-                  type="button"
-                  onClick={() => removeKid(kid.id)}
-                  style={{ padding: ".5rem", borderRadius: ".5rem", background: "#f1f5f9", cursor: "pointer" }}
-                >
-                  <Icons.X />
-                </button>
-              )}
-            </div>
-          ))}
-          <button
-            type="button"
-            onClick={addKid}
-            style={{ display: "inline-flex", alignItems: "center", gap: ".5rem", fontSize: ".875rem", fontWeight: 600, color: "var(--brand)", background: "none", border: "none", padding: 0, cursor: "pointer", appearance: "none", textDecoration: "none" }}
-            onMouseOver={e => {
-              (e.currentTarget as HTMLButtonElement).style.textDecoration = "underline";
-            }}
-            onMouseOut={e => {
-              (e.currentTarget as HTMLButtonElement).style.textDecoration = "none";
-            }}
-          >
-            <Icons.Plus /> Add another kid
-          </button>
-        </div>
-        <div>
-          <label style={labelStyle}>Parent Email ID *</label>
-          <input type="email" required placeholder="parent@email.com" style={inputStyle} />
-        </div>
-        <div className="sc-form-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-          <div>
-            <label style={labelStyle}>Age *</label>
-            <select required style={inputStyle}>
-              <option value="">--Select Age--</option>
-              {[10,11,12,13,14,15,16,17].map(a => <option key={a}>{a}</option>)}
-            </select>
-          </div>
-          <div>
-            <label style={labelStyle}>Grade *</label>
-            <select required style={inputStyle}>
-              <option value="">--Select Grade--</option>
-              {[3,4,5,6,7,8,9,10,11,12].map(g => <option key={g}>{g}</option>)}
-            </select>
-          </div>
-        </div>
-        <div className="sc-form-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-          <div>
-            <label style={labelStyle}>City *</label>
-            <select required style={inputStyle}>
-              <option value="">--Select City--</option>
-              {[
-                "Mumbai",
-                "Delhi",
-                "Bangalore",
-                "Pune",
-                "Chennai",
-                "Hyderabad",
-                "Kolkata",
-                "Ahmedabad",
-                "Chandigarh",
-                "Mohali",
-                "Other",
-              ].map(c => <option key={c}>{c}</option>)}
-            </select>
-          </div>
-          <div>
-            <label style={labelStyle}>Phone *</label>
-            <input type="tel" required placeholder="Phone" style={inputStyle} />
-          </div>
-        </div>
-        <div className="sc-form-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-          <div>
-            <label style={labelStyle}>Select Date *</label>
-            <input type="date" required style={inputStyle} />
-          </div>
-          <div>
-            <label style={labelStyle}>Select Slot *</label>
-            <select required style={inputStyle}>
-              <option value="">Select Slot</option>
-              <option>10:00 AM – 12:00 PM</option>
-              <option>11:30 AM – 1:30 PM</option>
-              <option>2:00 PM – 4:00 PM</option>
-              <option>3:30 PM – 5:30 PM</option>
-              <option>5:00 PM – 7:00 PM</option>
-            </select>
-          </div>
-        </div>
-        {/* <label style={{ display: "flex", alignItems: "center", gap: ".5rem", fontSize: ".875rem", cursor: "pointer" }}>
-          <input type="checkbox" defaultChecked />
-          I agree to be contacted about 8ucate courses.
-        </label> */}
-        <button
-          type="submit"
-          style={{
-            width: "100%",
-            padding: ".75rem",
-            borderRadius: 9999,
-            border: "2px solid var(--accent-pink)",
-            color: "var(--accent-pink)",
-            fontWeight: 700,
-            background: "transparent",
-            cursor: "pointer",
-            transition: ".2s",
-            fontSize: "1rem",
-            marginTop: "1rem",
-          }}
-          onMouseOver={e => {
-            (e.currentTarget as HTMLButtonElement).style.background = "var(--accent-pink)";
-            (e.currentTarget as HTMLButtonElement).style.color = "#fff";
-          }}
-          onMouseOut={e => {
-            (e.currentTarget as HTMLButtonElement).style.background = "transparent";
-            (e.currentTarget as HTMLButtonElement).style.color = "var(--accent-pink)";
-          }}
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+        <fieldset
+          disabled
+          className="m-0 w-full max-w-full min-w-0 border-0 p-0 disabled:cursor-not-allowed [&_button:disabled]:cursor-not-allowed [&_input:disabled]:cursor-not-allowed [&_select:disabled]:cursor-not-allowed"
         >
-          Enroll Now – ₹699
-        </button>
-
-        {/* Email us link */}
-        <p style={{ textAlign: "center", fontSize: ".8125rem", color: "#64748b", marginTop: ".75rem" }}>
-          Have questions?{" "}
-          <a
-            href="mailto:learning@digimantra.com"
-            style={{ color: "var(--brand)", fontWeight: 600, textDecoration: "underline" }}
+          <div className="min-w-0">
+            <label className={labelClass}>Parent Name *</label>
+            <input required placeholder="Parent Name" className={inputClass} />
+          </div>
+          <div className="min-w-0">
+            <label className={`${labelClass} mb-2`}>Kid Name(s) *</label>
+            {kids.map((kid, i) => (
+              <div key={kid.id} className="mb-2 flex min-w-0 gap-2">
+                <input
+                  required
+                  placeholder={`Kid ${i + 1} Name`}
+                  className={`${inputClass} min-w-0 flex-1`}
+                />
+                {kids.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => removeKid(kid.id)}
+                    className="cursor-pointer rounded-lg bg-slate-100 p-2"
+                  >
+                    <Icons.X />
+                  </button>
+                )}
+              </div>
+            ))}
+            <button
+              type="button"
+              onClick={addKid}
+              className="inline-flex cursor-pointer appearance-none items-center gap-2 border-0 bg-transparent p-0 text-sm font-semibold text-(--brand) no-underline hover:underline"
+            >
+              <Icons.Plus /> Add another kid
+            </button>
+          </div>
+          <div className="min-w-0">
+            <label className={labelClass}>Parent Email ID *</label>
+            <input type="email" required placeholder="parent@email.com" className={inputClass} />
+          </div>
+          <div className="grid min-w-0 grid-cols-2 gap-4 max-[768px]:grid-cols-1">
+            <div className="min-w-0">
+              <label className={labelClass}>Age *</label>
+              <select required className={inputClass}>
+                <option value="">--Select Age--</option>
+                {[10, 11, 12, 13, 14, 15, 16, 17].map((a) => (
+                  <option key={a}>{a}</option>
+                ))}
+              </select>
+            </div>
+            <div className="min-w-0">
+              <label className={labelClass}>Grade *</label>
+              <select required className={inputClass}>
+                <option value="">--Select Grade--</option>
+                {[3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((g) => (
+                  <option key={g}>{g}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="grid min-w-0 grid-cols-2 gap-4 max-[768px]:grid-cols-1">
+            <div className="min-w-0">
+              <label className={labelClass}>City *</label>
+              <select required className={inputClass}>
+                <option value="">--Select City--</option>
+                {[
+                  "Mumbai",
+                  "Delhi",
+                  "Bangalore",
+                  "Pune",
+                  "Chennai",
+                  "Hyderabad",
+                  "Kolkata",
+                  "Ahmedabad",
+                  "Chandigarh",
+                  "Mohali",
+                  "Other",
+                ].map((c) => (
+                  <option key={c}>{c}</option>
+                ))}
+              </select>
+            </div>
+            <div className="min-w-0">
+              <label className={labelClass}>Phone *</label>
+              <input type="tel" required placeholder="Phone" className={inputClass} />
+            </div>
+          </div>
+          <div className="grid min-w-0 grid-cols-2 gap-4 max-[768px]:grid-cols-1">
+            <div className="min-w-0">
+              <label className={labelClass}>Select Date *</label>
+              <input type="date" required className={inputClass} />
+            </div>
+            <div className="min-w-0">
+              <label className={labelClass}>Select Slot *</label>
+              <select required className={inputClass}>
+                <option value="">Select Slot</option>
+                <option>10:00 AM – 12:00 PM</option>
+                <option>11:30 AM – 1:30 PM</option>
+                <option>2:00 PM – 4:00 PM</option>
+                <option>3:30 PM – 5:30 PM</option>
+                <option>5:00 PM – 7:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <button
+            type="submit"
+            className="mt-4 w-full cursor-pointer rounded-full border-2 border-(--accent-pink) bg-transparent py-3 text-base font-bold text-(--accent-pink) transition-colors duration-200 hover:bg-(--accent-pink) hover:text-white"
           >
-            Email us at learning@digimantra.com
-          </a>
-        </p>
+            Enroll Now – ₹699
+          </button>
+
+          <p className="mt-3 text-center text-[0.8125rem] text-slate-500">
+            Have questions?{" "}
+            <a
+              href="mailto:learning@digimantra.com"
+              className="font-semibold text-(--brand) underline"
+            >
+              Email us at learning@digimantra.com
+            </a>
+          </p>
         </fieldset>
       </form>
     </div>

@@ -45,7 +45,7 @@ const Courses = () => {
             {courses.map((course, i) => (
               <div
                 key={i}
-                className="card-hover-scale flex cursor-pointer flex-col items-center justify-center rounded-[25px] bg-white p-[27px] text-center shadow-[0_0_6px_rgba(0,0,0,0.1)]"
+                className="flex cursor-pointer flex-col items-center justify-center rounded-[25px] bg-white p-[27px] text-center shadow-[0_0_6px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-in-out hover:scale-90"
               >
                 <Image src={course.icon} alt="courses" className="pb-3" />
                 <p className="text-xl font-semibold leading-[1.2] text-black">{course.title}</p>

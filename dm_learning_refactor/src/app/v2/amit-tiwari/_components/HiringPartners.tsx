@@ -17,7 +17,7 @@ const LOGOS = [
 export default function HiringPartners() {
   return (
     <section className="bg-bg-muted py-10 xl:py-16">
-      <div className="container-page flex flex-col gap-6 xl:gap-14">
+      <div className="mx-auto w-full max-w-[76.25rem] px-6 flex flex-col gap-6 xl:gap-14">
         {/* Header */}
         <div className="flex flex-col gap-3">
           <span className="text-at-cta text-sm font-medium uppercase tracking-wide">
