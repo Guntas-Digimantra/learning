@@ -96,9 +96,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
     }
   };
 
+  const isHome = !isModal && !isBlog;
+
   return (
-    <div>
-      {!isModal && !isBlog && (
+    <div className={isHome ? "form-container" : undefined}>
+      {isHome && <h2 className="form-heading">Let&apos;s Connect!</h2>}
+      {!isHome && !isModal && !isBlog && (
         <h2 className="text-center text-[28px] leading-[33.61px] font-medium text-fg">
           Let&apos;s Connect!
         </h2>
@@ -106,9 +109,15 @@ const ContactForm: React.FC<ContactFormProps> = ({
       <form
         onSubmit={handleSubmit(onSubmit)}
         method="post"
-        className="mt-6 flex flex-col gap-[15px] font-[family-name:var(--font-poppins)]"
+        className={isHome ? "contact-form" : "mt-6 flex flex-col gap-[15px] font-[family-name:var(--font-poppins)]"}
       >
-        <div className="flex gap-5 max-[767px]:flex-col">
+        <div
+          className={
+            isHome
+              ? "name-container max-[767px]:!flex-col max-[767px]:!gap-[15px]"
+              : "flex gap-5 max-[767px]:flex-col"
+          }
+        >
           {isBlog && (
             <div className="w-full">
               <input
@@ -135,11 +144,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
           )}
 
           {!isBlog && (
-            <div className="w-full">
+            <div className={isHome ? "w-100" : "w-full"}>
               <input
                 type="text"
                 placeholder={isModal ? "Name*" : "First Name*"}
-                className={inputField}
+                className={isHome ? "form-fields" : inputField}
                 {...register("firstName", {
                   required: "This field is required",
                   maxLength: {
@@ -154,16 +163,18 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 })}
               />
               {errors.firstName && (
-                <div className={errorClass}>{errors.firstName.message}</div>
+                <div className={isHome ? "error" : errorClass}>
+                  {errors.firstName.message}
+                </div>
               )}
             </div>
           )}
           {!isModal && !isBlog && (
-            <div className="w-full">
+            <div className="w-100">
               <input
                 type="text"
                 placeholder="Last Name"
-                className={inputField}
+                className="form-fields"
                 {...register("lastName", {
                   maxLength: {
                     value: 20,
@@ -176,17 +187,25 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 })}
               />
               {errors.lastName && (
-                <div className={errorClass}>{errors.lastName.message}</div>
+                <div className="error">
+                  {errors.lastName.message}
+                </div>
               )}
             </div>
           )}
         </div>
 
-        <div className="flex gap-5 max-[767px]:flex-col">
-          <div className="w-full">
+        <div
+          className={
+            isHome
+              ? "name-container max-[767px]:!flex-col max-[767px]:!gap-[15px]"
+              : "flex gap-5 max-[767px]:flex-col"
+          }
+        >
+          <div className={isHome ? "w-100" : "w-full"}>
             <input
               type="email"
-              className={isBlog ? blogInputField : inputField}
+              className={isHome ? "form-fields" : isBlog ? blogInputField : inputField}
               placeholder={isModal ? "E-mail*" : "Email ID*"}
               {...register("email", {
                 required: "This field is required",
@@ -198,15 +217,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
               })}
             />
             {errors.email && (
-              <div className={errorClass}>{errors.email.message}</div>
+              <div className={isHome ? "error" : errorClass}>
+                {errors.email.message}
+              </div>
             )}
           </div>
           {!isModal && !isBlog && (
-            <div className="w-full">
+            <div className="w-100">
               <input
                 type="text"
                 placeholder="Institution Name*"
-                className={inputField}
+                className="form-fields"
                 {...register("institutionName", {
                   required: "This field is required",
                   pattern: {
@@ -217,7 +238,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 })}
               />
               {errors.institutionName && (
-                <div className={errorClass}>
+                <div className="error">
                   {errors.institutionName.message}
                 </div>
               )}
@@ -225,19 +246,29 @@ const ContactForm: React.FC<ContactFormProps> = ({
           )}
         </div>
 
-        <div>
+        <div className={isHome ? "phone-input-container" : undefined}>
           <div
-            className={`flex gap-2.5 ${isBlog ? "rounded-[10px] border border-form-blog-border" : ""}`}
+            className={
+              isHome
+                ? "phone-number-field"
+                : `flex gap-2.5 ${isBlog ? "rounded-[10px] border border-form-blog-border" : ""}`
+            }
           >
             <span
-              className={`${inputField} w-[10%] shrink-0 max-[575px]:w-[20%]`}
+              className={isHome ? "form-fields" : `${inputField} w-[10%] shrink-0 max-[575px]:w-[20%]`}
             >
               +91
             </span>
             <input
               type="text"
               placeholder={isModal ? "Contact No.*" : "Enter Phone Number"}
-              className={`${isBlog ? `${blogInputField} flex-1 border-0` : `${inputField} flex-1`}`}
+              className={
+                isHome
+                  ? "form-fields"
+                  : isBlog
+                    ? `${blogInputField} flex-1 border-0`
+                    : `${inputField} flex-1`
+              }
               {...register("phone", {
                 required: "This field is required",
                 validate: (value) => {
@@ -260,7 +291,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
             />
           </div>
           {errors.phone && (
-            <div className={errorClass}>{errors.phone.message}</div>
+            <div className={isHome ? "error" : errorClass}>
+              {errors.phone.message}
+            </div>
           )}
         </div>
 
@@ -305,7 +338,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             />
           ) : (
             <textarea
-              className={textAreaField}
+              className={isHome ? "text-area" : textAreaField}
               placeholder="Share your requirements"
               {...register("requirements", {
                 maxLength: {
@@ -322,27 +355,36 @@ const ContactForm: React.FC<ContactFormProps> = ({
         </div>
 
         {!isModal && !isBlog && (
-          <label className="flex items-center gap-3">
+          <label className={isHome ? "terms-conditions" : "flex items-center gap-3"}>
             <input
               type="checkbox"
-              className="h-5 w-5"
+              className={isHome ? undefined : "h-5 w-5"}
               {...register("terms", {
                 required: "You must agree to the terms and conditions",
               })}
             />
-            <span className="text-lg leading-[21.6px] font-normal text-fg">
+            <span
+              className={isHome ? "terms-content" : "text-lg leading-[21.6px] font-normal text-fg"}
+            >
               I agree to the{" "}
-              <Link href="/terms-and-conditions" className="text-terms-link">
-                Terms & Conditions<span className="text-red-600">*</span>
+              <Link href="/terms-and-conditions" className="terms-link">
+                Terms & Conditions
+                <span style={{ color: "red" }}>*</span>
               </Link>
             </span>
           </label>
         )}
         {errors.terms && (
-          <div className={errorClass}>{errors.terms.message}</div>
+          <div className={isHome ? "error" : errorClass}>
+            {errors.terms.message}
+          </div>
         )}
         <button
-          className="h-13 w-full cursor-pointer rounded-[14px] border-0 bg-submit text-xl text-white hover:text-white"
+          className={
+            isHome
+              ? "submit-btn"
+              : "h-13 w-full cursor-pointer rounded-[14px] border-0 bg-submit text-xl text-white hover:text-white"
+          }
           type="submit"
         >
           {loading ? "Submitting..." : !isModal ? "Submit" : "Let's Go!"}

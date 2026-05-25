@@ -29,13 +29,7 @@ const About = () => {
               <p>
                 <span>5K+</span> Enrolled Students
               </p>
-              <Image
-                src="/student_grp.webp"
-                alt=""
-                width={155}
-                height={40}
-                unoptimized
-              />
+              <Image src="/student_grp.webp" alt="img" width={155} height={40} unoptimized />
             </div>
           </div>
           <div className="right-aboutus-content">

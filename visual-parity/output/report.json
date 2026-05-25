@@ -1,74 +1,16 @@
 {
-  "generatedAt": "2026-05-23T08:31:16.631Z",
+  "generatedAt": "2026-05-25T12:18:15.620Z",
   "refBase": "http://localhost:3001",
   "v2Base": "http://localhost:3000/v2",
   "viewports": [
-    "mobile",
-    "tablet",
     "laptop"
   ],
   "summary": {
-    "total": 3,
-    "pass": 0,
-    "fail": 3
+    "total": 40,
+    "pass": 1,
+    "fail": 39
   },
   "results": [
-    {
-      "slug": "home__mobile",
-      "pageSlug": "home",
-      "viewport": "mobile",
-      "ref": "http://localhost:3001/",
-      "v2": "http://localhost:3000/v2/",
-      "refStatus": 200,
-      "v2Status": 200,
-      "pass": false,
-      "error": null,
-      "compare": {
-        "refSize": {
-          "w": 390,
-          "h": 11851
-        },
-        "v2Size": {
-          "w": 390,
-          "h": 11851
-        },
-        "padded": {
-          "w": 390,
-          "h": 11851
-        },
-        "numDiff": 32477,
-        "totalPixels": 4621890,
-        "diffPercent": 0.7026779088208503
-      }
-    },
-    {
-      "slug": "home__tablet",
-      "pageSlug": "home",
-      "viewport": "tablet",
-      "ref": "http://localhost:3001/",
-      "v2": "http://localhost:3000/v2/",
-      "refStatus": 200,
-      "v2Status": 200,
-      "pass": false,
-      "error": "Dimension mismatch ref 768x11613 vs v2 768x11469",
-      "compare": {
-        "refSize": {
-          "w": 768,
-          "h": 11613
-        },
-        "v2Size": {
-          "w": 768,
-          "h": 11469
-        },
-        "padded": {
-          "w": 768,
-          "h": 11613
-        },
-        "numDiff": 2001003,
-        "totalPixels": 8918784,
-        "diffPercent": 22.435827574700767
-      }
-    },
     {
       "slug": "home__laptop",
       "pageSlug": "home",
@@ -78,7 +20,7 @@
       "refStatus": 200,
       "v2Status": 200,
       "pass": false,
-      "error": "Dimension mismatch ref 1440x8752 vs v2 1440x8675",
+      "error": null,
       "compare": {
         "refSize": {
           "w": 1440,
@@ -86,16 +28,628 @@
         },
         "v2Size": {
           "w": 1440,
-          "h": 8675
+          "h": 8781
         },
         "padded": {
           "w": 1440,
-          "h": 8752
+          "h": 8781
         },
-        "numDiff": 3156517,
-        "totalPixels": 12602880,
-        "diffPercent": 25.045997422811293
+        "numDiff": 795660,
+        "totalPixels": 12644640,
+        "diffPercent": 6.292468587480545
       }
+    },
+    {
+      "slug": "about-us__laptop",
+      "pageSlug": "about-us",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/about-us",
+      "v2": "http://localhost:3000/v2/about-us",
+      "refStatus": 200,
+      "v2Status": 200,
+      "pass": false,
+      "error": "Dimension mismatch ref 1440x3665 vs v2 1440x3813 (height tol 39px)",
+      "compare": {
+        "refSize": {
+          "w": 1440,
+          "h": 3665
+        },
+        "v2Size": {
+          "w": 1440,
+          "h": 3813
+        },
+        "padded": {
+          "w": 1440,
+          "h": 3813
+        },
+        "numDiff": 940689,
+        "totalPixels": 5490720,
+        "diffPercent": 17.132343299239444
+      }
+    },
+    {
+      "slug": "contact__laptop",
+      "pageSlug": "contact",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/contact",
+      "v2": "http://localhost:3000/v2/contact",
+      "refStatus": 200,
+      "v2Status": 200,
+      "pass": false,
+      "error": "Dimension mismatch ref 1440x2340 vs v2 1440x2241 (height tol 32px)",
+      "compare": {
+        "refSize": {
+          "w": 1440,
+          "h": 2340
+        },
+        "v2Size": {
+          "w": 1440,
+          "h": 2241
+        },
+        "padded": {
+          "w": 1440,
+          "h": 2340
+        },
+        "numDiff": 598560,
+        "totalPixels": 3369600,
+        "diffPercent": 17.763532763532762
+      }
+    },
+    {
+      "slug": "courses__laptop",
+      "pageSlug": "courses",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/courses",
+      "v2": "http://localhost:3000/v2/courses",
+      "refStatus": 200,
+      "v2Status": 200,
+      "pass": true,
+      "error": null,
+      "compare": {
+        "refSize": {
+          "w": 1440,
+          "h": 4084
+        },
+        "v2Size": {
+          "w": 1440,
+          "h": 4084
+        },
+        "padded": {
+          "w": 1440,
+          "h": 4084
+        },
+        "numDiff": 11247,
+        "totalPixels": 5880960,
+        "diffPercent": 0.19124428664707802
+      }
+    },
+    {
+      "slug": "campus-collaborations__laptop",
+      "pageSlug": "campus-collaborations",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/campus-collaborations",
+      "v2": "http://localhost:3000/v2/campus-collaborations",
+      "refStatus": 200,
+      "v2Status": 200,
+      "pass": false,
+      "error": "Dimension mismatch ref 1440x5531 vs v2 1440x4670 (height tol 56px)",
+      "compare": {
+        "refSize": {
+          "w": 1440,
+          "h": 5531
+        },
+        "v2Size": {
+          "w": 1440,
+          "h": 4670
+        },
+        "padded": {
+          "w": 1440,
+          "h": 5531
+        },
+        "numDiff": 3174201,
+        "totalPixels": 7964640,
+        "diffPercent": 39.853665702404626
+      }
+    },
+    {
+      "slug": "student-enrollment__laptop",
+      "pageSlug": "student-enrollment",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/student-enrollment",
+      "v2": "http://localhost:3000/v2/student-enrollment",
+      "refStatus": 200,
+      "v2Status": 200,
+      "pass": false,
+      "error": "Dimension mismatch ref 1440x1887 vs v2 1440x1489 (height tol 32px)",
+      "compare": {
+        "refSize": {
+          "w": 1440,
+          "h": 1887
+        },
+        "v2Size": {
+          "w": 1440,
+          "h": 1489
+        },
+        "padded": {
+          "w": 1440,
+          "h": 1887
+        },
+        "numDiff": 1199059,
+        "totalPixels": 2717280,
+        "diffPercent": 44.12717864923748
+      }
+    },
+    {
+      "slug": "privacy-policy__laptop",
+      "pageSlug": "privacy-policy",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/privacy-policy",
+      "v2": "http://localhost:3000/v2/privacy-policy",
+      "refStatus": 200,
+      "v2Status": 200,
+      "pass": false,
+      "error": "Dimension mismatch ref 1440x6104 vs v2 1440x3436 (height tol 62px)",
+      "compare": {
+        "refSize": {
+          "w": 1440,
+          "h": 6104
+        },
+        "v2Size": {
+          "w": 1440,
+          "h": 3436
+        },
+        "padded": {
+          "w": 1440,
+          "h": 6104
+        },
+        "numDiff": 4578041,
+        "totalPixels": 8789760,
+        "diffPercent": 52.0837997852046
+      }
+    },
+    {
+      "slug": "blog__laptop",
+      "pageSlug": "blog",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/blog",
+      "v2": "http://localhost:3000/v2/blog",
+      "refStatus": 200,
+      "v2Status": 200,
+      "pass": false,
+      "error": null,
+      "compare": {
+        "refSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "v2Size": {
+          "w": 1440,
+          "h": 900
+        },
+        "padded": {
+          "w": 1440,
+          "h": 900
+        },
+        "numDiff": 415143,
+        "totalPixels": 1296000,
+        "diffPercent": 32.03263888888889
+      }
+    },
+    {
+      "slug": "become-an-instructor__laptop",
+      "pageSlug": "become-an-instructor",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/become-an-instructor",
+      "v2": "http://localhost:3000/v2/become-an-instructor",
+      "refStatus": 200,
+      "v2Status": 200,
+      "pass": false,
+      "error": "Dimension mismatch ref 1440x1990 vs v2 1440x1596 (height tol 32px)",
+      "compare": {
+        "refSize": {
+          "w": 1440,
+          "h": 1990
+        },
+        "v2Size": {
+          "w": 1440,
+          "h": 1596
+        },
+        "padded": {
+          "w": 1440,
+          "h": 1990
+        },
+        "numDiff": 1196657,
+        "totalPixels": 2865600,
+        "diffPercent": 41.75938721384701
+      }
+    },
+    {
+      "slug": "microsoft-certifications__laptop",
+      "pageSlug": "microsoft-certifications",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications",
+      "v2": "http://localhost:3000/v2/microsoft-certifications",
+      "refStatus": 200,
+      "v2Status": 200,
+      "pass": false,
+      "error": "Dimension mismatch ref 1440x8179 vs v2 1440x5976 (height tol 82px)",
+      "compare": {
+        "refSize": {
+          "w": 1440,
+          "h": 8179
+        },
+        "v2Size": {
+          "w": 1440,
+          "h": 5976
+        },
+        "padded": {
+          "w": 1440,
+          "h": 8179
+        },
+        "numDiff": 4783173,
+        "totalPixels": 11777760,
+        "diffPercent": 40.61190752740759
+      }
+    },
+    {
+      "slug": "advanced-industrial-training-and-internship__laptop",
+      "pageSlug": "advanced-industrial-training-and-internship",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/advanced-industrial-training-and-internship",
+      "v2": "http://localhost:3000/v2/advanced-industrial-training-and-internship",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/advanced-industrial-training-and-internship\nCall log:\n  - navigating to \"http://localhost:3001/advanced-industrial-training-and-internship\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "summer-bootcamp-and-internship__laptop",
+      "pageSlug": "summer-bootcamp-and-internship",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/summer-bootcamp-and-internship",
+      "v2": "http://localhost:3000/v2/summer-bootcamp-and-internship",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/summer-bootcamp-and-internship\nCall log:\n  - navigating to \"http://localhost:3001/summer-bootcamp-and-internship\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "terms-and-conditions__laptop",
+      "pageSlug": "terms-and-conditions",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/terms-and-conditions",
+      "v2": "http://localhost:3000/v2/terms-and-conditions",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/terms-and-conditions\nCall log:\n  - navigating to \"http://localhost:3001/terms-and-conditions\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ai-masterclass__laptop",
+      "pageSlug": "ai-masterclass",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/ai-masterclass",
+      "v2": "http://localhost:3000/v2/ai-masterclass",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/ai-masterclass\nCall log:\n  - navigating to \"http://localhost:3001/ai-masterclass\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "web-development__laptop",
+      "pageSlug": "web-development",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/web-development",
+      "v2": "http://localhost:3000/v2/web-development",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/web-development\nCall log:\n  - navigating to \"http://localhost:3001/web-development\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "thank-you-page__laptop",
+      "pageSlug": "thank-you-page",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/thank-you-page",
+      "v2": "http://localhost:3000/v2/thank-you-page",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/thank-you-page\nCall log:\n  - navigating to \"http://localhost:3001/thank-you-page\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "thankyou__laptop",
+      "pageSlug": "thankyou",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/thankyou",
+      "v2": "http://localhost:3000/v2/thankyou",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/thankyou\nCall log:\n  - navigating to \"http://localhost:3001/thankyou\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "success__laptop",
+      "pageSlug": "success",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/success",
+      "v2": "http://localhost:3000/v2/success",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/success\nCall log:\n  - navigating to \"http://localhost:3001/success\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "failed__laptop",
+      "pageSlug": "failed",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/failed",
+      "v2": "http://localhost:3000/v2/failed",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/failed\nCall log:\n  - navigating to \"http://localhost:3001/failed\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "payment__laptop",
+      "pageSlug": "payment",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/payment",
+      "v2": "http://localhost:3000/v2/payment",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/payment\nCall log:\n  - navigating to \"http://localhost:3001/payment\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "harsh__laptop",
+      "pageSlug": "harsh",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/harsh",
+      "v2": "http://localhost:3000/v2/harsh",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/harsh\nCall log:\n  - navigating to \"http://localhost:3001/harsh\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "summercamps__laptop",
+      "pageSlug": "summercamps",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/summercamps",
+      "v2": "http://localhost:3000/v2/summercamps",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/summercamps\nCall log:\n  - navigating to \"http://localhost:3001/summercamps\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "amit-tiwari-dmp__laptop",
+      "pageSlug": "amit-tiwari-dmp",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/amit-tiwari/digital-marketing-professional",
+      "v2": "http://localhost:3000/v2/amit-tiwari/digital-marketing-professional",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/amit-tiwari/digital-marketing-professional\nCall log:\n  - navigating to \"http://localhost:3001/amit-tiwari/digital-marketing-professional\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "leveraging-ai-with-solo-preneurship__laptop",
+      "pageSlug": "leveraging-ai-with-solo-preneurship",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/leveraging-ai-with-solo-preneurship",
+      "v2": "http://localhost:3000/v2/leveraging-ai-with-solo-preneurship",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/leveraging-ai-with-solo-preneurship\nCall log:\n  - navigating to \"http://localhost:3001/leveraging-ai-with-solo-preneurship\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "master-100-ai-prompts-in-60-minutes__laptop",
+      "pageSlug": "master-100-ai-prompts-in-60-minutes",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/master-100-ai-prompts-in-60-minutes",
+      "v2": "http://localhost:3000/v2/master-100-ai-prompts-in-60-minutes",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/master-100-ai-prompts-in-60-minutes\nCall log:\n  - navigating to \"http://localhost:3001/master-100-ai-prompts-in-60-minutes\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ms-ai-engineer__laptop",
+      "pageSlug": "ms-ai-engineer",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications/ai-engineer",
+      "v2": "http://localhost:3000/v2/microsoft-certifications/ai-engineer",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/microsoft-certifications/ai-engineer\nCall log:\n  - navigating to \"http://localhost:3001/microsoft-certifications/ai-engineer\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ms-data-analyst__laptop",
+      "pageSlug": "ms-data-analyst",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications/data-analyst",
+      "v2": "http://localhost:3000/v2/microsoft-certifications/data-analyst",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/microsoft-certifications/data-analyst\nCall log:\n  - navigating to \"http://localhost:3001/microsoft-certifications/data-analyst\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ms-solutions-architect__laptop",
+      "pageSlug": "ms-solutions-architect",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications/solutions-architect",
+      "v2": "http://localhost:3000/v2/microsoft-certifications/solutions-architect",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/microsoft-certifications/solutions-architect\nCall log:\n  - navigating to \"http://localhost:3001/microsoft-certifications/solutions-architect\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ms-devops-engineer__laptop",
+      "pageSlug": "ms-devops-engineer",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications/devops-engineer",
+      "v2": "http://localhost:3000/v2/microsoft-certifications/devops-engineer",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/microsoft-certifications/devops-engineer\nCall log:\n  - navigating to \"http://localhost:3001/microsoft-certifications/devops-engineer\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ms-data-engineer__laptop",
+      "pageSlug": "ms-data-engineer",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications/data-engineer",
+      "v2": "http://localhost:3000/v2/microsoft-certifications/data-engineer",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/microsoft-certifications/data-engineer\nCall log:\n  - navigating to \"http://localhost:3001/microsoft-certifications/data-engineer\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ms-information-protection-administrator__laptop",
+      "pageSlug": "ms-information-protection-administrator",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications/information-protection-administrator",
+      "v2": "http://localhost:3000/v2/microsoft-certifications/information-protection-administrator",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/microsoft-certifications/information-protection-administrator\nCall log:\n  - navigating to \"http://localhost:3001/microsoft-certifications/information-protection-administrator\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ms-security-operations-analyst__laptop",
+      "pageSlug": "ms-security-operations-analyst",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications/security-operations-analyst",
+      "v2": "http://localhost:3000/v2/microsoft-certifications/security-operations-analyst",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/microsoft-certifications/security-operations-analyst\nCall log:\n  - navigating to \"http://localhost:3001/microsoft-certifications/security-operations-analyst\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ms-data-scientist__laptop",
+      "pageSlug": "ms-data-scientist",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications/data-scientist",
+      "v2": "http://localhost:3000/v2/microsoft-certifications/data-scientist",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/microsoft-certifications/data-scientist\nCall log:\n  - navigating to \"http://localhost:3001/microsoft-certifications/data-scientist\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ms-security-engineer__laptop",
+      "pageSlug": "ms-security-engineer",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications/security-engineer",
+      "v2": "http://localhost:3000/v2/microsoft-certifications/security-engineer",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/microsoft-certifications/security-engineer\nCall log:\n  - navigating to \"http://localhost:3001/microsoft-certifications/security-engineer\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ms-developer-(beginner)__laptop",
+      "pageSlug": "ms-developer-(beginner)",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications/developer-(beginner)",
+      "v2": "http://localhost:3000/v2/microsoft-certifications/developer-(beginner)",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/microsoft-certifications/developer-(beginner)\nCall log:\n  - navigating to \"http://localhost:3001/microsoft-certifications/developer-(beginner)\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ms-developer-(intermediate)__laptop",
+      "pageSlug": "ms-developer-(intermediate)",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications/developer-(intermediate)",
+      "v2": "http://localhost:3000/v2/microsoft-certifications/developer-(intermediate)",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/microsoft-certifications/developer-(intermediate)\nCall log:\n  - navigating to \"http://localhost:3001/microsoft-certifications/developer-(intermediate)\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "ms-functional-consultant__laptop",
+      "pageSlug": "ms-functional-consultant",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/microsoft-certifications/functional-consultant",
+      "v2": "http://localhost:3000/v2/microsoft-certifications/functional-consultant",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/microsoft-certifications/functional-consultant\nCall log:\n  - navigating to \"http://localhost:3001/microsoft-certifications/functional-consultant\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "webinar-top-1-percent-students-webinar__laptop",
+      "pageSlug": "webinar-top-1-percent-students-webinar",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/top-1-percent-students-webinar",
+      "v2": "http://localhost:3000/v2/top-1-percent-students-webinar",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/top-1-percent-students-webinar\nCall log:\n  - navigating to \"http://localhost:3001/top-1-percent-students-webinar\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "webinar-ai-masterclass__laptop",
+      "pageSlug": "webinar-ai-masterclass",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/ai-masterclass",
+      "v2": "http://localhost:3000/v2/ai-masterclass",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/ai-masterclass\nCall log:\n  - navigating to \"http://localhost:3001/ai-masterclass\", waiting until \"load\"\n",
+      "compare": null
+    },
+    {
+      "slug": "blog-how-to-build-a-career-in-ai__laptop",
+      "pageSlug": "blog-how-to-build-a-career-in-ai",
+      "viewport": "laptop",
+      "ref": "http://localhost:3001/blog/how-to-build-a-career-in-ai",
+      "v2": "http://localhost:3000/v2/blog/how-to-build-a-career-in-ai",
+      "refStatus": 0,
+      "v2Status": 0,
+      "pass": false,
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3001/blog/how-to-build-a-career-in-ai\nCall log:\n  - navigating to \"http://localhost:3001/blog/how-to-build-a-career-in-ai\", waiting until \"load\"\n",
+      "compare": null
     }
   ]
 }

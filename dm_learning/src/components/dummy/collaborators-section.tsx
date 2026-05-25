@@ -19,7 +19,7 @@ const PARTNER_LOGOS = [
 
 export default function CollaborationsSection() {
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section} home-collaborations-section`}>
       <h2 className={styles.title}>
         OUR <span>COLLABORATIONS</span>
       </h2>
@@ -27,7 +27,7 @@ export default function CollaborationsSection() {
       <div className={styles.slider}>
         <div className={`${styles.fade} ${styles.left}`} />
         <div className={`${styles.fade} ${styles.right}`} />
-        <div className={styles.track}>
+        <div className={`${styles.track} collab-track`}>
           {[...PARTNER_LOGOS, ...PARTNER_LOGOS].map((src, i) => (
             <div key={i} className={styles.logo}>
               <Image

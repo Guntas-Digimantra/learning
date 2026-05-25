@@ -1,5 +1,7 @@
 # v2 Tailwind-Only Migration — status (updated)
 
+> **Pixel parity progress:** see [`../V2_PIXEL_PARITY_TASKS.md`](../V2_PIXEL_PARITY_TASKS.md) (measured PASS/FAIL per page).
+
 ## Architecture
 
 | URL | Layout CSS | Chrome | Page content |

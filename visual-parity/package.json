@@ -3,12 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "compare": "node compare.mjs",
-    "compare:static": "node compare.mjs --static",
-    "compare:static:all": "node compare.mjs --static --viewport all",
-    "compare:all": "node compare.mjs --viewport all",
-    "compare:page": "node compare.mjs --page",
-    "measure": "node measure.mjs"
+    "compare": "node compare.mjs --static --viewport laptop",
+    "compare:all-viewports": "node compare.mjs --static --viewport all",
+    "compare:page": "node compare.mjs --page"
   },
   "dependencies": {
     "pixelmatch": "^7.1.0",

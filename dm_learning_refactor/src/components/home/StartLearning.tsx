@@ -1,11 +1,6 @@
 "use client";
 import React, { useMemo, useState } from "react";
 
-const tabBase =
-  "w-1/2 max-w-[395px] cursor-pointer border-0 bg-[#f2f2f2] px-3 py-3 text-center leading-snug text-fg transition-colors min-h-[82px] max-[1200px]:p-1.5 max-[1200px]:leading-snug max-[1024px]:w-full max-[1024px]:max-w-full max-[1024px]:min-h-14 max-[1024px]:text-[17px] max-[575px]:min-h-14 max-[575px]:w-full max-[575px]:max-w-full max-[575px]:px-2.5 max-[575px]:text-base max-[575px]:leading-snug";
-const tabActive = "bg-primary text-white hover:bg-primary hover:text-white";
-const tabHover = "hover:bg-primary hover:text-white";
-
 const StartLearning = () => {
   const [activeProgram, setActiveProgram] = useState(
     "Advanced Industrial Training"
@@ -48,64 +43,156 @@ const StartLearning = () => {
       ? advancedTrainingData
       : summerBootCampData;
 
-  const isAdvanced = activeProgram === "Advanced Industrial Training";
-
   return (
-    <section className="bg-[url('/start-learning-with-DML.webp')] bg-cover bg-center py-25 max-[991px]:py-15">
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <h2 className="text-center text-section-title font-semibold text-white max-[991px]:text-section-title-sm">
+    <section
+      className="start-learning-container max-[767px]:!py-[60px]"
+      style={{
+        backgroundImage: "url('/start-learning-with-DML.webp')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        padding: "100px 0",
+      }}
+    >
+      <div className="dml-container">
+        <h2
+          className="max-[767px]:!text-[28px]"
+          style={{
+            color: "#fff",
+            textAlign: "center",
+            fontSize: 36,
+            marginBottom: 30,
+            fontWeight: 600,
+          }}
+        >
           Start Learning With DML
         </h2>
-        <div className="mx-auto mt-0 max-w-[1100px] min-h-[420px] rounded-[36px] bg-white px-[30px] py-15 shadow-[0_4px_15px_rgba(0,0,0,0.2)] max-[575px]:w-full max-[575px]:max-w-full max-[575px]:min-h-0 max-[575px]:rounded-[28px] max-[575px]:px-3.5 max-[575px]:py-7.5 max-[1024px]:min-h-0 max-[1024px]:px-5 max-[1024px]:py-10">
-          <div className="flex justify-center pb-7.5 max-[1024px]:w-full max-[1024px]:flex-col max-[1024px]:pb-6 max-[575px]:flex-col max-[575px]:pb-7">
+        <div
+          className="start-learning-table min-h-[420px] max-[1024px]:!min-h-0 max-[575px]:!w-full max-[575px]:!max-w-full max-[575px]:!rounded-[28px] max-[575px]:!p-[30px_14px_28px] min-[576px]:max-[1024px]:!px-5 min-[576px]:max-[1024px]:!py-9"
+          style={{
+            maxWidth: 1100,
+            borderRadius: 36,
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
+            background: "#fff",
+            padding: "60px 30px",
+            margin: "auto",
+          }}
+        >
+          <div
+            className="tabs-table flex items-stretch justify-center max-[1024px]:w-full max-[1024px]:flex-col max-[1024px]:!pb-6 max-[575px]:!pb-7"
+            style={{ paddingBottom: 30 }}
+          >
             <button
               type="button"
-              className={`${tabBase} rounded-tl-[10px] rounded-bl-[10px] text-[19px] max-[1024px]:rounded-t-[10px] max-[1024px]:rounded-br-none max-[1024px]:rounded-bl-none max-[575px]:rounded-t-[10px] max-[575px]:rounded-b-none ${isAdvanced ? tabActive : tabHover}`}
+              className={`advanced-button min-h-[82px] max-[1024px]:!min-h-[56px] max-[1024px]:!w-full max-[1024px]:!max-w-full max-[1024px]:!text-[17px] max-[1024px]:rounded-t-[10px] max-[1024px]:rounded-bl-none max-[1024px]:rounded-br-none max-[575px]:!text-base ${
+                activeProgram === "Advanced Industrial Training" ? "tabs-active" : ""
+              }`}
+              style={{
+                border: "none",
+                width: "50%",
+                maxWidth: 395,
+                borderTopLeftRadius: 10,
+                borderBottomLeftRadius: 10,
+                padding: 12,
+                cursor: "pointer",
+                color:
+                  activeProgram === "Advanced Industrial Training" ? "#fff" : "#000",
+                fontSize: 19,
+                backgroundColor:
+                  activeProgram === "Advanced Industrial Training"
+                    ? "#fc8b20"
+                    : "#f2f2f2",
+                lineHeight: 1.4,
+                textAlign: "center",
+              }}
               onClick={handleClick("Advanced Industrial Training")}
             >
               Advanced Industrial{" "}
-              <span className="max-[1200px]:block">Training & Internship</span>
+              <span className="break-bootcamp">Training & Internship</span>
             </button>
             <button
               type="button"
-              className={`${tabBase} flex items-center justify-center rounded-tr-[10px] rounded-br-[10px] text-lg max-[1024px]:rounded-none max-[1024px]:rounded-b-[10px] max-[575px]:rounded-none max-[575px]:rounded-b-[10px] ${!isAdvanced ? tabActive : tabHover}`}
+              className={`summer-button flex min-h-[82px] items-center justify-center max-[1024px]:!min-h-[56px] max-[1024px]:!w-full max-[1024px]:!max-w-full max-[1024px]:rounded-b-[10px] max-[1024px]:rounded-t-none max-[575px]:!text-base ${
+                activeProgram === "Summer BootCamp" ? "tabs-active" : ""
+              }`}
+              style={{
+                border: "none",
+                width: "50%",
+                maxWidth: 395,
+                cursor: "pointer",
+                borderTopRightRadius: 10,
+                borderBottomRightRadius: 10,
+                padding: 12,
+                color: activeProgram === "Summer BootCamp" ? "#fff" : "#000",
+                backgroundColor:
+                  activeProgram === "Summer BootCamp" ? "#fc8b20" : "#f2f2f2",
+                fontSize: 18,
+                lineHeight: 1.4,
+                textAlign: "center",
+              }}
               onClick={handleClick("Summer BootCamp")}
             >
-              Summer <span className="max-[1200px]:block">Bootcamp</span>
+              Summer <span className="break-bootcamp">Bootcamp</span>
             </button>
           </div>
-          <div className="w-full overflow-x-auto pb-4 [-webkit-overflow-scrolling:touch] max-[575px]:pb-4">
-            <table className="w-full min-w-[700px] border-collapse text-fg-muted max-[575px]:min-w-[600px]">
+          <div
+            className="scroll-table"
+            style={{
+              width: "100%",
+              overflowX: "auto",
+              WebkitOverflowScrolling: "touch",
+              paddingBottom: 15,
+            }}
+          >
+            <table
+              className="table-start-dates max-[1024px]:!min-w-[600px] max-[575px]:!min-w-[520px]"
+              style={{
+                width: "100%",
+                minWidth: 700,
+                borderCollapse: "collapse",
+                color: "#6d6c80",
+              }}
+            >
               <thead>
                 <tr>
-                  <th className="w-1/4 p-3 text-left text-lg">Starting From</th>
-                  <th className="w-1/4 p-3 text-left text-lg">
+                  <th
+                    className="max-[991px]:!p-[9px] max-[991px]:!text-base"
+                    style={{ textAlign: "left", fontSize: 18, padding: 12, width: "25%" }}
+                  >
+                    Starting From
+                  </th>
+                  <th
+                    className="max-[991px]:!p-[9px] max-[991px]:!text-base"
+                    style={{ textAlign: "left", fontSize: 18, padding: 12, width: "25%" }}
+                  >
                     Completion Hours
                   </th>
-                  <th className="w-1/4 p-3 text-left text-lg">
+                  <th
+                    className="max-[991px]:!p-[9px] max-[991px]:!text-base"
+                    style={{ textAlign: "left", fontSize: 18, padding: 12, width: "25%" }}
+                  >
                     Admissions Deadlines
                   </th>
-                  <th className="w-1/4 p-3 text-right" />
+                  <th className="max-[991px]:!p-[9px]" style={{ padding: 12, width: "25%" }} />
                 </tr>
               </thead>
               <tbody>
                 {programData.map((item, index) => (
-                  <tr key={index} className="border-t border-[#e7e7e7]">
-                    <td className="w-1/4 p-3 max-[575px]:min-w-[130px] max-[575px]:whitespace-normal">
+                  <tr key={index} style={{ borderTop: "1px solid #e7e7e7" }}>
+                    <td className="max-[991px]:!p-[9px]" style={{ padding: 12, width: "25%" }}>
                       {item.startEnd}
                     </td>
-                    <td className="w-1/4 p-3 max-[575px]:min-w-[130px] max-[575px]:whitespace-normal">
+                    <td className="max-[991px]:!p-[9px]" style={{ padding: 12, width: "25%" }}>
                       {item.pace}
                     </td>
-                    <td className="w-1/4 p-3 max-[575px]:min-w-[130px] max-[575px]:whitespace-normal">
+                    <td className="max-[991px]:!p-[9px]" style={{ padding: 12, width: "25%" }}>
                       {item.deadline}
                     </td>
-                    <td className="w-1/4 p-3 text-right max-[575px]:min-w-[130px]">
+                    <td
+                      className="max-[991px]:!p-[9px]"
+                      style={{ padding: 12, width: "25%", textAlign: "right" }}
+                    >
                       <a href={item.link}>
-                        <button
-                          type="button"
-                          className="inline-block cursor-pointer rounded-full border-0 bg-black px-[34px] py-4 text-base font-semibold leading-6 text-white"
-                        >
+                        <button type="button" className="dml-button">
                           Get Started
                         </button>
                       </a>

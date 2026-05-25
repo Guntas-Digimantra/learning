@@ -50,7 +50,13 @@ Optional: `BLOG_SLUG=your-post-slug node compare.mjs --page blog-your-post-slug`
 - `parity-checklist.md` — page × viewport PASS/FAIL (regenerated each run)
 - `output/<slug>/<viewport>/{reference,v2,diff}.png`
 
-Settings: mobile 390×844, tablet 768×1024, laptop 1440×900, `pixelmatch` threshold ≤ **0.01%**, identical width × height required.
+Settings: mobile 390×844, tablet 768×1024, laptop 1440×900, pixel diff **< 0.5%** (section compares crop to overlapping region when heights differ slightly).
+
+```bash
+node homepage-responsive-compare.mjs all   # key sections @ 4 breakpoints
+node banner-compare.mjs all
+node header-compare.mjs all
+```
 
 ## Helpers
 

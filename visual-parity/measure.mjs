@@ -5,6 +5,7 @@ const slug = process.argv[2] || 'home';
 const pages = {
   home: ['http://localhost:3001/', 'http://localhost:3000/v2'],
   contact: ['http://localhost:3001/contact', 'http://localhost:3000/v2/contact'],
+  courses: ['http://localhost:3001/courses', 'http://localhost:3000/v2/courses'],
   'amit-tiwari-dmp': [
     'http://localhost:3001/amit-tiwari/digital-marketing-professional',
     'http://localhost:3000/v2/amit-tiwari/digital-marketing-professional',

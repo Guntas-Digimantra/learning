@@ -4,9 +4,6 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 
-const btnPrimary =
-  "inline-block min-w-[200px] cursor-pointer rounded-full border-0 bg-black px-[34px] py-4 text-base font-semibold leading-6 text-white no-underline transition-[linear] duration-300 hover:text-white hover:shadow-none";
-
 const DiscoverOffer = () => {
   const pathname = usePathname();
   const isAboutUsRoute =
@@ -17,9 +14,9 @@ const DiscoverOffer = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const isValidEmail = (email: string) => {
+  const isValidEmail = (value: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    return emailRegex.test(value);
   };
 
   const handleSubmit = async () => {
@@ -35,11 +32,10 @@ const DiscoverOffer = () => {
     }
     setErrorMessage("");
     setLoading(true);
-    const payload = { email };
     const finalData = {
       mailOptions: {
         subject: "DMlearning - Email form",
-        text: payload,
+        text: { email },
       },
     };
 
@@ -57,56 +53,50 @@ const DiscoverOffer = () => {
     }
   };
 
-  const headingClass = isAboutUsRoute
-    ? "text-fg"
-    : "text-white";
-  const paraClass = isAboutUsRoute
-    ? "py-[15px] text-fg"
-    : "py-[15px] text-white";
-
   return (
     <section
-      className={
+      className={`discover-offer-section ${
         isAboutUsRoute
-          ? "bg-[radial-gradient(circle,#f4e5fa,#fff_40%,#f4e5fa)] max-[991px]:py-10"
-          : "bg-discover-bg max-[991px]:py-10"
-      }
+          ? "aboutus-section-background bg-[radial-gradient(circle,#f4e5fa,#ffffff_40%,#f4e5fa)]"
+          : "bg-[#5751e1]"
+      }`}
     >
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <div className="flex pt-12.5 max-[991px]:flex-col max-[991px]:items-center">
-          <div className="-mb-[5px] w-[30%] max-[991px]:hidden">
+      <div className="dml-container">
+        <div
+          className="discover-content-left flex max-[991px]:mx-auto max-[991px]:max-w-[500px] max-[991px]:flex-col"
+          style={{ paddingTop: 50 }}
+        >
+          <div className="discover-image -mb-[5px] w-[30%] max-[991px]:hidden">
             <Image
               src={
                 isAboutUsRoute ? "/stay-ahead-curve.png" : "/discover-offer.png"
               }
               alt="discover"
               width={500}
-              height={300}
               unoptimized
+              height={300}
             />
           </div>
-          <div className="w-[70%] content-center max-[991px]:w-full max-[991px]:max-w-[500px] max-[991px]:text-center">
+          <div className="discover-content w-[70%] [align-content:center] max-[991px]:w-full max-[991px]:pb-[18px] max-[991px]:text-center">
             {isAboutUsRoute ? (
               <>
-                <h2 className={`text-section-title font-semibold ${headingClass}`}>
+                <h2 className="stay-ahead-curve-title !text-[36px] !text-black">
                   Want To Stay Ahead Of The Curve?
                 </h2>
-                <p className={paraClass}>
+                <p className="stay-ahead-curve-para discover-para !pb-[15px] !text-black">
                   Get the latest updates on study materials, trends and more!
                 </p>
               </>
             ) : (
               <>
-                <h2 className={`text-section-title font-semibold ${headingClass}`}>
-                  Discover What We Offer
-                </h2>
-                <p className={paraClass}>
+                <h2 className="text-[36px] text-white">Discover What We Offer</h2>
+                <p className="discover-para py-[15px] text-white">
                   Enter your email and we&apos;ll share you some samples
                 </p>
               </>
             )}
 
-            <div className="w-4/5 max-[991px]:w-full">
+            <div className="newsletter__form w-[80%] max-[991px]:!w-full">
               <form
                 className="flex items-center gap-8 max-[991px]:flex-col"
                 onSubmit={(e) => {
@@ -114,29 +104,32 @@ const DiscoverOffer = () => {
                   handleSubmit();
                 }}
               >
-                <div className="relative w-full">
+                <div className="email-container relative w-full">
                   <input
                     type="email"
                     placeholder="Type Your E-Mail"
                     value={email}
-                    className="h-15 w-full rounded-full border border-discover-input-border bg-discover-input-bg px-5 py-[18px] text-base leading-snug text-white outline-none transition-[border-color] duration-300 placeholder:text-white/50 focus:border-white focus:shadow-[0_0_5px_rgba(255,255,255,0.5)]"
+                    className="discover-input h-[60px] w-full rounded-[50px] border border-[#433ec2] bg-[#4a44d1] px-5 py-[18px] text-base leading-[1.4] text-white outline-none transition-[border-color] duration-300 placeholder:text-white/50 focus:border-white focus:shadow-[0_0_5px_rgba(255,255,255,0.5)]"
                     onChange={(e) => {
-                      setEmail(e?.target?.value);
+                      setEmail(e.target.value);
                       if (errorMessage) setErrorMessage("");
                     }}
                   />
                   {errorMessage && (
-                    <p className="absolute top-[calc(100%+10px)] m-0 text-error-msg! max-[1200px]:top-[calc(100%+-2px)] max-[1200px]:left-[7px] max-[767px]:inset-x-0 max-[767px]:top-[calc(100%+2px)]">
+                    <p className="error-message absolute top-[calc(100%+10px)] m-0 text-[#ff1d1d]">
                       {errorMessage}
                     </p>
                   )}
                   {successMessage && (
-                    <p className="absolute top-[calc(100%+10px)] m-0 text-success-msg! max-[1200px]:top-[calc(100%+-2px)] max-[1200px]:left-[7px] max-[767px]:inset-x-0 max-[767px]:top-[calc(100%+2px)]">
+                    <p className="success-message absolute top-[calc(100%+10px)] m-0 text-[#2cd72c]">
                       {successMessage}
                     </p>
                   )}
                 </div>
-                <button type="submit" className={btnPrimary}>
+                <button
+                  type="submit"
+                  className="dml-button min-w-[200px] shrink-0 cursor-pointer rounded-full border-0 bg-black px-[34px] py-4 text-base font-semibold leading-6 text-white transition-[linear_0.3s] hover:shadow-none"
+                >
                   {isLoading ? "Loading..." : "Start Learning"}
                 </button>
               </form>
