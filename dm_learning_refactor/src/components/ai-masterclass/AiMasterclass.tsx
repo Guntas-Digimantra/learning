@@ -53,7 +53,7 @@ export default function AiMasterclass() {
             bonusData={[
                 { icon: "/ai-masterclass/Resume.svg", title: "Resume Blueprint", desc: "Turn your resume into a shortlist magnet" },
                 { icon: "/ai-masterclass/Carrer-visibility.svg", title: "Career Visibility Guide", desc: "Build a portfolio that attracts opportunities, even while you sleep." },
-                { icon: "/ai-masterclass/handbook.svg", title: "Interview Success Handbook", desc: "What top candidates do differently to get shortlisted and selected. " }
+                { icon: "/ai-masterclass/handbook.svg", title: "Interview Success Handbook", desc: "What top candidates do differently to get shortlisted and selected. " },
             ]}
             speakerPortrait="/ai-masterclass/speaker_Rahat.jpeg"
             speakerNameAndRoleTitle="Rahat | HR Professional"

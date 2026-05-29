@@ -5,7 +5,7 @@ import logoImg from '@/assets/dm-learning-dark-logo.svg';
 function Footer() {
   return (
     <footer className="footer-section">
-      <div className="footer-inner">
+      <div className="footer-inner [&_p]:![font-family:var(--font-poppins),sans-serif] [&_a]:![font-family:var(--font-poppins),sans-serif] [&_span]:![font-family:var(--font-poppins),sans-serif]">
         <div className="footer-cols-wrap">
           <div className="footer-brand">
             <div className="footer-brand-top">

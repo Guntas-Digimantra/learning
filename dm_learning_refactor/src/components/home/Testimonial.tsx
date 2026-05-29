@@ -59,11 +59,19 @@ const setting = {
 
 const Testimonial = () => {
   return (
-    <section className="testimonial__area">
+    <section
+      className="testimonial__area bg-white max-[767px]:!pt-[60px] max-[767px]:!pb-[200px]"
+      style={{ paddingTop: 100, paddingBottom: 250 }}
+    >
       <div className="dml-container">
-        <div className="section__title">
+        <div
+          className="section__title"
+          style={{ paddingBottom: 20, textAlign: "center", maxWidth: 500, margin: "0 auto" }}
+        >
           <span className="sub-title">Our Testimonials</span>
-          <h2 className="title">What Students Think and Say About Us</h2>
+          <h2 className="title max-[767px]:!text-[28px] max-[767px]:!leading-[1.3]" style={{ color: "#000" }}>
+            What Students Think and Say About Us
+          </h2>
         </div>
 
         <div className="home-testimonial">
@@ -77,7 +85,7 @@ const Testimonial = () => {
               >
                 {testi_data.map((item) => (
                   <SwiperSlide key={item.id} className="swiper-slide">
-                    <div className="testimonial__item">
+                    <div className="testimonial__item max-[767px]:!p-[30px]">
                       <div className="testimonial__item-top">
                         <div className="testimonial__author">
                           <div className="testimonial__author-content">
@@ -93,9 +101,9 @@ const Testimonial = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              <div className="testimonial__nav">
+              <div className="testimonial__nav max-[767px]:!flex max-[767px]:!items-center max-[767px]:!justify-center max-[767px]:!gap-[15px]">
                 <button
-                  className="testimonial-button-prev home-courses-prev"
+                  className="testimonial-button-prev home-courses-prev max-[767px]:!static max-[767px]:!translate-y-0"
                   aria-label="Previous Testimonial"
                 >
                   <svg
@@ -109,7 +117,7 @@ const Testimonial = () => {
                   </svg>
                 </button>
                 <button
-                  className="testimonial-button-next home-courses-next"
+                  className="testimonial-button-next home-courses-next max-[767px]:!static max-[767px]:!translate-y-0"
                   aria-label="Next Testimonial"
                 >
                   <svg

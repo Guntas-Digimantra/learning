@@ -47,10 +47,10 @@ const setting = {
 
 const OurInterns: React.FC = () => {
   return (
-    <section className="bg-white px-[15px] py-[100px] max-md:pt-0">
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <div className="flex flex-row gap-10 rounded-[4rem] bg-[#f7f8f9] px-[82px] py-16 max-[991px]:flex-col max-md:px-[30px] max-md:py-[30px]">
-          <div className="w-[45%] max-[991px]:w-full max-[991px]:text-center [&_.swiper]:pb-[30px] [&_.swiper-pagination]:bottom-0 [&_.swiper-pagination-bullet]:!h-2.5 [&_.swiper-pagination-bullet]:!w-2.5 [&_.swiper-pagination-bullet]:border [&_.swiper-pagination-bullet]:border-black [&_.swiper-pagination-bullet-active]:!bg-black">
+    <section className="our-interns">
+      <div className="dml-container">
+        <div className="our-intern-content">
+          <div className="intern-slider">
             <Swiper
               {...setting}
               modules={[Navigation, Autoplay, Pagination]}
@@ -66,18 +66,18 @@ const OurInterns: React.FC = () => {
                   <div>
                     <Image
                       src={item.thumb}
-                      alt={'intern-images'}
-                      className="w-full rounded-2xl object-cover"
+                      alt="intern-images"
+                      className="intern-slide-image"
                       priority
                     />
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="swiper-pagination"></div>
+            <div className="swiper-pagination" />
           </div>
-          <div className="w-[55%] content-center max-[991px]:w-full">
-            <h2 className="mb-[15px] text-[#302c41] max-lg:text-center">Meet the DML Interns</h2>
+          <div className="intern-right-content">
+            <h2>Meet the DML Interns</h2>
             <p>
               Interns at DigiMantra work across various teams including software engineering, marketing, user experience
               and more. Our internships are available globally and offer many opportunities to learn and grow. You can

@@ -34,22 +34,22 @@ const Benefits = () => {
   ];
 
   return (
-    <section className="bg-black py-[100px] max-[1024px]:pt-[60px] max-[1024px]:pb-0">
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <div className="flex justify-between max-[1024px]:flex-col">
-          <div className="w-[70%] max-[1024px]:w-full">
-            <h2 className="mb-[50px] text-white">Transformative Benefits of Microsoft Certification</h2>
-            <ul className="grid grid-cols-2 gap-x-14 gap-y-8 pr-5 max-[1024px]:pr-0 max-[767px]:grid-cols-1">
+    <section className="microsoft-benefits-section">
+      <div className="dml-container">
+        <div className="featured-content">
+          <div className="features-left microsoft-benefits-left">
+            <h2 className="!text-[48px] !font-semibold !leading-[1.3]">Transformative Benefits of Microsoft Certification</h2>
+            <ul className="max-[767px]:grid-cols-1">
               {benefitsData.map((benefit, index) => (
-                <li key={index} className="bg-gradient-to-b from-black to-[#242424] p-5">
+                <li key={index}>
                   <Image src={benefit.imgSrc} width={64} height={64} alt={benefit.imgAlt} />
-                  <p className="font-semibold text-white">{benefit.title}</p>
-                  <p className="text-[#898895]">{benefit.description}</p>
+                  <p className="microsoft-benefit-title !text-base !leading-[1.7]">{benefit.title}</p>
+                  <p className="microsoft-benefit-desc !text-base !leading-[1.7]">{benefit.description}</p>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="content-center max-[1024px]:text-center [&_img]:max-[1024px]:hidden">
+          <div className="features-right microsoft-benefits-right">
             <Image src="/featured-microsoft.webp" width={352} height={461} alt="featured-img" />
           </div>
         </div>

@@ -6,12 +6,6 @@ import Link from '@/components/ui/link';
 import { regexPatterns, VALIDATIONS } from '../common/common';
 import axios from 'axios';
 
-const DML_BUTTON_CLASS =
-  'inline-flex h-[54px] max-w-[173px] cursor-pointer items-center justify-center rounded-[24px] border-0 bg-black px-8 py-4 font-sans text-base font-semibold text-white transition-[linear_0.3s] hover:bg-white hover:text-black disabled:cursor-not-allowed disabled:opacity-60';
-
-const FORM_FIELD_CLASS =
-  'h-[52px] w-full rounded-[10px] border-[1.23px] border-[#0632321a] bg-white px-3 py-3.5 font-["Poppins",sans-serif] text-base font-normal leading-[21.6px] text-[#565656] outline-none';
-
 const WebDevelopmentForm = () => {
   type FormValues = {
     firstName: string;
@@ -79,25 +73,21 @@ const WebDevelopmentForm = () => {
   };
 
   return (
-    <section className="py-[100px]">
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <div className="flex flex-row justify-between max-lg:flex-col">
-          <div className="max-lg:text-center">
+    <section className="form-section">
+      <div className="dml-container">
+        <div className="form-wrapper">
+          <div className="form-img-wrapper">
             <Image src="/learn-web-development.png" alt="form-img" width={800} height={450} />
           </div>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            method="post"
-            className="mt-6 flex w-full max-w-[40%] flex-col gap-5 rounded-xl p-[50px] shadow-[0px_4px_10px_#2155ba14] max-lg:max-w-full"
-          >
-            <h2 className="text-[28px] text-[#063232]">Learn Web Development & Build Amazing Projects!</h2>
-            <div className="flex gap-5">
-              <div className="w-full">
-                <div className="w-full">
+          <form onSubmit={handleSubmit(onSubmit)} method="post" className="contact-form">
+            <h2>Learn Web Development & Build Amazing Projects!</h2>
+            <div className="name-email-wrapper">
+              <div className="name-container">
+                <div className="w-100">
                   <input
                     type="text"
                     placeholder="Your Name*"
-                    className={FORM_FIELD_CLASS}
+                    className="form-fields"
                     {...register('firstName', {
                       required: 'This field is required',
                       maxLength: {
@@ -111,14 +101,14 @@ const WebDevelopmentForm = () => {
                       validate: VALIDATIONS.noLeadingOrTrailingSpaces,
                     })}
                   />
-                  {errors.firstName && <div className="pt-[3px] text-red-600">{errors.firstName.message}</div>}
+                  {errors.firstName && <div className="error">{errors.firstName.message}</div>}
                 </div>
               </div>
-              <div className="w-full">
-                <div className="w-full">
+              <div className="name-container">
+                <div className="w-100">
                   <input
                     type="email"
-                    className={FORM_FIELD_CLASS}
+                    className="form-fields"
                     placeholder="Your Email*"
                     {...register('email', {
                       required: 'This field is required',
@@ -129,18 +119,18 @@ const WebDevelopmentForm = () => {
                       validate: VALIDATIONS.noLeadingOrTrailingSpaces,
                     })}
                   />
-                  {errors.email && <div className="pt-[3px] text-red-600">{errors.email.message}</div>}
+                  {errors.email && <div className="error">{errors.email.message}</div>}
                 </div>
               </div>
             </div>
 
-            <div>
-              <div className="flex gap-2.5">
-                <span className={`${FORM_FIELD_CLASS} w-[15%] shrink-0`}>+91</span>
+            <div className="phone-input-container">
+              <div className="phone-number-field">
+                <span className="form-fields">+91</span>
                 <input
                   type="text"
                   placeholder="Mobile Number"
-                  className={FORM_FIELD_CLASS}
+                  className="form-fields"
                   {...register('phone', {
                     required: 'This field is required',
                     validate: (value) => {
@@ -158,29 +148,26 @@ const WebDevelopmentForm = () => {
                   }}
                 />
               </div>
-              {errors.phone && <div className="pt-[3px] text-red-600">{errors.phone.message}</div>}
+              {errors.phone && <div className="error">{errors.phone.message}</div>}
             </div>
 
-            <label className="flex gap-3 font-['Poppins',sans-serif] text-[#6b7a7a]">
+            <label className="terms-conditions">
               <input
                 type="checkbox"
-                className="font-['Poppins',sans-serif]"
                 {...register('terms', {
                   required: 'You must agree to the terms and conditions',
                 })}
               />
-              <span>
+              <span className="terms-content">
                 Agree with{' '}
-                <Link href="/terms-and-conditions" className="underline">
-                  Terms and Conditions
-                </Link>
+                <Link href="/terms-and-conditions">Terms and Conditions</Link>
               </span>
             </label>
-            {errors.terms && <div className="pt-[3px] text-red-600">{errors.terms.message}</div>}
-            <button className={DML_BUTTON_CLASS} type="submit" disabled={loading}>
+            {errors.terms && <div className="error">{errors.terms.message}</div>}
+            <button className="dml-button" type="submit" disabled={loading}>
               {loading ? 'Submiting...' : ' Start Learning'}
             </button>
-            {successMessage && <p className="text-green-600">{successMessage}</p>}
+            {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
           </form>
         </div>
       </div>

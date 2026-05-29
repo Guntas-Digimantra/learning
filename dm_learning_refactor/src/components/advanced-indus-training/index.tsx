@@ -10,7 +10,7 @@ import KickOff from './KickOff';
 
 const AdvanceIndusTraining = () => {
   return (
-    <>
+    <div className="advanced-industrial-page">
       <Banner />
       <ProgramDetails />
       <Courses />
@@ -19,7 +19,7 @@ const AdvanceIndusTraining = () => {
       <InternshipProgram />
       <OurInterns />
       <Experience />
-    </>
+    </div>
   );
 };
 

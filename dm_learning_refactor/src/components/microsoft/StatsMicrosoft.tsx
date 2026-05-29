@@ -81,17 +81,14 @@ const StatsMicrosoft = () => {
   }, []);
 
   return (
-    <section className="bg-[#15181a] bg-[url('/dark-hero-section-only-lines-33050.svg')] bg-[length:auto] bg-[position:bottom_center] bg-no-repeat">
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <div className="mx-auto w-full max-w-[976px] pt-[100px] pb-[60px] text-center max-[767px]:pb-0">
-          <div className="stats-heading-one pb-[15px] text-[48px] leading-[76px] font-extrabold text-white transition-[transform,color] duration-700 ease-in-out max-[767px]:text-[40px] max-[767px]:leading-[1.3]">
+    <section className="stats-microsoft-section microsoft-stats-block bg-[#15181a] bg-[url('/dark-hero-section-only-lines-33050.svg')] bg-[length:auto] bg-[position:bottom_center] bg-no-repeat">
+      <div className="dml-container">
+        <div className="stats-heading">
+          <div className="stats-heading-one !text-[48px] !leading-[76px] !font-extrabold transition-[transform,color] duration-700 ease-in-out max-[767px]:!text-[40px] max-[767px]:!leading-[1.3]">
             8 years of empowering tech careers
           </div>
         </div>
-        <div
-          data-stats-content
-          className="relative mx-auto flex w-full max-w-[976px] flex-col gap-[200px] pt-[100px] pb-[100px] text-center max-[767px]:gap-[130px]"
-        >
+        <div data-stats-content>
           <Image
             src="/element1.png"
             alt="element-1"
@@ -129,7 +126,7 @@ const StatsMicrosoft = () => {
               >
                 <Image src={item.imageSrc} alt={item.altText} width={40} height={40} />
               </div>
-              <h2 className="pb-[15px] text-white transition-[transform,color] duration-700 ease-in-out max-[767px]:text-[22px]">
+              <h2 className="pb-[15px] !text-[48px] !font-semibold !leading-[1.3] transition-[transform,color] duration-700 ease-in-out max-[767px]:!text-[22px]">
                 {item.text}
               </h2>
               {index !== statsData.length - 1 && (

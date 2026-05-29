@@ -15,7 +15,7 @@ const CourseArea = () => {
     <>
       <BreadcrumbOne title="All Courses" sub_title="Courses" />
 
-      <section className="all-courses-area-section">
+      <section className="all-courses-area-section max-[991px]:!py-[60px]">
         <div className="dml-container">
           <div className="tab-content" id="myTabContent">
             <div className="tab-pane fade show active" id="grid" role="tabpanel">
@@ -38,6 +38,7 @@ const CourseArea = () => {
                       }}
                     >
                       <div
+                        className="max-[1024px]:!min-h-0"
                         style={{
                           backgroundImage: `url(${item.bgImage?.trim()})`,
                           backgroundSize: 'cover',
@@ -49,7 +50,7 @@ const CourseArea = () => {
                           overflow: 'hidden',
                         }}
                       >
-                        <div className="course-item-left">
+                        <div className="course-item-left max-[768px]:p-5">
                           <div className="course-tags">
                             {item.tag?.map((t, idx) => (
                               <span key={idx} className="course-tag">
@@ -58,7 +59,9 @@ const CourseArea = () => {
                             ))}
                           </div>
 
-                          <h3>{item.title}</h3>
+                          <h3 className="!leading-[110%] max-[1024px]:!text-[12px]">
+                            {item.title}
+                          </h3>
                           {item.review && (
                             <div className="rating-display">
                               <span>
@@ -99,16 +102,16 @@ const CourseArea = () => {
                         }}
                       >
                         <div>
-                          <h5>{item.heading || item.title}</h5>
+                          <h5 className="max-[1024px]:!text-[18px]">{item.heading || item.title}</h5>
                           <p>{item.description}</p>
                         </div>
 
-                        <div className="courses__item-bottom">
+                        <div className="courses__item-bottom max-[1024px]:flex-col max-[1024px]:items-stretch">
                           <span className="start-learning-link">
                             Start Learning <span>›</span>
                           </span>
                           <Link
-                            className="dml-button-slider"
+                            className="dml-button-slider max-[1024px]:!block max-[1024px]:!w-full max-[1024px]:text-center"
                             href="/student-enrollment"
                             onClick={(e) => e.stopPropagation()}
                             style={{ borderRadius: '56px' }}

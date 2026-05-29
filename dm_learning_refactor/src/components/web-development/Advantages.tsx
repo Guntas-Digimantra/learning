@@ -22,19 +22,17 @@ const Adavantages = () => {
   ];
 
   return (
-    <section className="bg-[#f9f9f9] py-[100px]">
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <div className="grid grid-cols-1 gap-[30px] min-[1361px]:grid-cols-3 min-[992px]:max-[1360px]:grid-cols-2">
+    <section className="advantages-section">
+      <div className="dml-container">
+        <div className="advantages-content">
           {Array.isArray(cards) &&
             cards?.map((card, index) => (
-              <div key={index} className="rounded-[14px] bg-white p-[50px] shadow-[0px_4px_10px_rgba(33,85,186,0.08)]">
+              <div key={index} className="advantages-card">
                 <Image src={card.image} alt="img-cards" height={91} width={91} />
-                <h2 className="my-5 text-[28px] uppercase">{card?.title}</h2>
-                <ul className={index > 0 ? 'list-disc pl-5' : ''}>
-                  {card?.description.map((item, descIndex) => (
-                    <li key={descIndex} className="text-xl font-normal text-[#7f8490]">
-                      {item}
-                    </li>
+                <h2>{card?.title}</h2>
+                <ul>
+                  {card?.description.map((item, index) => (
+                    <li key={index}>{item}</li>
                   ))}
                 </ul>
               </div>

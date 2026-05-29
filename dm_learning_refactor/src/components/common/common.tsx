@@ -96,10 +96,29 @@ export const microsoftCourses = [
   'Functional Consultant',
 ];
 
+export const BeginnerAICourse = [
+  'Prompt Engineering for Generative AI',
+  'Artificial Intelligence for Business Leaders',
+  'AI for Marketing & Customer Experience',
+  'Gen AI with Data Science for Beginners',
+  'Build Your Own Agentic AI Assistants ',
+];
+
+export const AdvancedAICourse = [
+  'Prompt Engineering for Generative AI',
+  'Artificial Intelligence for Business Leaders',
+  'AI for Marketing & Customer Experience',
+  'Generative & Agentic AI',
+  'Gen AI with Data Science for Beginners',
+  'Build Your Own Agentic AI Assistants ',
+];
+
 export const howDidYouHeardOptions = ['LinkedIn', 'Instagram', 'Website', 'YouTube', 'Friend', 'Other'];
 
 export enum ProgramNames {
   SummerBootcamp = 'Summer Bootcamp',
   AdvancedIndustrialTraining = 'Advanced Industrial Training & Internship',
   MicrosoftCertifications = 'Microsoft Certifications',
+  BeginnerAICourse = 'Beginner AI Course',
+  AdvancedAICourse = 'Advanced AI Course',
 }

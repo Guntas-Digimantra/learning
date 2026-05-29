@@ -27,25 +27,18 @@ const Certifications = () => {
   ];
 
   return (
-    <section className="bg-black py-[100px] max-[1024px]:py-[60px]" id="certification-career">
-      <div className="mx-auto max-w-[1440px] px-[15px]">
+    <section className="microsoft-certifications-block" id="certification-career">
+      <div className="dml-container">
         <div>
-          <h2 className="mb-[50px] text-center text-white">Certifications Career Path</h2>
-          <div className="grid grid-cols-3 gap-[100px] max-[991px]:grid-cols-2 max-[991px]:gap-[60px] max-[575px]:grid-cols-1">
+          <h2 className="!text-[48px] !font-semibold !leading-[1.3]">Certifications Career Path</h2>
+          <div className="certifcate-content">
             {certificationData?.map((item, i) => (
               <Link
                 key={i}
                 href={`/microsoft-certifications/${item.courseTitle.toLowerCase().replace(/ /g, '-')}`}
-                className="flex flex-col justify-between transition-[transform,opacity] duration-300 ease-in-out hover:scale-[1.07]"
               >
-                <Image
-                  src={item.img}
-                  alt="certification-images"
-                  width={400}
-                  height={200}
-                  className="w-full rounded-[26px] px-5 py-[15px]"
-                />
-                <h3 className="rounded-[15px] bg-[#443f3f] p-3 text-center text-lg text-white">{item.courseTitle}</h3>
+                <Image src={item.img} alt="certification-images" width={400} height={200} />
+                <h3>{item.courseTitle}</h3>
               </Link>
             ))}
           </div>

@@ -37,14 +37,28 @@ function extractObjectKeys(filePath, exportName) {
   return [...new Set(keys)];
 }
 
+function extractDefaultObjectKeys(filePath, constName) {
+  const src = fs.readFileSync(filePath, 'utf8');
+  const marker = `const ${constName} = {`;
+  const start = src.indexOf(marker);
+  if (start < 0) return [];
+  const keys = [];
+  const re = /^\s{2}['"]([a-z0-9-]+)['"]\s*:\s*\{/gm;
+  let m;
+  while ((m = re.exec(src)) !== null) {
+    if (m.index > start) keys.push(m[1]);
+  }
+  return [...new Set(keys)];
+}
+
 export function loadCourseSlugs() {
-  const ai = extractObjectKeys(
+  const ai = extractDefaultObjectKeys(
     path.join(ROOT, 'dm_learning/src/app/data/courses/courses-details.tsx'),
-    'coursesDetails'
+    'dmlCourses'
   );
-  const dev = extractObjectKeys(
+  const dev = extractDefaultObjectKeys(
     path.join(ROOT, 'dm_learning/src/app/data/courses/development-courses-details.tsx'),
-    'developmentCoursesDetails'
+    'developmentCourses'
   );
   return [...new Set([...ai, ...dev])];
 }

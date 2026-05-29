@@ -77,20 +77,32 @@ const DiscoverOffer = () => {
               height={300}
             />
           </div>
-          <div className="discover-content w-[70%] [align-content:center] max-[991px]:w-full max-[991px]:pb-[18px] max-[991px]:text-center">
+          <div
+            className="discover-content w-[70%] max-[991px]:w-full max-[991px]:pb-[18px] max-[991px]:text-center"
+            style={{ alignContent: 'center' }}
+          >
             {isAboutUsRoute ? (
               <>
                 <h2 className="stay-ahead-curve-title !text-[36px] !text-black">
                   Want To Stay Ahead Of The Curve?
                 </h2>
-                <p className="stay-ahead-curve-para discover-para !pb-[15px] !text-black">
+                <p
+                  className="stay-ahead-curve-para discover-para !text-black"
+                  style={{
+                    padding: '0 0 15px',
+                    fontFamily: 'var(--font-poppins), sans-serif',
+                  }}
+                >
                   Get the latest updates on study materials, trends and more!
                 </p>
               </>
             ) : (
               <>
                 <h2 className="text-[36px] text-white">Discover What We Offer</h2>
-                <p className="discover-para py-[15px] text-white">
+                <p
+                  className="discover-para py-[15px] text-white"
+                  style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
+                >
                   Enter your email and we&apos;ll share you some samples
                 </p>
               </>
@@ -98,7 +110,8 @@ const DiscoverOffer = () => {
 
             <div className="newsletter__form w-[80%] max-[991px]:!w-full">
               <form
-                className="flex items-center gap-8 max-[991px]:flex-col"
+                className="flex items-center max-[991px]:flex-col"
+                style={{ gap: 30 }}
                 onSubmit={(e) => {
                   e.preventDefault();
                   handleSubmit();

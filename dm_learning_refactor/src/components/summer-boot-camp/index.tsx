@@ -9,14 +9,14 @@ import Courses from '../advanced-indus-training/Courses';
 
 const SummerBootCamp = () => {
   return (
-    <>
+    <div className="summer-bootcamp-page">
       <Banner />
       <SummerCamp />
       <Courses />
       <SignIn />
       <Stats />
       <JourneyWithSkills />
-    </>
+    </div>
   );
 };
 

@@ -54,11 +54,11 @@ const setting = {
 
 const Testimonial = () => {
   return (
-    <section className="bg-black py-[100px] max-[1024px]:py-[60px]">
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <div className="pb-[70px] text-center max-[767px]:pb-[30px]">
-          <h2 className="text-white">Don&apos;t Just take our Word</h2>
-          <p className="text-white">See what students have to say about our certification program</p>
+    <section className="microsoft-testimonial-section">
+      <div className="dml-container">
+        <div className="microsoft-testimonial-intro">
+          <h2 className="testimonial-heading !text-[48px] !font-semibold !leading-[1.3]">Don&apos;t Just take our Word</h2>
+          <p className="!text-base !leading-[1.7]">See what students have to say about our certification program</p>
         </div>
 
         <Swiper
@@ -68,10 +68,10 @@ const Testimonial = () => {
         >
           {testi_data.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
-              <div className="relative mx-auto flex max-w-[1200px] rounded-[20px] border border-white p-[60px] text-center max-[991px]:flex-col max-[991px]:gap-2.5 max-[991px]:p-[30px]">
-                <div className="mx-auto max-w-[800px]">
-                  <p className="pb-10 text-lg text-white">{testimonial.desc}</p>
-                  <p className="text-xl font-bold text-white">~ {testimonial.name}</p>
+              <div className="microsoft-testimonial-slide">
+                <div className="microft-slider-left">
+                  <p className="testimonial-desc">{testimonial.desc}</p>
+                  <p className="microsoft-testimonial-name">~ {testimonial.name}</p>
                 </div>
               </div>
             </SwiperSlide>

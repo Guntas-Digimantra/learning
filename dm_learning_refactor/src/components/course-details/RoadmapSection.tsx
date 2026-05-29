@@ -55,6 +55,10 @@ const RoadmapSection: React.FC<RoadmapSectionProps> = ({
       if (canScrollNext) {
         scrollNext();
       } else {
+        // Option to reset or stop. User said "finish", usually implies stopping or looping.
+        // If we want to loop:
+        // stepsRef.current?.scrollTo({ left: 0, behavior: 'smooth' });
+        // But if we disable at finish, we stop.
         stopAutoPlay();
       }
     }, 4000);
@@ -76,42 +80,30 @@ const RoadmapSection: React.FC<RoadmapSectionProps> = ({
   }, []);
 
   return (
-    <section
-      className="overflow-hidden bg-white py-16"
+    <section 
+      className="roadmap-section"
       onMouseEnter={stopAutoPlay}
       onMouseLeave={startAutoPlay}
     >
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <h2 className="mb-6 text-left text-[56px] font-semibold leading-[1.2] text-black [font-variant:all-small-caps] max-[1240px]:text-[48px] max-[991px]:text-[40px] max-[768px]:text-[32px]">
-          Your Complete Learning <span className="text-[#fc8b20]">{titleHighlight}</span>
+      <div className="dml-container">
+        <h2 className="roadmap-title">
+          Your Complete Learning <span>{titleHighlight}</span>
         </h2>
 
-        <div className="relative">
-          <div
-            className="flex gap-[30px] overflow-x-auto pb-10 [scrollbar-width:none] max-[768px]:snap-x max-[768px]:snap-mandatory max-[768px]:gap-0 max-[768px]:p-0 [&::-webkit-scrollbar]:hidden"
+        <div className="roadmap-container">
+          <div 
+            className="roadmap-steps" 
             ref={stepsRef}
             onScroll={checkScroll}
           >
             {steps.map((step, index) => (
-              <div
-                key={index}
-                className="relative z-[2] w-[450px] shrink-0 max-[768px]:w-full max-[768px]:snap-start max-[768px]:p-0"
-              >
-                <div className="flex h-full min-h-fit w-full flex-col items-start gap-4 rounded-[20px] border border-[#f0f0f0] bg-white p-8 shadow-[0_10px_40px_0_rgba(0,0,0,0.08)] transition-transform duration-300 hover:-translate-y-[5px] max-[768px]:h-auto max-[768px]:min-h-0 max-[768px]:rounded-lg max-[768px]:p-6 max-[768px]:shadow-none">
-                  <div className="mb-1 inline-block rounded-[20px] bg-[#FC8B20] px-3.5 py-1 text-[13px] font-semibold text-white">
-                    {step?.week ?? step?.month}
-                  </div>
-                  <h3 className="mb-2.5 text-[22px] font-semibold leading-[140%] text-black">
-                    {step.title}
-                  </h3>
-                  <ul className="m-0 list-none p-0">
+              <div key={index} className="roadmap-step-wrapper">
+                <div className="roadmap-card">
+                  <div className="roadmap-step-number">{step?.week ?? step?.month}</div>
+                  <h3 className="roadmap-card-title">{step.title}</h3>
+                  <ul className="roadmap-card-list">
                     {step.topics.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className="relative mb-2.5 pl-5 text-[15px] font-normal leading-[1.6] text-[#444] before:absolute before:left-0 before:font-bold before:text-[#fc8b20] before:content-['•'] max-[768px]:text-sm"
-                      >
-                        {item}
-                      </li>
+                      <li key={idx}>{item}</li>
                     ))}
                   </ul>
                 </div>
@@ -119,13 +111,9 @@ const RoadmapSection: React.FC<RoadmapSectionProps> = ({
             ))}
           </div>
 
-          <div className="mt-10 flex justify-center gap-5">
-            <button
-              className={`flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-none text-white transition-all duration-300 ${
-                !canScrollPrev
-                  ? 'pointer-events-none cursor-not-allowed bg-[#e0e0e0] text-[#888]'
-                  : 'bg-black hover:bg-[#2e2e2e]'
-              }`}
+          <div className="roadmap-navigation">
+            <button 
+              className={`nav-btn prev ${!canScrollPrev ? 'disabled' : ''}`} 
               onClick={scrollPrev}
               disabled={!canScrollPrev}
             >
@@ -133,12 +121,8 @@ const RoadmapSection: React.FC<RoadmapSectionProps> = ({
                 <path d="M19 12H5M12 19l-7-7 7-7" />
               </svg>
             </button>
-            <button
-              className={`flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-none text-white transition-all duration-300 ${
-                !canScrollNext
-                  ? 'pointer-events-none cursor-not-allowed bg-[#e0e0e0] text-[#888]'
-                  : 'bg-black hover:bg-[#2e2e2e]'
-              }`}
+            <button 
+              className={`nav-btn next ${!canScrollNext ? 'disabled' : ''}`} 
               onClick={scrollNext}
               disabled={!canScrollNext}
             >
@@ -154,3 +138,4 @@ const RoadmapSection: React.FC<RoadmapSectionProps> = ({
 };
 
 export default RoadmapSection;
+

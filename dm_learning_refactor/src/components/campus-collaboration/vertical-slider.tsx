@@ -29,13 +29,13 @@ export default function VerticalImageSlider({
       className="h-[840px] w-1/2 max-[767px]:w-full"
     >
       {data.map((img, i) => (
-        <SwiperSlide key={i} className="overflow-hidden rounded-[10px]">
-          <div className="relative h-full w-full overflow-hidden rounded-[10px]">
+        <SwiperSlide key={i} style={{ borderRadius: '10px' }}>
+          <div className="h-full w-full" style={{ borderRadius: '10px' }}>
             <Image
               src={img}
               alt={`slide-${i}`}
               fill
-              className="rounded-[10px] object-cover"
+              style={{ objectFit: 'cover', borderRadius: '10px' }}
             />
           </div>
         </SwiperSlide>

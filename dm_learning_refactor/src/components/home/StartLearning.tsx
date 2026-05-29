@@ -45,7 +45,7 @@ const StartLearning = () => {
 
   return (
     <section
-      className="start-learning-container max-[767px]:!py-[60px]"
+      className="start-learning-container max-[767px]:!pt-[60px] max-[767px]:!pb-[63px]"
       style={{
         backgroundImage: "url('/start-learning-with-DML.webp')",
         backgroundSize: "cover",
@@ -83,7 +83,7 @@ const StartLearning = () => {
           >
             <button
               type="button"
-              className={`advanced-button min-h-[82px] max-[1024px]:!min-h-[56px] max-[1024px]:!w-full max-[1024px]:!max-w-full max-[1024px]:!text-[17px] max-[1024px]:rounded-t-[10px] max-[1024px]:rounded-bl-none max-[1024px]:rounded-br-none max-[575px]:!text-base ${
+              className={`advanced-button min-h-[82px] max-[1024px]:!min-h-[56px] max-[1024px]:!w-full max-[1024px]:!max-w-full max-[1024px]:!text-[17px] max-[1024px]:rounded-t-[10px] max-[1024px]:rounded-bl-none max-[1024px]:rounded-br-none max-[575px]:!min-h-[66px] max-[575px]:!py-[9px] max-[575px]:!text-base ${
                 activeProgram === "Advanced Industrial Training" ? "tabs-active" : ""
               }`}
               style={{
@@ -131,7 +131,7 @@ const StartLearning = () => {
               }}
               onClick={handleClick("Summer BootCamp")}
             >
-              Summer <span className="break-bootcamp">Bootcamp</span>
+              Summer &nbsp; <span className="break-bootcamp">Bootcamp</span>
             </button>
           </div>
           <div
@@ -144,7 +144,7 @@ const StartLearning = () => {
             }}
           >
             <table
-              className="table-start-dates max-[1024px]:!min-w-[600px] max-[575px]:!min-w-[520px]"
+              className="table-start-dates max-[1024px]:!min-w-[600px] max-[575px]:!min-w-[600px]"
               style={{
                 width: "100%",
                 minWidth: 700,

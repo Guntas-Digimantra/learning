@@ -36,16 +36,16 @@ const count_data: DataType[] = [
 
 const WebCounter = () => {
   return (
-    <section className="bg-[#161439]">
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <div className="mx-auto grid max-w-[1000px] grid-cols-2 gap-[26px] px-4 py-[60px] text-white max-md:px-4 max-md:py-[60px] md:grid-cols-4 md:gap-0 md:px-[30px]">
+    <section className="web-counter-section">
+      <div className="dml-container">
+        <div className="web-counter-wrapper">
           {count_data.map((item) => (
-            <div className="text-center" key={item.id}>
+            <div className="counter-number" key={item.id}>
               <h2 className="count">
                 <Count number={item.count} />
                 {item.count_text}
               </h2>
-              <p className="text-[#eff4fc]">{item.text}</p>
+              <p>{item.text}</p>
             </div>
           ))}
         </div>

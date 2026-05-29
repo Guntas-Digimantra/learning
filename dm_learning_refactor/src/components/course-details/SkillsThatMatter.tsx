@@ -20,29 +20,20 @@ const SkillsThatMatter: React.FC<SkillsThatMatterProps> = ({
   items,
 }) => {
   return (
-    <section className="bg-[#fafafa] py-16">
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <h2 className="mb-10 text-center text-[56px] font-semibold leading-[1.2] text-[#2e2e2e] [font-variant:all-small-caps] max-[1240px]:text-[48px] max-[991px]:text-[40px] max-[600px]:text-[32px]">
-          {titleStart}{' '}
-          <span className="text-[#fc8b20] [font-variant:all-small-caps]">{titleHighlight}</span>{' '}
-          {titleEnd}
+    <section className="skills-matter-section">
+      <div className="dml-container">
+        <h2 className="skills-matter-title">
+          {titleStart} <span>{titleHighlight}</span> {titleEnd}
         </h2>
 
-        <div className="grid grid-cols-4 gap-8 max-[1024px]:grid-cols-2 max-[991px]:grid-cols-2 max-[991px]:gap-x-[30px] max-[991px]:gap-y-[50px] max-[600px]:grid-cols-1">
+        <div className="skills-matter-grid">
           {items.map((item, index) => (
-            <div
-              key={index}
-              className="relative mt-[30px] rounded-xl bg-white px-[30px] pb-[30px] pt-[50px] shadow-[0_4px_20px_rgba(0,0,0,0.03)]"
-            >
-              <div className="absolute -top-[30px] left-[30px] flex h-16 w-16 items-center justify-center rounded-[40px] bg-[#2e2e2e] p-4 [&_img]:brightness-0 [&_img]:invert">
+            <div key={index} className="skill-matter-card">
+              <div className="skill-matter-icon">
                 {item.icon}
               </div>
-              <h3 className="mb-3.5 text-2xl font-semibold leading-[150%] text-[#2e2e2e] max-[600px]:text-xl">
-                {item.title}
-              </h3>
-              <p className="text-lg font-normal leading-[150%] text-[#2e2e2e] max-[600px]:text-base">
-                {item.description}
-              </p>
+              <h3 className="skill-matter-card-title">{item.title}</h3>
+              <p className="skill-matter-card-description">{item.description}</p>
             </div>
           ))}
         </div>

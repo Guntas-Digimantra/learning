@@ -1,0 +1,45 @@
+---
+description: dm_learning_refactor v2 parity — inline Tailwind only; legacy CSS is reference-only
+alwaysApply: true
+---
+
+# dm_learning_refactor v2 — inline Tailwind only
+
+When working on **dm_learning_refactor** (especially `/v2` and `src/components/**`):
+
+## Styling source of truth
+
+- Put layout, spacing, typography, and responsive behavior **on components as inline Tailwind classes** (`className="..."`).
+- **`dm_learning/public/css/*.css` is reference only.** Read it to match values; **never** import it into v2 (no `import '.../public/css/home-page.css'`, no copying whole blocks into layout).
+
+## What `src/app/v2/globals.css` is for
+
+- Shared **tokens** (`@theme`), **animations**, and minimal **legacy hooks** already agreed (e.g. header chrome, `dml-container`, `v2-cta-black`).
+- **Do not** add new homepage/section layout rules there to replace Tailwind on components.
+
+## Do not
+
+- Import `public/css/*.css` into `layout.tsx`, pages, or components.
+- Rely on unprefixed legacy classes alone (`hero-banner-content`, `w-50`, `about-section`, etc.) without Tailwind utilities on the same element.
+- Use Tailwind `w-50` for half-width columns — it is a **width utility**, not `flex: 1`. Use `flex-1 min-w-0` (or explicit flex classes).
+
+## Do
+
+- Match reference from `dm_learning` using Tailwind arbitrary values when needed (`text-[36px]`, `py-[100px]`, `min-[992px]:flex-row`).
+- Use **`!` important** on heading/body sizes when `@layer base` in globals overrides marketing sizes (`!text-[50px]`, `!text-[36px]`, `!text-[18px]`).
+- Prefer **mobile-first** breakpoints: `flex-col min-[992px]:flex-row`, not only `max-[991px]:`.
+- Keep parity hook class names on wrappers **only when** visual-compare scripts or docs need them — always pair with equivalent Tailwind on that element.
+
+## Example
+
+```tsx
+// ✅ GOOD — reference values, Tailwind on component
+<section className="about-section bg-white py-[100px] max-[991px]:py-[60px]">
+  <h2 className="!text-[36px] !font-semibold !text-black max-[767px]:!text-[28px]">
+
+// ❌ BAD — importing reference CSS
+import '../../../../public/css/home-page.css';
+
+// ❌ BAD — layout-only legacy class, no Tailwind
+<div className="hero-banner-content">
+```

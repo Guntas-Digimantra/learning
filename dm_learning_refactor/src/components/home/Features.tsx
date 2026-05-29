@@ -1,4 +1,3 @@
-import Image from "next/image";
 import icon_1 from "../../../public/features_icon01.svg";
 import icon_2 from "../../../public/features_icon02.svg";
 import icon_3 from "../../../public/features_icon03.svg";
@@ -18,13 +17,25 @@ const feature_data = [
 
 const FeatureItem = memo(({ item }: { item: (typeof feature_data)[number] }) => (
   <div className="feature-icon-container flex-[0_0_auto] w-1/4 px-[15px] max-[991px]:w-1/2 max-[767px]:!w-full">
-    <div className="features__item mb-[30px] text-center text-white">
+    <div className="features__item mb-[30px] text-center">
       <div className="features__icon mb-[22px] min-h-[93px] transition-all duration-300 ease-out">
-        <Image src={item.icon} width={100} height={100} alt="img" unoptimized />
+        <img
+          src={item.icon.src}
+          width={100}
+          height={100}
+          alt="img"
+          loading="eager"
+          decoding="sync"
+        />
       </div>
-      <div className="features__content text-white">
-        <h4 className="title mb-2 text-[20px] font-medium text-white">{item.title}</h4>
-        <p className="m-0 text-[16px] leading-[1.7] text-[#acaacc]">{item.desc}</p>
+      <div className="features__content">
+        <h4 className="title">{item.title}</h4>
+        <p
+          className="m-0"
+          style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
+        >
+          {item.desc}
+        </p>
       </div>
     </div>
   </div>
@@ -32,16 +43,23 @@ const FeatureItem = memo(({ item }: { item: (typeof feature_data)[number] }) => 
 
 FeatureItem.displayName = "FeatureItem";
 
-const Features = () => (
-  <section className="features__area bg-[#282568]" style={{ padding: '120px 0 90px' }}>
+const Features = () => {
+  return (
+    <section className="features__area bg-[#282568] max-[767px]:!pt-[60px] max-[767px]:!pb-[60px]" style={{ padding: '120px 0 90px' }}>
     <div className="dml-container">
       <div>
-        <div className="feature-content mx-auto w-1/2 pb-10 text-center text-white max-[991px]:!w-full">
+        <div
+          className="feature-content mx-auto w-1/2 text-center max-[991px]:!w-full"
+          style={{ paddingBottom: 40 }}
+        >
           <div className="section__title">
-            <h2 className="title !text-[36px] !font-semibold !text-white">
+            <h2 className="title !text-[36px] !font-semibold !text-white max-[767px]:!text-[28px] max-[767px]:!leading-[1.3]">
               Start Your Learning Journey Today!
             </h2>
-            <p className="mt-[15px] text-[16px] leading-[1.7] text-[#acaacc]">
+            <p
+              className="text-[16px] leading-[1.7] text-[#acaacc]"
+              style={{ marginTop: 15, fontFamily: 'var(--font-poppins), sans-serif' }}
+            >
               Ready to take the first step towards transforming your career? Our comprehensive
               program is designed to help you achieve your goals.
             </p>
@@ -54,7 +72,8 @@ const Features = () => (
         ))}
       </div>
     </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Features;

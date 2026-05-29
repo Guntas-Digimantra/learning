@@ -90,13 +90,13 @@ const FAQAccordion = () => {
               height={553}
               priority
               unoptimized
-              className="h-auto max-w-full max-[1200px]:!pr-[45px]"
+              className="h-auto max-w-full max-[1200px]:!pr-[45px] max-[767px]:!h-[420px] max-[767px]:!w-full max-[767px]:object-cover max-[767px]:!pr-0"
               style={{ display: "block", margin: "0 auto" }}
             />
           </div>
           <div
             className="faq-accordion max-[991px]:!w-full"
-            style={{ width: "50%", maxWidth: 800, margin: "0 auto", minHeight: 590 }}
+            style={{ width: "50%", maxWidth: 800, margin: "0 auto" }}
           >
             <span
               className="sub-title"

@@ -116,11 +116,14 @@ function v2Url(pathSegment) {
   return `${V2_BASE}${p}`;
 }
 
-async function capturePage(page, url, viewportWidth) {
+async function capturePage(page, url, viewportWidth, { v2Chrome = false } = {}) {
   const response = await page.goto(url, { waitUntil: LOAD_STATE, timeout: 120000 });
   const status = response?.status() ?? 0;
   if (status >= 400) {
     return { status, buffer: null, height: 0 };
+  }
+  if (v2Chrome) {
+    await page.evaluate(() => document.body.classList.add('v2-has-site-header'));
   }
   await page.waitForTimeout(WAIT_MS);
   await page.evaluate(async () => {
@@ -189,6 +192,9 @@ async function capturePage(page, url, viewportWidth) {
         sw.slideTo(0, 0);
         sw.update();
       }
+    });
+    document.querySelectorAll('.roadmap-steps').forEach((el) => {
+      el.scrollLeft = 0;
     });
     document.querySelectorAll('[data-sonner-toaster]').forEach((el) => el.remove());
     document.querySelectorAll('iframe').forEach((el) => {
@@ -287,7 +293,7 @@ async function runPage(browser, pageDef, viewportKey) {
 
   try {
     const refCap = await capturePage(refPage, ref, viewport.width);
-    const v2Cap = await capturePage(v2Page, v2, viewport.width);
+    const v2Cap = await capturePage(v2Page, v2, viewport.width, { v2Chrome: true });
 
     result.refStatus = refCap.status;
     result.v2Status = v2Cap.status;

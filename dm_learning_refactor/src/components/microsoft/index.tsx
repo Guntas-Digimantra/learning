@@ -10,7 +10,7 @@ import Certifications from './Certifications';
 
 const MicrosoftCertification = () => {
   return (
-    <>
+    <div className="microsoft-certifications-page">
       <Banner />
       <StudentCertification />
       <Benefits />
@@ -19,7 +19,7 @@ const MicrosoftCertification = () => {
       <StillHaveQuestions />
       <StudentCertificationFundamentals />
       <Testimonials />
-    </>
+    </div>
   );
 };
 

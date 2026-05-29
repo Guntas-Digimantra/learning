@@ -2,31 +2,26 @@ import Image from 'next/image';
 import Link from '@/components/ui/link';
 import React from 'react';
 
-const transparentButtonClass =
-  'rounded-[36px] border-2 border-white px-[34px] py-4 text-base font-semibold leading-6 text-white transition-colors hover:bg-white hover:text-black max-[767px]:px-3 max-[767px]:py-2 max-[767px]:text-[15px]';
-
 const StudentCertification = () => {
   return (
-    <section className="bg-black py-[100px] max-[1024px]:pt-[60px] max-[1024px]:pb-0">
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <div className="flex rounded-[43px] border border-white px-[30px] max-[1024px]:flex-col-reverse">
-          <div className="w-1/2 content-center py-[30px] max-[1024px]:w-full [&_h2]:text-[48px] [&_h2]:text-white [&_h2]:max-[767px]:text-[28px] [&_p]:mt-[30px] [&_p]:mb-10 [&_p]:text-white">
-            <span className="uppercase tracking-[0.225rem] text-white max-[767px]:text-[10px]">
-              Microsoft Learn Student Hub
-            </span>
-            <h2>Student certifications</h2>
-            <p>
+    <section className="student-certification-section">
+      <div className="dml-container">
+        <div className="student-certification-content">
+          <div className="microsoft-student-left min-w-0">
+            <span className="uppercase tracking-[0.225rem] max-[767px]:!text-[10px]">Microsoft Learn Student Hub</span>
+            <h2 className="!mt-0 !text-[48px] !font-semibold !leading-[1.3] max-[767px]:!text-[28px]">Student certifications</h2>
+            <p className="!mt-[30px] !mb-10 !text-base !leading-[1.7]">
               With 91% of hiring managers prioritizing certifications in their candidate evaluations, it&apos;s clear
               that these credentials can set you apart in the job market. Boost your technical skills and enhance your
               professional profile with a Microsoft Certification. Eligible students can take advantage of discounted
               rates for certification exams, making this an excellent opportunity to invest in your future.
             </p>
-            <Link href="/student-enrollment" className={transparentButtonClass}>
+            <Link href="/student-enrollment" className="microsoft-button-transparent">
               Get Started
             </Link>
           </div>
-          <div className="w-1/2 pt-10 text-right max-[1024px]:w-full max-[1024px]:text-center [&_img]:h-full [&_img]:rounded-[43px]">
-            <Image src="/certificate-image.png" alt="student-certificate-img" width={590} height={362} />
+          <div className="microsoft-student-right">
+            <Image src="/certificate-image.png" alt="student-certificate-img" width={590} height={362} className="max-[1024px]:mx-auto" />
           </div>
         </div>
       </div>

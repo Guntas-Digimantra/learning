@@ -14,7 +14,7 @@ import CourseForYou from './CourseForYou';
 
 const WebDevelopmentPage = () => {
   return (
-    <>
+    <div className="web-development-page">
       <Banner />
       <WebCounter />
       <WebDevelopmentForm />
@@ -27,7 +27,7 @@ const WebDevelopmentPage = () => {
       <Modules />
       <TopSellinCourse />
       <CtaComponent />
-    </>
+    </div>
   );
 };
 

@@ -42,7 +42,7 @@ function Slide({
       {slide?.university ? (
         <button
           type="button"
-          className="content absolute bottom-0 left-0 z-10 h-fit w-[var(--trigger-width,fit-content)] cursor-pointer border-0 bg-transparent text-[length:var(--trigger-title-size,inherit)] outline-none [color:var(--trigger-color,#fff)]"
+          className="trigger content absolute bottom-0 left-0 z-10 h-fit w-[var(--trigger-width,fit-content)] cursor-pointer border-0 bg-transparent !p-4 text-[length:var(--trigger-title-size,inherit)] !font-semibold outline-none [color:var(--trigger-color,#fff)]"
           disabled={!slide.subImages.length}
           onClick={() => {
             onUniversityClick(slide.university ?? '', slide?.subImages ?? []);
@@ -88,6 +88,7 @@ export default function HorizontalSlider({
   );
   const [selectedImages, setSelectedImages] = useState<Array<string>>([]);
   const [swiperInstance, setSwiperInstance] = useState<any>(null);
+  const [viewportWidth, setViewportWidth] = useState<number | null>(null);
 
   useEffect(() => {
     if (!swiperInstance || !autoplay) return;
@@ -103,6 +104,13 @@ export default function HorizontalSlider({
     }
   }, [openGalleryModal, openSlidingModal, swiperInstance, autoplay]);
 
+  useEffect(() => {
+    const updateViewport = () => setViewportWidth(window.innerWidth);
+    updateViewport();
+    window.addEventListener('resize', updateViewport);
+    return () => window.removeEventListener('resize', updateViewport);
+  }, []);
+
   const handleUniversityClick = (name: string, data: string[]) => {
     if (universityView) {
       universityView === 'gallery'
@@ -112,6 +120,17 @@ export default function HorizontalSlider({
     setSelectedUniversity(name);
     setSelectedImages(data);
   };
+
+  const isMax767 = viewportWidth !== null && viewportWidth <= 767;
+  const isMax480 = viewportWidth !== null && viewportWidth <= 480;
+  const resolvedSlideWidth = isMax480 ? '200px' : slideWidth;
+  const resolvedSlideHeight = isMax480
+    ? metadata
+      ? '400px'
+      : '160px'
+    : isMax767 && metadata
+      ? '340px'
+      : slideHeight;
 
   // const [stopAnimation, setStopAnimation] = useState(false);
 
@@ -272,8 +291,8 @@ export default function HorizontalSlider({
             onSwiper={setSwiperInstance}
             style={{
               // @ts-expect-error custom variable setup
-              '--slide-width': slideWidth,
-              '--slide-height': slideHeight,
+              '--slide-width': resolvedSlideWidth,
+              '--slide-height': resolvedSlideHeight,
               '--image-fit': logos ? 'contain' : 'cover',
               '--overlay': logos ? 'none' : 'block',
               '--slide-image-max-width': logos ? '85%' : '100%',
@@ -285,9 +304,9 @@ export default function HorizontalSlider({
             {data.map((item) => (
               <SwiperSlide
                 key={item.id}
-                className={`slide !flex !h-[var(--slide-height)] !w-[var(--slide-width)] flex-col items-center justify-center rounded-[10px] border border-[#e4e4e7] max-[767px]:!h-[var(--slide-height,auto)] max-[767px]:!w-[var(--slide-width,auto)] max-[480px]:!h-40 max-[480px]:!w-[200px] ${
-                  metadata ? 'max-[767px]:!h-[340px] max-[480px]:!h-[400px]' : ''
-                } ${logos ? '[&_.logo-slide]:after:hidden' : ''}`}
+                className={`slide !flex !h-[var(--slide-height)] !w-[var(--slide-width)] flex-col items-center justify-center rounded-[10px] border border-[#e4e4e7] ${
+                  logos ? '[&_.logo-slide]:after:hidden' : ''
+                }`}
                 onMouseEnter={() => {
                   if (swiperInstance && swiperInstance.autoplay) {
                     // 1. Stop the autoplay engine

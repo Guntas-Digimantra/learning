@@ -3,18 +3,6 @@ import Image from 'next/image';
 import { useState, useEffect, useCallback, ReactNode } from "react";
 import { useRouter } from "next/navigation";
 
-const container = "mx-auto max-w-[1440px]";
-const scrollReveal =
-  "scroll-reveal opacity-0 translate-y-5 transition-all duration-[650ms] ease-out [&.is-visible]:opacity-100 [&.is-visible]:translate-y-0";
-const subBtn =
-  "mt-1.5 w-full cursor-pointer rounded-[10px] border-none bg-gradient-to-r from-[#fc8b20] to-[#e05f00] py-[15px] text-base font-bold text-white transition-all hover:-translate-y-px hover:shadow-[0_6px_20px_rgba(252,139,32,0.35)] disabled:cursor-not-allowed disabled:opacity-60";
-const fgLabel = "mb-1.5 block text-left text-[13px] font-semibold text-[#333]";
-const fgInput =
-  "box-border w-full rounded-lg border-[1.5px] border-[#ddd] px-3.5 py-3 font-[DM_Sans,sans-serif] text-sm outline-none transition-[border] focus:border-[#fc8b20]";
-const checklist = "m-0 list-none p-0";
-const checklistItem = "mb-[18px] flex gap-3 text-[14.5px] leading-[1.65] text-[#333]";
-const checkIconWrap = "mt-0.5 flex h-[22px] w-[22px] shrink-0 items-center justify-center";
-
 /* ── Inline SVG Icons ── */
 const DateIcon = () => (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
@@ -139,9 +127,9 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
 
     /* ── Scroll Reveal ── */
     useEffect(() => {
-        const els = document.querySelectorAll(".scroll-reveal");
+        const els = document.querySelectorAll(".reveal");
         const obs = new IntersectionObserver(
-            (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("is-visible"); }),
+            (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("on"); }),
             { threshold: 0.07, rootMargin: "0px 0px -30px 0px" }
         );
         els.forEach((el) => obs.observe(el));
@@ -248,26 +236,26 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
     } : { display: "none" };
 
     return (
-        <div className="overflow-x-hidden font-[Sora,sans-serif] text-[#1a1a2e]">
+        <div className="ai-masterclass-page">
             {/* ── HERO ── */}
 
             {props.isBannerNew ?
-                <div className="relative bg-gradient-to-br from-[#1e1b4b] via-[#282568] to-[#312e6b]">
-                    <div className="absolute inset-0 bg-[url('/ai-masterclass/mainBackground.png')] opacity-100" style={props.heroBgGridImg ? { backgroundImage: `url(${props.heroBgGridImg})` } : undefined}></div>
-                    <div className={`${container} relative grid min-h-[80vh] grid-cols-2 max-[1080px]:grid-cols-1 max-[600px]:block`} id="top">
-                        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                            <div className="absolute bottom-0 right-[200px] h-[600px] w-[400px] bg-contain bg-bottom bg-no-repeat opacity-30 max-[1080px]:right-0"></div>
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(252,139,32,0.1),transparent_60%)]"></div>
+                <div className="bg-hero new-banner">
+                    <div className="hero-bg-grid" style={props.heroBgGridImg ? { backgroundImage: `url(${props.heroBgGridImg})` } : undefined}></div>
+                    <div className="hero container" id="top">
+                        <div className="hero-bg">
+                            <div className="hero-bg-img"></div>
+                            <div className="hero-bg-overlay"></div>
                         </div>
-                        <div className="relative z-[2] flex flex-col justify-center py-16 pl-11 text-white max-[1080px]:px-6 max-[680px]:px-5 max-[680px]:pb-0 max-[680px]:pt-12">
-                            <div className="mb-4 flex h-8 w-fit items-center gap-2 rounded-3xl border border-[#f27d26]/30 bg-[#f27d26]/20 px-2 text-xs font-bold leading-4 text-[#F27D26] max-[786px]:h-auto"><span className="size-2 animate-pulse rounded-full bg-[#fc8b20] max-[480px]:w-3"></span>{props.heroEyebrow}</div>
-                            <h1 className="mb-2 text-[clamp(2rem,4vw,3rem)] font-extrabold leading-[1.15]">{props.heroHeadline}</h1>
+                        <div className="hero-left">
+                            <div className="eyebrow"><span className="ldot"></span>{props.heroEyebrow}</div>
+                            <h1 style={{ marginBottom: '0.5rem' }}>{props.heroHeadline}</h1>
                             {props.heroSecondaryHeadline && props.heroSecondaryHeadline}
-                            <div className="max-w-[560px] text-base leading-[1.65] text-[#fc8b20] opacity-[0.92]">{props.heroSubheadline}</div>
+                            <div className="hero-sub orange">{props.heroSubheadline}</div>
 
 
-                            <div className='flex gap-10 max-[786px]:flex-col'>
-                                <div className="w-[322px] max-[786px]:!w-full">
+                            <div className='flex-wrapper'>
+                                <div className="dr-ati-priye">
                                     <Image
                                         src="/dr-ati-priye.svg"
                                         alt="doctor"
@@ -277,29 +265,29 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
                                     />
                                 </div>
                                 <div>
-                                    <div className="mt-0 grid grid-cols-2 gap-4 bg-transparent p-0">
-                                        <div className="flex flex-1 flex-col items-start rounded-2xl border border-white/10 bg-white/10 p-3"><span className="mb-1.5 flex items-center gap-2 text-[11px] uppercase tracking-[1.1px] text-white/55"><DateIcon /> DATE</span><span className="text-sm font-semibold text-white">{props.eventDisplayDate}</span></div>
-                                        <div className="flex flex-1 flex-col items-start rounded-2xl border border-white/10 bg-white/10 p-3"><span className="mb-1.5 flex items-center gap-2 text-[11px] uppercase tracking-[1.1px] text-white/55"><TimeIcon /> TIME</span><span className="text-sm font-semibold text-white">{props.eventTime}</span></div>
-                                        <div className="flex flex-1 flex-col items-start rounded-2xl border border-white/10 bg-white/10 p-3"><span className="mb-1.5 flex items-center gap-2 text-[11px] uppercase tracking-[1.1px] text-white/55"><TimeIcon /> DURATION</span><span className="text-sm font-semibold text-white">{props.eventDuration}</span></div>
-                                        <div className="flex flex-1 flex-col items-start rounded-2xl border border-white/10 bg-white/10 p-3"><span className="mb-1.5 flex items-center gap-2 text-[11px] uppercase tracking-[1.1px] text-white/55"><ModeIcon /> MODE</span><span className="text-sm font-semibold text-white">{props.eventMode}</span></div>
+                                    <div className="meta-row">
+                                        <div className="mc"><span className="ml"><DateIcon /> DATE</span><span className="mv">{props.eventDisplayDate}</span></div>
+                                        <div className="mc"><span className="ml"><TimeIcon /> TIME</span><span className="mv">{props.eventTime}</span></div>
+                                        <div className="mc"><span className="ml"><TimeIcon /> DURATION</span><span className="mv">{props.eventDuration}</span></div>
+                                        <div className="mc"><span className="ml"><ModeIcon /> MODE</span><span className="mv">{props.eventMode}</span></div>
                                     </div>
-                                    <div className="mt-6 flex w-fit items-center gap-[6.85px] rounded-[13.699px] border border-[#f27d26]/20 bg-[#f27d26]/10 p-3 max-[786px]:w-full">
-                                        <span className="flex size-[34.248px] shrink-0 items-center justify-center rounded-[6.85px] bg-[#F27D26] p-[6.848px] text-lg"><SeatsIcon /></span>
+                                    <div className="urgency-strip">
+                                        <span className="card-icon" style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}><SeatsIcon /></span>
                                         <div>
-                                            <p className="m-0 text-base font-bold leading-[20.549px] text-white"><strong>Seats Filling Fast</strong></p>
-                                            <p className="m-0 text-sm font-normal leading-[17.124px] text-[#90A1B9]">Limited spots available. Secure yours before registrations close.</p>
+                                            <p><strong>Seats Filling Fast</strong></p>
+                                            <p>Limited spots available. Secure yours before registrations close.</p>
                                         </div>
                                     </div>
-                                    <div className="mt-6 flex items-center gap-5 max-[600px]:flex-col" id="registration-form-mobile">
-                                        <span className="text-xs uppercase tracking-wide opacity-60">Closes in</span>
-                                        <div className="flex items-center gap-2.5">
-                                            <div className="w-[52px] text-center"><span className="block min-w-[50px] rounded-lg bg-transparent px-3.5 py-1.5 text-2xl font-extrabold text-white">{days}</span><span className="mt-0 block text-[10px] uppercase tracking-wide opacity-55">Days</span></div>
-                                            <span className="text-[22px] font-bold text-[#fc8b20] opacity-50 animate-pulse">:</span>
-                                            <div className="w-[52px] text-center"><span className="block min-w-[50px] rounded-lg bg-transparent px-3.5 py-1.5 text-2xl font-extrabold text-white">{hours}</span><span className="mt-0 block text-[10px] uppercase tracking-wide opacity-55">Hrs</span></div>
-                                            <span className="text-[22px] font-bold text-[#fc8b20] opacity-50 animate-pulse">:</span>
-                                            <div className="w-[52px] text-center"><span className="block min-w-[50px] rounded-lg bg-transparent px-3.5 py-1.5 text-2xl font-extrabold text-white">{mins}</span><span className="mt-0 block text-[10px] uppercase tracking-wide opacity-55">Min</span></div>
-                                            <span className="text-[22px] font-bold text-[#fc8b20] opacity-50 animate-pulse">:</span>
-                                            <div className="w-[52px] text-center"><span className="block min-w-[50px] rounded-lg bg-transparent px-3.5 py-1.5 text-2xl font-extrabold text-white">{secs}</span><span className="mt-0 block text-[10px] uppercase tracking-wide opacity-55">Sec</span></div>
+                                    <div className="countdown" id="registration-form-mobile">
+                                        <span className="cd-label">Closes in</span>
+                                        <div className="cd-blocks">
+                                            <div className="cd-unit"><span className="cd-num">{days}</span><span className="cd-txt">Days</span></div>
+                                            <span className="cd-sep">:</span>
+                                            <div className="cd-unit"><span className="cd-num">{hours}</span><span className="cd-txt">Hrs</span></div>
+                                            <span className="cd-sep">:</span>
+                                            <div className="cd-unit"><span className="cd-num">{mins}</span><span className="cd-txt">Min</span></div>
+                                            <span className="cd-sep">:</span>
+                                            <div className="cd-unit"><span className="cd-num">{secs}</span><span className="cd-txt">Sec</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -308,30 +296,30 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
                         </div>
 
                         {/* ── FORM CARD ── */}
-                        <div className="relative z-[2] flex items-center justify-center py-12 pl-0 pr-6 max-[1080px]:px-6 max-[1080px]:pb-[52px]" id="registration-form">
-                            <div className="w-full max-w-[420px] rounded-2xl bg-white px-8 py-9 text-[#1a1a2e] shadow-[0_12px_48px_rgba(0,0,0,0.22)] max-[1080px]:mx-auto max-[1080px]:max-w-[500px]">
-                                <div className="mb-5 text-center">
-                                    <div className="text-xl font-bold text-[#282568]">{props.formTitle}</div>
-                                    {props.formNote && <div className="mt-1 text-center text-xs text-[#888]">{props.formNote}</div>}
+                        <div className="hero-right" id="registration-form">
+                            <div className="form-card">
+                                <div className="fc-head">
+                                    <div className="fc-title">{props.formTitle}</div>
+                                    {props.formNote && <div className="p-note">{props.formNote}</div>}
                                     {props.formPriceRow}
                                 </div>
 
                                 {props.formClosed ? (
                                     <div style={{ padding: "40px 20px", background: "rgba(252, 139, 32, 0.08)", borderRadius: "12px", margin: "20px 0", textAlign: "center", border: "1px solid rgba(252, 139, 32, 0.3)" }}>
-                                        <h3 style={{ marginBottom: "10px", fontWeight: "bold", fontSize: "20px", color: "#fc8b20" }}>Registration Closed</h3>
+                                        <h3 style={{ marginBottom: "10px", fontWeight: "bold", fontSize: "20px", color: "var(--orange)" }}>Registration Closed</h3>
                                         <p style={{ fontSize: "15px", color: "#444", lineHeight: "1.6" }}>Thank you for your interest.<br />The registrations for this webinar are now closed.</p>
                                     </div>
                                 ) : (
                                     <>
-                                        <div className="mb-4"><label className={fgLabel}>Full Name</label><input className={fgInput} value={formName} onChange={(e) => setFormName(e.target.value)} type="text" placeholder="Your full name" /></div>
-                                        <div className="mb-4"><label className={fgLabel}>Email Address</label><input className={fgInput} value={formEmail} onChange={(e) => setFormEmail(e.target.value)} type="email" placeholder="you@example.com" /></div>
-                                        <div className="mb-4"><label className={fgLabel}>Phone Number</label><input className={fgInput} value={formPhone} onChange={(e) => {
+                                        <div className="fg"><label>Full Name</label><input value={formName} onChange={(e) => setFormName(e.target.value)} type="text" placeholder="Your full name" /></div>
+                                        <div className="fg"><label>Email Address</label><input value={formEmail} onChange={(e) => setFormEmail(e.target.value)} type="email" placeholder="you@example.com" /></div>
+                                        <div className="fg"><label>Phone Number</label><input value={formPhone} onChange={(e) => {
                                             const value = e.target.value.replace(/[^0-9]/g, "");
                                             setFormPhone(value);
                                         }} type="tel" inputMode="numeric"
                                             pattern="[0-9]*" minLength={10} placeholder="Please enter your phone number" maxLength={10} /></div>
-                                        <div className="mb-4"><label className={fgLabel}>College/Organization</label><input className={fgInput} value={formCollege} onChange={(e) => setFormCollege(e.target.value)} type="text" placeholder="Your college/organization name" /></div>
-                                        <button className={subBtn} id="reg-btn" disabled={submitting} onClick={submitRegistration}>
+                                        <div className="fg"><label>College/Organization<span className="opt"></span></label><input value={formCollege} onChange={(e) => setFormCollege(e.target.value)} type="text" placeholder="Your college/organization name" /></div>
+                                        <button className="sub-btn" id="reg-btn" disabled={submitting} onClick={submitRegistration}>
                                             {submitting ? "Processing..." : props.formCtaText}
                                         </button>
                                     </>
@@ -349,73 +337,73 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
                 </div>
 
                 :
-                <div className="relative bg-gradient-to-br from-[#1e1b4b] via-[#282568] to-[#312e6b]">
-                    <div className="absolute inset-0 bg-[url('/ai-masterclass/mainBackground.png')] opacity-10" style={props.heroBgGridImg ? { backgroundImage: `url(${props.heroBgGridImg})` } : undefined}></div>
-                    <div className={`${container} relative grid min-h-[80vh] grid-cols-2 max-[1080px]:grid-cols-1 max-[600px]:block`} id="top">
-                        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                            <div className="absolute bottom-0 right-[200px] h-[600px] w-[400px] bg-contain bg-bottom bg-no-repeat opacity-30 max-[1080px]:right-0"></div>
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(252,139,32,0.1),transparent_60%)]"></div>
+                <div className="bg-hero">
+                    <div className="hero-bg-grid" style={props.heroBgGridImg ? { backgroundImage: `url(${props.heroBgGridImg})` } : undefined}></div>
+                    <div className="hero container" id="top">
+                        <div className="hero-bg">
+                            <div className="hero-bg-img"></div>
+                            <div className="hero-bg-overlay"></div>
                         </div>
-                        <div className="relative z-[2] flex flex-col justify-center py-16 pl-11 text-white max-[1080px]:px-6 max-[680px]:px-5 max-[680px]:pb-0 max-[680px]:pt-12">
-                            <div className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-[#fc8b20] max-[480px]:w-[310px]"><span className="size-2 animate-pulse rounded-full bg-[#fc8b20] max-[600px]:w-3"></span>{props.heroEyebrow}</div>
-                            <h1 className="mb-2 text-[clamp(2rem,4vw,3rem)] font-extrabold leading-[1.15]">{props.heroHeadline}</h1>
+                        <div className="hero-left">
+                            <div className="eyebrow"><span className="ldot"></span>{props.heroEyebrow}</div>
+                            <h1 style={{ marginBottom: '0.5rem' }}>{props.heroHeadline}</h1>
                             {props.heroSecondaryHeadline && props.heroSecondaryHeadline}
-                            <div className="max-w-[560px] text-base leading-[1.65] text-[#fc8b20] opacity-[0.92]">{props.heroSubheadline}</div>
+                            <div className="hero-sub orange">{props.heroSubheadline}</div>
 
 
 
-                            <div className="mt-7 flex flex-wrap gap-3 rounded-xl border border-white/10 bg-white/[0.06] p-[18px] max-[680px]:w-full">
-                                <div className="min-w-[120px] flex-1 border-r border-white/10 px-5 py-2.5 last:border-r-0 max-[680px]:px-3.5"><span className="mb-1.5 flex items-center gap-2 text-[11px] uppercase tracking-[1.1px] text-white/55"><DateIcon /> DATE</span><span className="text-sm font-semibold text-white">{props.eventDisplayDate}</span></div>
-                                <div className="min-w-[120px] flex-1 border-r border-white/10 px-5 py-2.5 last:border-r-0 max-[680px]:px-3.5"><span className="mb-1.5 flex items-center gap-2 text-[11px] uppercase tracking-[1.1px] text-white/55"><TimeIcon /> TIME</span><span className="text-sm font-semibold text-white">{props.eventTime}</span></div>
-                                <div className="min-w-[120px] flex-1 border-r border-white/10 px-5 py-2.5 last:border-r-0 max-[680px]:px-3.5"><span className="mb-1.5 flex items-center gap-2 text-[11px] uppercase tracking-[1.1px] text-white/55"><TimeIcon /> DURATION</span><span className="text-sm font-semibold text-white">{props.eventDuration}</span></div>
-                                <div className="min-w-[120px] flex-1 border-r border-white/10 px-5 py-2.5 last:border-r-0 max-[680px]:px-3.5"><span className="mb-1.5 flex items-center gap-2 text-[11px] uppercase tracking-[1.1px] text-white/55"><ModeIcon /> MODE</span><span className="text-sm font-semibold text-white">{props.eventMode}</span></div>
+                            <div className="meta-row">
+                                <div className="mc"><span className="ml"><DateIcon /> DATE</span><span className="mv">{props.eventDisplayDate}</span></div>
+                                <div className="mc"><span className="ml"><TimeIcon /> TIME</span><span className="mv">{props.eventTime}</span></div>
+                                <div className="mc"><span className="ml"><TimeIcon /> DURATION</span><span className="mv">{props.eventDuration}</span></div>
+                                <div className="mc"><span className="ml"><ModeIcon /> MODE</span><span className="mv">{props.eventMode}</span></div>
                             </div>
-                            <div className="mt-6 flex items-start gap-3.5 rounded-xl border border-[#fc8b20]/30 bg-[#fc8b20]/10 px-[22px] py-[18px]">
-                                <span className="mt-px shrink-0 text-lg"><SeatsIcon /></span>
+                            <div className="urgency-strip">
+                                <span style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}><SeatsIcon /></span>
                                 <div>
-                                    <p className="m-0 text-[13.5px] leading-normal opacity-90"><strong className="text-[#fc8b20]">Seats Filling Fast</strong></p>
-                                    <p className="m-0 text-[13.5px] leading-normal opacity-90">Limited spots available. Secure yours before registrations close.</p>
+                                    <p><strong>Seats Filling Fast</strong></p>
+                                    <p>Limited spots available. Secure yours before registrations close.</p>
                                 </div>
                             </div>
-                            <div className="mt-6 flex items-center gap-5 max-[600px]:flex-col" id="registration-form-mobile">
-                                <span className="text-xs uppercase tracking-wide opacity-60">Closes in</span>
-                                <div className="flex items-center gap-2.5">
-                                    <div className="text-center"><span className="block min-w-[50px] rounded-lg bg-white/10 px-3.5 py-1.5 text-[28px] font-extrabold text-[#fc8b20]">{days}</span><span className="mt-1 block text-[10px] uppercase tracking-wide opacity-55">Days</span></div>
-                                    <span className="animate-pulse text-[22px] font-bold text-[#fc8b20] opacity-50">:</span>
-                                    <div className="text-center"><span className="block min-w-[50px] rounded-lg bg-white/10 px-3.5 py-1.5 text-[28px] font-extrabold text-[#fc8b20]">{hours}</span><span className="mt-1 block text-[10px] uppercase tracking-wide opacity-55">Hrs</span></div>
-                                    <span className="animate-pulse text-[22px] font-bold text-[#fc8b20] opacity-50">:</span>
-                                    <div className="text-center"><span className="block min-w-[50px] rounded-lg bg-white/10 px-3.5 py-1.5 text-[28px] font-extrabold text-[#fc8b20]">{mins}</span><span className="mt-1 block text-[10px] uppercase tracking-wide opacity-55">Min</span></div>
-                                    <span className="animate-pulse text-[22px] font-bold text-[#fc8b20] opacity-50">:</span>
-                                    <div className="text-center"><span className="block min-w-[50px] rounded-lg bg-white/10 px-3.5 py-1.5 text-[28px] font-extrabold text-[#fc8b20]">{secs}</span><span className="mt-1 block text-[10px] uppercase tracking-wide opacity-55">Sec</span></div>
+                            <div className="countdown" id="registration-form-mobile">
+                                <span className="cd-label">Closes in</span>
+                                <div className="cd-blocks">
+                                    <div className="cd-unit"><span className="cd-num">{days}</span><span className="cd-txt">Days</span></div>
+                                    <span className="cd-sep">:</span>
+                                    <div className="cd-unit"><span className="cd-num">{hours}</span><span className="cd-txt">Hrs</span></div>
+                                    <span className="cd-sep">:</span>
+                                    <div className="cd-unit"><span className="cd-num">{mins}</span><span className="cd-txt">Min</span></div>
+                                    <span className="cd-sep">:</span>
+                                    <div className="cd-unit"><span className="cd-num">{secs}</span><span className="cd-txt">Sec</span></div>
                                 </div>
                             </div>
                         </div>
 
                         {/* ── FORM CARD ── */}
-                        <div className="relative z-[2] flex items-center justify-center py-12 pl-0 pr-6 max-[1080px]:px-6 max-[1080px]:pb-[52px]" id="registration-form">
-                            <div className="w-full max-w-[420px] rounded-2xl bg-white px-8 py-9 text-[#1a1a2e] shadow-[0_12px_48px_rgba(0,0,0,0.22)] max-[1080px]:mx-auto max-[1080px]:max-w-[500px]">
-                                <div className="mb-5 text-center">
-                                    <div className="text-xl font-bold text-[#282568]">{props.formTitle}</div>
-                                    {props.formNote && <div className="mt-1 text-center text-xs text-[#888]">{props.formNote}</div>}
+                        <div className="hero-right" id="registration-form">
+                            <div className="form-card">
+                                <div className="fc-head">
+                                    <div className="fc-title">{props.formTitle}</div>
+                                    {props.formNote && <div className="p-note">{props.formNote}</div>}
                                     {props.formPriceRow}
                                 </div>
 
                                 {props.formClosed ? (
                                     <div style={{ padding: "40px 20px", background: "rgba(252, 139, 32, 0.08)", borderRadius: "12px", margin: "20px 0", textAlign: "center", border: "1px solid rgba(252, 139, 32, 0.3)" }}>
-                                        <h3 style={{ marginBottom: "10px", fontWeight: "bold", fontSize: "20px", color: "#fc8b20" }}>Registration Closed</h3>
+                                        <h3 style={{ marginBottom: "10px", fontWeight: "bold", fontSize: "20px", color: "var(--orange)" }}>Registration Closed</h3>
                                         <p style={{ fontSize: "15px", color: "#444", lineHeight: "1.6" }}>Thank you for your interest.<br />The registrations for this webinar are now closed.</p>
                                     </div>
                                 ) : (
                                     <>
-                                        <div className="mb-4"><label className={fgLabel}>Full Name</label><input className={fgInput} value={formName} onChange={(e) => setFormName(e.target.value)} type="text" placeholder="Your full name" /></div>
-                                        <div className="mb-4"><label className={fgLabel}>Email Address</label><input className={fgInput} value={formEmail} onChange={(e) => setFormEmail(e.target.value)} type="email" placeholder="you@example.com" /></div>
-                                        <div className="mb-4"><label className={fgLabel}>Phone Number</label><input className={fgInput} value={formPhone} onChange={(e) => {
+                                        <div className="fg"><label>Full Name</label><input value={formName} onChange={(e) => setFormName(e.target.value)} type="text" placeholder="Your full name" /></div>
+                                        <div className="fg"><label>Email Address</label><input value={formEmail} onChange={(e) => setFormEmail(e.target.value)} type="email" placeholder="you@example.com" /></div>
+                                        <div className="fg"><label>Phone Number</label><input value={formPhone} onChange={(e) => {
                                             const value = e.target.value.replace(/[^0-9]/g, "");
                                             setFormPhone(value);
                                         }} type="tel" inputMode="numeric"
                                             pattern="[0-9]*" minLength={10} placeholder="Please enter your phone number" maxLength={10} /></div>
-                                        <div className="mb-4"><label className={fgLabel}>College/Organization</label><input className={fgInput} value={formCollege} onChange={(e) => setFormCollege(e.target.value)} type="text" placeholder="Your college/organization name" /></div>
-                                        <button className={subBtn} id="reg-btn" disabled={submitting} onClick={submitRegistration}>
+                                        <div className="fg"><label>College/Organization<span className="opt"></span></label><input value={formCollege} onChange={(e) => setFormCollege(e.target.value)} type="text" placeholder="Your college/organization name" /></div>
+                                        <button className="sub-btn" id="reg-btn" disabled={submitting} onClick={submitRegistration}>
                                             {submitting ? "Processing..." : props.formCtaText}
                                         </button>
                                     </>
@@ -436,12 +424,12 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
             }
 
             {/* ── PARTNERS ── */}
-            <div className={`${scrollReveal} px-10 py-[50px] max-[680px]:px-5 ${container}`}>
-                <div className="text-center">
-                    <span className="text-xs font-medium uppercase tracking-[2.5px] text-[#999]">Clients &amp; Partners</span>
-                    <div className="mt-7 flex flex-wrap items-center justify-between">
+            <div className="partners reveal container">
+                <div className="pi">
+                    <span className="plbl">Clients &amp; Partners</span>
+                    <div className="logos">
                         {props.partnersData.map((p, i) => (
-                            <div key={i} className="h-[60px] opacity-85 transition-opacity hover:opacity-100 max-[600px]:h-[45px] [&_img]:h-full">
+                            <div key={i} className="lg">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img src={p.img} alt={p.name} />
                             </div>
@@ -450,28 +438,29 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
                 </div>
             </div>
 
-            <div className={`${scrollReveal} bg-white px-10 py-10 max-[680px]:px-5 ${container}`}>
-                <div className="grid grid-cols-2 gap-14 max-[1080px]:grid-cols-1 max-[1080px]:gap-9">
+            {/* ── LEARN + BONUSES ── */}
+            <div className="sec sec-white reveal container">
+                <div className="two">
                     <div>
-                        <span className="text-xs font-semibold uppercase tracking-[2px] text-[#fc8b20]">{props.learnSectionTitle1}</span>
-                        <h2 className="my-3 text-[clamp(1.4rem,2.5vw,1.8rem)] leading-[1.3] text-[#282568]">{props.learnSectionTitle2}</h2>
-                        <p className="mb-6 text-[15px] leading-[1.7] text-[#666]">{props.learnSectionSub}</p>
-                        <ul className={checklist}>
+                        <span className="stag">{props.learnSectionTitle1}</span>
+                        <h2>{props.learnSectionTitle2}</h2>
+                        <p className="ssub">{props.learnSectionSub}</p>
+                        <ul className="cl">
                             {props.learnItems.map((item, i) => (
-                                <li key={i} className={checklistItem}><span className={checkIconWrap}><CheckIcon /></span><span><strong>{item.bold}</strong> {item.rest}</span></li>
+                                <li key={i}><span className="ck"><CheckIcon /></span><span><strong>{item.bold}</strong> {item.rest}</span></li>
                             ))}
                         </ul>
                     </div>
                     <div>
-                        <span className="text-xs font-semibold uppercase tracking-[2px] text-[#fc8b20]">{props.bonusSectionTitle1}</span>
-                        <h2 className="my-3 text-[clamp(1.4rem,2.5vw,1.8rem)] leading-[1.3] text-[#282568]">{props.bonusSectionTitle2}</h2>
-                        <p className="mb-6 text-[15px] leading-[1.7] text-[#666]">{props.bonusSectionSub}</p>
-                        <div className="grid grid-cols-2 gap-5 max-[680px]:grid-cols-1">
+                        <span className="stag">{props.bonusSectionTitle1}</span>
+                        <h2>{props.bonusSectionTitle2}</h2>
+                        <p className="ssub">{props.bonusSectionSub}</p>
+                        <div className="bgrid">
                             {props.bonusData.map((b, i) => (
-                                <div key={i} className="rounded-xl border-[1.5px] border-[#e2e2ee] bg-[#f6f6fb] p-6 transition-[border-color,box-shadow] hover:border-[#fc8b20] hover:shadow-[0_4px_16px_rgba(252,139,32,0.12)]">
-                                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-[10px] shadow-sm">{/* eslint-disable-next-line @next/next/no-img-element */}<img src={b.icon} alt={b.title} style={{ width: 24, height: 24 }} /></div>
-                                    <div className="mb-1.5 font-[DM_Sans,sans-serif] text-[15px] font-bold text-[#282568]">{b.title}</div>
-                                    <div className="text-[13px] leading-[1.6] text-[#666]">{b.desc}</div>
+                                <div key={i} className="skill-card">
+                                    <div className="icon-box">{/* eslint-disable-next-line @next/next/no-img-element */}<img src={b.icon} alt={b.title} style={{ width: 24, height: 24 }} /></div>
+                                    <div className="skill-card-title">{b.title}</div>
+                                    <div className="skill-card-desc">{b.desc}</div>
                                 </div>
                             ))}
                         </div>
@@ -479,50 +468,53 @@ export default function MasterclassLayout(props: MasterclassLayoutProps) {
                 </div>
             </div>
 
-            <div className={`${scrollReveal} bg-[#f6f6fb] px-10 py-16 max-[680px]:px-5`}>
-                <div className={`${container} flex flex-wrap items-center gap-11 max-[1080px]:block`}>
-                    <div className="max-[1080px]:mb-8 max-[1080px]:flex max-[1080px]:w-full max-[1080px]:justify-center">
+            {/* ── SPEAKER ── */}
+            <div className="speaker-strip reveal">
+                <div className="speaker-inner container">
+                    <div className="sp-portrait">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={props.speakerPortrait} alt="Speaker" className="max-h-[380px] w-[350px] rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] max-[1080px]:mx-auto max-[1080px]:block max-[1080px]:h-auto max-[1080px]:max-h-none max-[1080px]:w-full max-[1080px]:max-w-[480px]" />
+                        <img src={props.speakerPortrait} alt="Speaker" />
                     </div>
-                    <div className="flex-1">
-                        <h2 className="mt-3.5 text-[clamp(1.4rem,2.5vw,1.8rem)] leading-[1.3] text-[#282568]">{props.speakerNameAndRoleTitle}</h2>
-                        <div className="mb-3 text-[15px] font-semibold text-[#fc8b20]">{props.speakerRoleDescription}</div>
-                        <div className="text-[14.5px] leading-[1.7] text-[#666] [&_p]:text-[14.5px] [&_p]:leading-[1.7] [&_p]:text-[#666]">{props.speakerBio}</div>
+                    <div className="sp-bio">
+                        <h2>{props.speakerNameAndRoleTitle}</h2>
+                        <div className="sp-role">{props.speakerRoleDescription}</div>
+                        {props.speakerBio}
                     </div>
                 </div>
             </div>
 
-            <div className={`${scrollReveal} bg-white px-10 py-10 max-[680px]:px-5`}>
-                <div className={`${container} grid grid-cols-2 items-center gap-14 max-[1080px]:grid-cols-1 max-[1080px]:gap-9`}>
+            {/* ── WHO IT'S FOR ── */}
+            <div className="for-sec reveal" style={{ backgroundColor: "#fff" }}>
+                <div className="for-grid container">
                     <div>
-                        <span className="text-xs font-semibold uppercase tracking-[2px] text-[#fc8b20]">{props.whoIsItForTitle1}</span>
-                        <h2 className="my-3 text-[clamp(1.4rem,2.5vw,1.8rem)] leading-[1.3] text-[#282568]">{props.whoIsItForTitle2}</h2>
+                        <span className="stag">{props.whoIsItForTitle1}</span>
+                        <h2>{props.whoIsItForTitle2}</h2>
 
-                        {props.audiencePerfectForTitle && <p className="mb-3 font-bold">{props.audiencePerfectForTitle}</p>}
-                        <ul className={`${checklist} mb-6`}>
+                        {props.audiencePerfectForTitle && <p style={{ fontWeight: 700, marginBottom: 12 }}>{props.audiencePerfectForTitle}</p>}
+                        <ul className="cl" style={{ marginBottom: 24 }}>
                             {props.audienceData.map((a, i) => (
-                                <li key={i} className={checklistItem}><span className={checkIconWrap}><CheckIcon /></span><span>{a.title} {a.desc && <span>- {a.desc}</span>}</span></li>
+                                <li key={i}><span className="ck"><CheckIcon /></span><span>{a.title} {a.desc && <span>- {a.desc}</span>}</span></li>
                             ))}
                         </ul>
 
-                        {props.audienceAlsoValuableTitle && <p className="mb-3 font-bold">{props.audienceAlsoValuableTitle}</p>}
-                        <ul className={checklist}>
+                        {props.audienceAlsoValuableTitle && <p style={{ fontWeight: 700, marginBottom: 12 }}>{props.audienceAlsoValuableTitle}</p>}
+                        <ul className="cl">
                             {props.alsoValuableData.map((a, i) => (
-                                <li key={i} className={checklistItem}><span className={`${checkIconWrap} grayscale`}><CheckIcon /></span><span>{a.title} {a.desc && <span>- {a.desc}</span>}</span></li>
+                                <li key={i}><span className="ck" style={{ filter: 'grayscale(1)' }}><CheckIcon /></span><span>{a.title} {a.desc && <span>- {a.desc}</span>}</span></li>
                             ))}
                         </ul>
                     </div>
-                    <div className="flex items-center justify-center">
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={props.bottomBannerImg} alt="Banner" />
                     </div>
                 </div>
             </div>
 
-            <div className={`${container} bg-white px-5 py-10 text-center`}>
+            <div className="container" style={{ textAlign: 'center', padding: '40px 20px', backgroundColor: '#fff' }}>
                 <button
-                    className={`${subBtn} mx-auto block max-w-[320px]`}
+                    className="sub-btn"
+                    style={{ margin: '0 auto', display: 'block', maxWidth: '320px' }}
                     onClick={() => {
                         const targetId = window.innerWidth <= 1080 ? "registration-form-mobile" : "registration-form";
                         const el = document.getElementById(targetId);

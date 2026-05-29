@@ -16,10 +16,10 @@ const FullTimePartTime = () => {
         key={index}
         className={
           index === 0
-            ? "border-top-left-radius"
+            ? "border-top-left-radius !px-3 !py-[10px] !text-[14px] !leading-[1.5] min-[768px]:!p-5"
             : index === data.headers.length - 1
-              ? "border-top-right-radius"
-              : ""
+              ? "border-top-right-radius !px-3 !py-[10px] !text-[14px] !leading-[1.5] min-[768px]:!p-5"
+              : "!px-3 !py-[10px] !text-[14px] !leading-[1.5] min-[768px]:!p-5"
         }
       >
         {header}
@@ -36,11 +36,11 @@ const FullTimePartTime = () => {
             className={
               rowIndex === data.rows.length - 1
                 ? cellIndex === 0
-                  ? "border-bottom-left-radius"
+                  ? "border-bottom-left-radius !px-3 !py-[10px] !text-[14px] !leading-[1.5] min-[768px]:!p-4"
                   : cellIndex === row.length - 1
-                    ? "border-bottom-right-radius"
-                    : ""
-                : ""
+                    ? "border-bottom-right-radius !px-3 !py-[10px] !text-[14px] !leading-[1.5] min-[768px]:!p-4"
+                    : "!px-3 !py-[10px] !text-[14px] !leading-[1.5] min-[768px]:!p-4"
+                : "!px-3 !py-[10px] !text-[14px] !leading-[1.5] min-[768px]:!p-4"
             }
           >
             {cell}
@@ -53,8 +53,8 @@ const FullTimePartTime = () => {
   return (
     <section className="part-time-section max-[767px]:!py-[60px]">
       <div className="dml-container">
-        <div className="part-time-table">
-          <table>
+        <div className="part-time-table !mt-0">
+          <table className="w-full table-fixed border-separate border-spacing-0">
             <thead>
               <tr>{data.headers.map(renderHeader)}</tr>
             </thead>

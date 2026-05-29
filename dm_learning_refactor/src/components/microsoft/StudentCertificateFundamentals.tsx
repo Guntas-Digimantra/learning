@@ -2,12 +2,12 @@ import Image from 'next/image';
 
 const StudentCertificationFundamentals = () => {
   return (
-    <section className="bg-[#151819] py-[100px] max-[1024px]:py-[60px]">
-      <div className="mx-auto max-w-[1440px] px-[15px]">
-        <div className="flex max-[1024px]:flex-col">
-          <div className="flex-1 [&_h2]:pb-5 [&_h2]:text-[#f8f8f8] [&_p]:pb-10 [&_p]:text-[#f8f8f8]">
-            <h2>Unlock exclusive discounts on Microsoft Certifications with DML</h2>
-            <p>
+    <section className="fundamental-section">
+      <div className="dml-container">
+        <div className="fundamentals-content">
+          <div className="microsoft-fundamentals-left min-w-0">
+            <h2 className="!text-[48px] !font-semibold !leading-[1.3]">Unlock exclusive discounts on Microsoft Certifications with DML</h2>
+            <p className="!text-base !leading-[1.7]">
               Hey students! Microsoft is here to help you succeed with discounted exam vouchers and practice assessments
               just for you. Let&apos;s take your skills to the next level together!
             </p>
@@ -15,8 +15,8 @@ const StudentCertificationFundamentals = () => {
               Certification Hub
             </Link> */}
           </div>
-          <div className="flex-1 content-center max-[1024px]:pt-[30px] max-[1024px]:text-center">
-            <Image src="/MCF-badge-1.png" alt="mcf" width={852} height={274} />
+          <div className="microsoft-fundamentals-right">
+            <Image src="/MCF-badge-1.png" alt="mcf" width={852} height={274} className="mx-auto max-w-full" />
           </div>
         </div>
       </div>

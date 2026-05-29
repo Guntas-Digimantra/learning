@@ -72,7 +72,7 @@ export default async function CourseDetailsPage({
   return !course ? (
     <>Course not found</>
   ) : (
-    <>
+    <div className="course-details-page">
       <Banner
         title={course.title}
         description={course.description}
@@ -141,6 +141,6 @@ export default async function CourseDetailsPage({
         }
         description={`No more “Someday”. Join us now and start your ${course.title} journey.`}
       />
-    </>
+    </div>
   );
 }

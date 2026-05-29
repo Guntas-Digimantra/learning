@@ -36,34 +36,38 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
   };
 
   return (
-    <section className="relative min-h-[65dvh] overflow-hidden after:absolute after:inset-0 after:z-0 after:block after:h-full after:w-full after:bg-[linear-gradient(90deg,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.42)_100%)]">
-      <div className="relative h-full min-h-[65dvh]">
+    <section className="collaborations-banner relative !min-h-[65dvh] overflow-hidden after:absolute after:inset-0 after:z-0 after:block after:h-full after:w-full after:bg-[linear-gradient(90deg,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.42)_100%)]">
+      <div className="banner-carousel relative h-full !min-h-[65dvh]">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 z-[1] h-full w-full bg-cover bg-center bg-no-repeat transition-opacity duration-[800ms] ease-in-out after:absolute after:inset-0 after:z-0 after:block after:h-full after:w-full after:bg-[linear-gradient(90deg,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.42)_100%)] ${
-              index === currentSlide ? 'opacity-100 z-[2]' : 'opacity-0'
+            className={`banner-slide absolute inset-0 z-[1] h-full w-full bg-cover bg-center bg-no-repeat transition-opacity duration-[800ms] ease-in-out after:absolute after:inset-0 after:z-0 after:block after:h-full after:w-full after:bg-[linear-gradient(90deg,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.42)_100%)] ${
+              index === currentSlide ? 'active opacity-100 z-[2]' : 'opacity-0'
             }`}
             style={{
               backgroundImage: `url('${slide.heroImage}')`,
             }}
           >
-            <div className="absolute left-1/2 top-0 z-[1] flex h-full w-full max-w-[1440px] -translate-x-1/2 flex-col items-start justify-center gap-4 px-[15px] text-white max-[1023px]:px-5 [&>h1]:max-w-[767px] [&>h1]:animate-slide-in-left [&>h1]:font-bold [&>h1]:leading-none [&>h1]:[animation-delay:0.2s] [&>h1]:[animation-fill-mode:both] [&>p]:max-w-[767px] [&>p]:animate-slide-in-left [&>p]:[animation-delay:0.4s] [&>p]:[animation-fill-mode:both]">
-              <h1>{slide.title}</h1>
-              <p>{slide.description}</p>
+            <div className="banner-content absolute left-1/2 top-0 z-[1] !flex h-full w-full !max-w-[1440px] -translate-x-1/2 !flex-col !items-start !justify-center gap-4 !px-[15px] max-[1023px]:!px-[20px]">
+              <h1 className="!max-w-[767px] !animate-slide-in-left !font-bold !leading-[100%] !text-white [animation-delay:0.2s] [animation-fill-mode:both]">
+                {slide.title}
+              </h1>
+              <p className="!max-w-[767px] !animate-slide-in-left !text-white [animation-delay:0.4s] [animation-fill-mode:both]">
+                {slide.description}
+              </p>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="absolute bottom-[30px] right-0 z-10 flex translate-x-[-50%] gap-3">
+      <div className="carousel-indicators absolute bottom-[30px] right-0 z-10 !flex translate-x-[-50%] gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
             type="button"
-            className={`h-2 cursor-pointer rounded-[20px] border-0 transition-all duration-300 ${
+            className={`indicator h-2 cursor-pointer rounded-[20px] border-0 transition-all duration-300 ${
               index === currentSlide
-                ? 'w-[50px] bg-[var(--primary)]'
+                ? 'active w-[50px] bg-[var(--primary)]'
                 : 'w-2 bg-white/50 hover:bg-white/80'
             }`}
             onClick={() => goToSlide(index)}
